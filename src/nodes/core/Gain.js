@@ -1,8 +1,9 @@
-import Node from '../Node.js'
+import DotAudioNode from '../DotAudioNode.js'
 
-class Gain extends Node {
+class Gain extends DotAudioNode {
     constructor(AC) {
         super(AC)
+        this.name = 'Gain'
         this.gain = this.AC.createGain()
 
         this.params = {

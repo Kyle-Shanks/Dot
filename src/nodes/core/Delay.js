@@ -1,8 +1,9 @@
-import Node from '../Node.js'
+import DotAudioNode from '../DotAudioNode.js'
 
-class Delay extends Node {
+class Delay extends DotAudioNode {
     constructor(AC) {
         super(AC)
+        this.name = 'Delay'
         this.delay = this.AC.createDelay()
 
         this.params = {

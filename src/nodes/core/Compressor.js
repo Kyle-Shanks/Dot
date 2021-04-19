@@ -1,8 +1,9 @@
-import Node from '../Node.js'
+import DotAudioNode from '../DotAudioNode.js'
 
-class Compressor extends Node {
+class Compressor extends DotAudioNode {
     constructor(AC) {
         super(AC)
+        this.name = 'Compressor'
         this.compressor = this.AC.createDynamicsCompressor()
 
         this.params = {

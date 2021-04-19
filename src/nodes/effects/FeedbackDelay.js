@@ -1,11 +1,12 @@
-import Node from '../Node.js'
+import DotAudioNode from '../DotAudioNode.js'
 import Gain from '../core/Gain.js'
 import Filter from '../core/Filter.js'
 import Delay from '../core/Delay.js'
 
-class FeedbackDelay extends Node {
+class FeedbackDelay extends DotAudioNode {
     constructor(AC) {
         super(AC)
+        this.name = 'FeedbackDelay'
         this.dryGain = new Gain(this.AC)
         this.delay = new Delay(this.AC)
         this.feedbackGain = new Gain(this.AC)
@@ -13,7 +14,7 @@ class FeedbackDelay extends Node {
         this.wetGain = new Gain(this.AC)
 
         this.params = {
-            amount: 0,
+            amount: this.wetGain.getParams().gain,
             delayTime: this.delay.getParams().delayTime,
             feedback: this.feedbackGain.getParams().gain,
             tone: this.tone.getParams().frequency,
@@ -30,17 +31,22 @@ class FeedbackDelay extends Node {
 
     // Getters
     getInputs = () => [this.dryGain, this.delay]
+    // getInputs = () => [...this.dryGain.getInputs(), ...this.delay.getInputs()]
     getOutputs = () => [this.dryGain, this.wetGain]
 
-    getAmount = () => this.params.amount
+    getAmount = () => this.params.amount.value
     getDelayTime = () => this.params.delayTime.value
     getFeedback = () => this.params.feedback.value
     getTone = () => this.params.tone.value
 
     // Setters
-    setAmount = (val) => {
-        this.params.amount = val
-        this._wetDryUpdate(val, this.dryGain.getParams().gain, this.wetGain.getParams().gain)
+    setAmount = (val, time) => {
+        this._dryWetUpdate(
+            this.dryGain.getParams().gain,
+            this.wetGain.getParams().gain,
+            val,
+            time,
+        )
     }
     setFeedback = (val, time) => this.feedbackGain.setGain(val, time)
     setTone = (val, time) => this.tone.setFreq(val, time)

@@ -1,9 +1,10 @@
-import Node from '../Node.js'
+import DotAudioNode from '../DotAudioNode.js'
 import { WAVEFORM } from '../../util/util.js'
 
-class Oscillator extends Node {
+class Oscillator extends DotAudioNode {
     constructor(AC) {
         super(AC)
+        this.name = 'Oscillator'
         this.osc = this.AC.createOscillator()
 
         this.params = {

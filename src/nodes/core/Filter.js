@@ -1,9 +1,10 @@
-import Node from '../Node.js'
+import DotAudioNode from '../DotAudioNode.js'
 import { FILTER_TYPE } from '../../util/util.js'
 
-class Filter extends Node {
+class Filter extends DotAudioNode {
     constructor(AC) {
         super(AC)
+        this.name = 'Filter'
         this.filter = this.AC.createBiquadFilter()
 
         this.params = {

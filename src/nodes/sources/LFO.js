@@ -1,14 +1,17 @@
-import Node from '../Node.js'
+import DotAudioNode from '../DotAudioNode.js'
 import Gain from '../core/Gain.js'
 import Oscillator from './Oscillator.js'
 
 const MAX_RATE = 100
 
-class LFO extends Node {
+class LFO extends DotAudioNode {
     constructor(AC) {
         super(AC)
+        this.name = 'LFO'
         this.depth = new Gain(this.AC)
         this.osc = new Oscillator(this.AC)
+
+        this.osc.setType('sine')
 
         this.params = {
             rate: this.osc.getParams().frequency,
@@ -16,7 +19,6 @@ class LFO extends Node {
             type: this.osc.getParams().type,
         }
 
-        this.osc.setType('sine')
         this.osc.connect(this.depth)
     }
 
