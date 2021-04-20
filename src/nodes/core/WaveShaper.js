@@ -21,9 +21,9 @@ class WaveShaper extends DotAudioNode {
     getOversample = () => this.params.oversample
 
     // Setters
-    setCurve = (val) => this.params.curve = val
+    setCurve = (val) => this.waveShaper.curve = val
     setOversample = (val) => {
-        if (OVERSAMPLE.includes(val)) this.params.curve = val
+        if (OVERSAMPLE.includes(val)) this.waveShaper.oversample = val
     }
 }
 

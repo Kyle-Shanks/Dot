@@ -7,6 +7,7 @@ import ChannelMerger from '../core/ChannelMerger.js'
 class PingPongDelay extends DotAudioNode{
     constructor(AC) {
         super(AC)
+        this.name = 'PingPongDelay'
         this.dryGain = new Gain(this.AC)
         this.leftDelay = new Delay(this.AC)
         this.preDelay = new Delay(this.AC)

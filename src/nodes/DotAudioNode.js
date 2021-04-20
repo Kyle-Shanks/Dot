@@ -48,7 +48,7 @@ class DotAudioNode {
     }
 
     // --- Private Methods ---
-    // Recursively go down to get the inputs' default audio nodes/params
+    // Recursively go down to get the default audio nodes/params for all inputs
     _getInputNodes = () => (
         this.getInputs().reduce((nodes, input) => {
             if (input instanceof DotAudioNode) {

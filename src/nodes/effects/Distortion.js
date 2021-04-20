@@ -51,7 +51,7 @@ class Distortion extends DotAudioNode {
         )
     }
     setDistortion = (val) => {
-        this.distortion = val
+        this.params.distortion = val
         this.waveShaper.setCurve(createDistCurve(val))
     }
 }
