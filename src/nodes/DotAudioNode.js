@@ -11,7 +11,6 @@ class DotAudioNode {
     // Util Methods
     connect = (destination, outputNum = 0, inputNum = 0) => {
         if (destination instanceof DotAudioNode) {
-            // Custom Node
             if (!destination.hasOwnProperty('getInputs')) {
                 console.error('Cannot connect to a node with no inputs')
                 return
@@ -21,9 +20,10 @@ class DotAudioNode {
             inputs.forEach((input) => {
                 this.getOutputs().forEach(output => output.connect(input, outputNum, inputNum))
             })
-        } else if (destination instanceof AudioNode || destination instanceof AudioParam) {
-            // Default Audio Node/Param
+        } else if (destination instanceof AudioNode) {
             this.getOutputs().forEach(output => output.connect(destination, outputNum, inputNum))
+        } else if (destination instanceof AudioParam) {
+            this.getOutputs().forEach(output => output.connect(destination))
         } else {
             console.error('Invalid destination type')
         }
@@ -31,7 +31,6 @@ class DotAudioNode {
 
     disconnect = (destination, outputNum = 0, inputNum = 0) => {
         if (destination instanceof DotAudioNode) {
-            // Custom Node
             if (!destination.hasOwnProperty('getInputs')) {
                 console.error('Cannot disconnect from destination provided')
                 return
@@ -41,9 +40,10 @@ class DotAudioNode {
             inputs.forEach((input) => {
                 this.getOutputs().forEach(output => output.disconnect(input, outputNum, inputNum))
             })
-        } else {
-            // Default Audio Node/Param
+        } else if (destination instanceof AudioNode) {
             this.getOutputs().forEach(output => output.disconnect(destination, outputNum, inputNum))
+        } else {
+            this.getOutputs().forEach(output => output.disconnect(destination))
         }
     }
 
