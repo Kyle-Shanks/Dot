@@ -10,7 +10,7 @@ class Source extends DotAudioNode {
     }
 
     start = () => this.source.start()
-    start = () => this.source.stop()
+    stop = () => this.source.stop()
 
     // Getters
     getOutputs = () => [this.source]

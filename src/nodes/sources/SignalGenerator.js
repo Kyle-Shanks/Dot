@@ -23,6 +23,7 @@ class SignalGenerator extends DotAudioNode {
     }
 
     start = () => this.osc.start()
+    stop = () => this.osc.stop()
 
     // Getters
     getOutputs = () => [this.gain]

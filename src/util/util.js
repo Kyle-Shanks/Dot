@@ -12,6 +12,38 @@ export const FILTER_TYPE = [
     'highshelf',
 ]
 
+// MIDI numbers for 4th octave
+// const midiNodeMap = {
+//     60: 'C',
+//     61: 'C#',
+//     62: 'D',
+//     63: 'D#',
+//     64: 'E',
+//     65: 'F',
+//     66: 'F#',
+//     67: 'G',
+//     68: 'G#',
+//     69: 'A',
+//     70: 'A#',
+//     71: 'B',
+// }
+
+// MIDI numbers for 0th octave
+// const midiNodeMap = {
+//     12: 'C',
+//     13: 'C#',
+//     14: 'D',
+//     15: 'D#',
+//     16: 'E',
+//     17: 'F',
+//     18: 'F#',
+//     19: 'G',
+//     20: 'G#',
+//     21: 'A',
+//     22: 'A#',
+//     23: 'B',
+// }
+
 // Frequencies in 4th octave
 const freqMap = {
     'C': 261.63,
@@ -34,4 +66,12 @@ export const getNoteFreq = (note) => {
     const noteName = note.slice(0, -1)
     const octave = parseInt(note.slice(-1))
     return freqMap[noteName] * Math.pow(2, octave - 4)
+}
+
+export const base64ToArrayBuffer = (base64) => {
+    const binaryString = atob(base64)
+    const len = binaryString.length
+    const bytes = new Uint8Array(len)
+    for (let i = 0; i < len; i++) bytes[i] = binaryString.charCodeAt(i)
+    return bytes.buffer
 }
