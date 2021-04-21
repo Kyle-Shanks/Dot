@@ -47,8 +47,14 @@ class Reverb extends DotAudioNode {
             time,
         )
     }
-    setBuffer = val => this.convolver.setBuffer(val)
-    setNormalize = val => this.convolver.setNormalize(val)
+    setBuffer = (val) => {
+        this.convolver.setBuffer(val)
+        this.params.buffer = val
+    }
+    setNormalize = (val) => {
+        this.convolver.setNormalize(val)
+        this.params.normalize = val
+    }
 }
 
 export default Reverb

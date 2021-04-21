@@ -12,8 +12,6 @@ class LFO extends DotAudioNode {
         this.depth = new Gain(this.AC)
         this.osc = new Oscillator(this.AC)
 
-        this.osc.setType('sine')
-
         this.params = {
             rate: this.osc.getParams().frequency,
             depth: this.depth.getParams().gain,
@@ -36,7 +34,10 @@ class LFO extends DotAudioNode {
     // Setters
     setRate = (val, time) => this.osc.setFreq(clamp(val, 0, MAX_RATE), time)
     setDepth = (val, time) => this.depth.setGain(val, time)
-    setType = type => this.osc.setType(type)
+    setType = (val) => {
+        this.osc.setType(val)
+        this.params.type = val
+    }
 }
 
 export default LFO

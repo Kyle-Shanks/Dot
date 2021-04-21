@@ -59,7 +59,7 @@ const typeBufferMap = {
 }
 
 class NoiseGenerator extends DotAudioNode {
-    constructor(AC, type) {
+    constructor(AC, type = 'white') {
         super(AC)
         this.name = 'NoiseGenerator'
         this.bufferSource = new BufferSource(this.AC)
