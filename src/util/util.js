@@ -1,5 +1,6 @@
 export const minTime = 0.005
 export const OVERSAMPLE = ['none', '2x', '4x']
+export const NOISE_TYPE = ['white', 'pink', 'brown']
 export const WAVEFORM = ['sine', 'triangle', 'square', 'sawtooth']
 export const FILTER_TYPE = [
     'lowpass',
