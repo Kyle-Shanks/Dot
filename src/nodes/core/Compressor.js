@@ -1,7 +1,15 @@
 import DotAudioNode from '../DotAudioNode.js'
 
+const defaultProps = {
+    threshold: -24,
+    ratio: 12,
+    knee: 30,
+    attack: 0.003,
+    release: 0.25,
+}
+
 class Compressor extends DotAudioNode {
-    constructor(AC) {
+    constructor(AC, opts = {}) {
         super(AC)
         this.name = 'Compressor'
         this.compressor = this.AC.createDynamicsCompressor()
@@ -12,7 +20,19 @@ class Compressor extends DotAudioNode {
             ratio: this.compressor.ratio,
             attack: this.compressor.attack,
             release: this.compressor.release,
+            reduction: this.compressor.reduction,
         }
+
+        const initProps = {
+            ...defaultProps,
+            ...opts,
+        }
+
+        this.setThreshold(initProps.threshold)
+        this.setRatio(initProps.ratio)
+        this.setKnee(initProps.knee)
+        this.setAttack(initProps.attack)
+        this.setRelease(initProps.release)
     }
 
     // Getters
@@ -24,6 +44,7 @@ class Compressor extends DotAudioNode {
     getRatio = () => this.params.ratio.value
     getAttack = () => this.params.attack.value
     getRelease = () => this.params.release.value
+    getReduction = () => this.params.reduction
 
     // Setters
     setKnee = (val, time) => this._timeUpdate(this.params.knee, val, time)
