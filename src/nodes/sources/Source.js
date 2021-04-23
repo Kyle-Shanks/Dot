@@ -6,7 +6,9 @@ class Source extends DotAudioNode {
         this.name = 'Source'
         this.source = this.AC.createConstantSource()
 
-        this.params = {}
+        this.params = {
+            offset: this.source.offset,
+        }
     }
 
     start = () => this.source.start()
@@ -14,6 +16,10 @@ class Source extends DotAudioNode {
 
     // Getters
     getOutputs = () => [this.source]
+    getOffset = () => this.params.offset
+
+    // Setters
+    setOffset = (val, time) => this._timeUpdate(this.params.offset, val, time)
 }
 
 export default Source
