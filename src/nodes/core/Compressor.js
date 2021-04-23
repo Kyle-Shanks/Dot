@@ -23,6 +23,7 @@ class Compressor extends DotAudioNode {
             reduction: this.compressor.reduction,
         }
 
+        // Initialize
         const initProps = {
             ...defaultProps,
             ...opts,

@@ -8,7 +8,6 @@ class Reverb extends DotAudioNode {
     constructor(AC) {
         super(AC)
         this.name = 'Reverb'
-
         this.dryGain = new Gain(this.AC)
         this.convolver = new Convolver(this.AC)
         this.wetGain = new Gain(this.AC)
@@ -19,6 +18,7 @@ class Reverb extends DotAudioNode {
             normalize: this.convolver.getParams().normalize,
         }
 
+        // Initialize
         this.convolver.connect(this.wetGain)
 
         this.setAmount(0)

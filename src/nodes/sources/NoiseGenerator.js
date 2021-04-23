@@ -64,12 +64,12 @@ class NoiseGenerator extends DotAudioNode {
         this.name = 'NoiseGenerator'
         this.bufferSource = new BufferSource(this.AC)
 
-        this.bufferSource.setLoop(true)
-
         this.params = {
             type,
         }
 
+        // Initialize
+        this.bufferSource.setLoop(true)
         this.setType(this.params.type)
     }
 

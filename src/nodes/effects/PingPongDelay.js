@@ -25,6 +25,7 @@ class PingPongDelay extends DotAudioNode{
             tone: this.tone.getParams().frequency,
         }
 
+        // Initialize
         this.preDelay.connect(this.rightDelay)
         this.leftDelay.connect(this.channelMerger, 0, 0)
         this.rightDelay.connect(this.channelMerger, 0, 1)

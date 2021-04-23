@@ -8,17 +8,18 @@ class EQ2 extends DotAudioNode {
         this.low = new Filter(this.AC)
         this.high = new Filter(this.AC)
 
-        this.low.setType('lowshelf')
-        this.low.setFreq(320.0)
-        this.high.setType('highshelf')
-        this.high.setFreq(3200.0)
-
         this.params = {
             lowFreq: this.low.getParams().frequency,
             lowGain: this.low.getParams().gain,
             highFreq: this.high.getParams().frequency,
             highGain: this.high.getParams().gain,
         }
+
+        // Initialize
+        this.low.setType('lowshelf')
+        this.low.setFreq(320.0)
+        this.high.setType('highshelf')
+        this.high.setFreq(3200.0)
 
         this.low.connect(this.high)
     }

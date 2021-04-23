@@ -18,6 +18,7 @@ class LFO extends DotAudioNode {
             type: this.osc.getParams().type,
         }
 
+        // Initialize
         this.osc.connect(this.depth)
     }
 

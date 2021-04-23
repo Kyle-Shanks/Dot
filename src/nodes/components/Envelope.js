@@ -4,10 +4,8 @@ import Source from '../sources/Source.js'
 class Envelope extends DotAudioNode {
     constructor(AC) {
         super(AC)
+        this.name = 'Envelope'
         this.source = new Source(this.AC)
-
-        this.source.setOffset(0)
-        this.source.start()
 
         this.timeoutIds = []
         this.params = {
@@ -17,6 +15,10 @@ class Envelope extends DotAudioNode {
             release: 0,
             modifier: 1,
         }
+
+        // Initialize
+        this.source.setOffset(0)
+        this.source.start()
     }
 
     connect = (destination) => {
@@ -63,6 +65,7 @@ class Envelope extends DotAudioNode {
 
     // Getters
     getOutputs = () => [this.source]
+
     getAttack = () => this.params.attack
     getDecay = () => this.params.decay
     getSustain = () => this.params.sustain

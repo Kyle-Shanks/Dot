@@ -23,6 +23,7 @@ class Limiter extends DotAudioNode {
             reduction: this.limiter.reduction,
         }
 
+        // Initialize
         const initProps = {
             ...defaultProps,
             ...opts,

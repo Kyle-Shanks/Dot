@@ -22,6 +22,7 @@ class Flanger extends DotAudioNode {
             rate: this.lfo.getParams().rate,
         }
 
+        // Initialize
         this.inputGain.connect(this.delay)
         this.inputGain.connect(this.wetGain)
         this.delay.connect(this.feedback)

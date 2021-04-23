@@ -20,6 +20,7 @@ class FeedbackDelay extends DotAudioNode {
             tone: this.tone.getParams().frequency,
         }
 
+        // Initialize
         this.delay.connect(this.feedbackGain)
         this.feedbackGain.connect(this.tone)
         this.feedbackGain.connect(this.delay)
