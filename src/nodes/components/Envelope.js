@@ -19,6 +19,15 @@ class Envelope extends DotAudioNode {
         }
     }
 
+    connect = (destination) => {
+        if (!destination instanceof AudioParam) {
+            console.error('Envelopes must be connected to an AudioParam')
+            return
+        }
+
+        this._connect(destination)
+    }
+
     clearTimeouts = () => this.timeoutIds.forEach((id) => clearTimeout(id))
 
     triggerAttack = () => {

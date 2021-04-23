@@ -8,8 +8,13 @@ class DotAudioNode {
     getName = () => this.name
     getParams = () => this.params
 
-    // Util Methods
-    connect = (destination, outputNum = 0, inputNum = 0) => {
+    // --- Util Methods ---
+    // Connect and disconnect shells to allow child nodes to add validation
+    connect = (destination, outputNum, inputNum) => this._connect(destination, outputNum, inputNum)
+    disconnect = (destination, outputNum, inputNum) => this._disconnect(destination, outputNum, inputNum)
+
+    // --- Private Methods ---
+    _connect = (destination, outputNum = 0, inputNum = 0) => {
         if (destination instanceof DotAudioNode) {
             if (!destination.hasOwnProperty('getInputs')) {
                 console.error('Cannot connect to a node with no inputs')
@@ -29,7 +34,7 @@ class DotAudioNode {
         }
     }
 
-    disconnect = (destination, outputNum = 0, inputNum = 0) => {
+    _disconnect = (destination, outputNum = 0, inputNum = 0) => {
         if (destination instanceof DotAudioNode) {
             if (!destination.hasOwnProperty('getInputs')) {
                 console.error('Cannot disconnect from destination provided')
@@ -47,7 +52,6 @@ class DotAudioNode {
         }
     }
 
-    // --- Private Methods ---
     // Recursively go down to get the default audio nodes/params for all inputs
     _getInputNodes = () => (
         this.getInputs().reduce((nodes, input) => {
