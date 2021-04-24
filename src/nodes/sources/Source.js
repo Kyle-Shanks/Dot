@@ -14,12 +14,12 @@ class Source extends DotAudioNode {
     start = () => this.source.start()
     stop = () => this.source.stop()
 
-    // Getters
+    // - Getters -
     getOutputs = () => [this.source]
 
     getOffset = () => this.params.offset
 
-    // Setters
+    // - Setters -
     setOffset = (val, time) => this._timeUpdate(this.params.offset, val, time)
 }
 

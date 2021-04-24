@@ -16,14 +16,14 @@ class Oscillator extends DotAudioNode {
     start = () => this.osc.start()
     stop = () => this.osc.stop()
 
-    // Getters
+    // - Getters -
     getOutputs = () => [this.osc]
 
     getFreq = () => this.params.frequency.value
     getDetune = () => this.params.detune.value
     getType = () => this.osc.type
 
-    // Setters
+    // - Setters -
     setFreq = (val, time) => this._timeUpdate(this.params.frequency, val, time)
     setDetune = (val, time) => this._timeUpdate(this.params.detune, val, time)
     setType = (val) => {

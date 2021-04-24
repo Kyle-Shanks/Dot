@@ -15,7 +15,7 @@ class BufferSource extends DotAudioNode {
     start = () => this.bufferSource.start()
     stop = () => this.bufferSource.stop()
 
-    // Getters
+    // - Getters -
     getInputs = () => [this.bufferSource]
     getOutputs = () => [this.bufferSource]
 
@@ -24,7 +24,7 @@ class BufferSource extends DotAudioNode {
     getDetune = () => this.params.detune.value
     getPlaybackRate = () => this.params.playbackRate.value
 
-    // Setters
+    // - Setters -
     setBuffer = val => this.bufferSource.buffer = val
     setLoop = val => this.bufferSource.loop = val
     setDetune = (val, time) => this._timeUpdate(this.params.detune, val, time)

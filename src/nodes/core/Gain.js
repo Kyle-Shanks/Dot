@@ -11,13 +11,13 @@ class Gain extends DotAudioNode {
         }
     }
 
-    // Getters
+    // - Getters -
     getInputs = () => [this.gain]
     getOutputs = () => [this.gain]
 
     getGain = () => this.params.gain.value
 
-    // Setters
+    // - Setters -
     setGain = (val, time) => this._timeUpdate(this.params.gain, val, time)
 }
 

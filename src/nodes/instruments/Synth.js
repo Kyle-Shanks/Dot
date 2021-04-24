@@ -13,8 +13,8 @@ class Synth extends DotAudioNode {
 
         this.currentNote = null
         this.params = {
-            frequency: this.osc.getParams().frequency,
             detune: this.osc.getParams().detune,
+            gain: this.gainEnv.getParams().gain,
         }
 
         // Initialize
@@ -22,23 +22,21 @@ class Synth extends DotAudioNode {
         this.osc.start()
     }
 
-    noteOn = (note) => this._noteOn(note)
-    noteOff = () => this._noteOff()
-    noteStop = () => this._noteStop()
-
-    // Getters
+    // --- Public Methods ---
+    // - Getters -
     getOutputs = () => [this.gainEnv]
 
     getCurrentNote = () => this.currentNote
     getWaveform = () => this.osc.getType()
-    getDetune = () => this.params.detune
+    getFreq = () => this.params.frequency.value
+    getDetune = () => this.params.detune.value
     getGainAttack = () => this.gainEnv.getAttack()
     getGainDecay = () => this.gainEnv.getDecay()
     getGainSustain = () => this.gainEnv.getSustain()
     getGainRelease = () => this.gainEnv.getRelease()
     getGainAmount = () => this.gainEnv.getModifier()
 
-    // Setters
+    // - Setters -
     setWaveform = (val) => this.osc.setType(val)
     setDetune = (val, time) => this.osc.setDetune(val, time)
     setGainAttack = (val) => this.gainEnv.setAttack(val)
@@ -47,8 +45,18 @@ class Synth extends DotAudioNode {
     setGainRelease = (val) => this.gainEnv.setRelease(val)
     setGainAmount = (val) => this.gainEnv.setModifier(val)
 
+    // - Note Methods -
+    noteOn = (note) => this._noteOn(note)
+    noteOff = () => this._noteOff()
+    noteStop = () => this._noteStop()
+
     // --- Private Methods ---
     _noteOn = (note) => {
+        if (!note) {
+            console.error('Note must be provided to play')
+            return
+        }
+
         this.currentNote = note
         this.osc.setFreq(getNoteFreq(note))
         this.gainEnv.triggerAttack()

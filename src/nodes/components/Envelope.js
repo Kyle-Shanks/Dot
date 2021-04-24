@@ -20,6 +20,24 @@ class Envelope extends DotAudioNode {
         this.source.start()
     }
 
+    // --- Public Methods ---
+    // - Getters -
+    getOutputs = () => [this.source]
+
+    getAttack = () => this.attack
+    getDecay = () => this.decay
+    getSustain = () => this.sustain
+    getRelease = () => this.release
+    getModifier = () => this.modifier
+
+    // - Setters -
+    setAttack = (val) => this.attack = val
+    setDecay = (val) => this.decay = val
+    setSustain = (val) => this.sustain = val
+    setRelease = (val) => this.release = val
+    setModifier = (val) => this.modifier = val
+
+    // - Util Methods -
     connect = (destination) => {
         if (!destination instanceof AudioParam) {
             console.error('Envelopes must be connected to an AudioParam')
@@ -29,10 +47,9 @@ class Envelope extends DotAudioNode {
         this._connect(destination)
     }
 
-    clearTimeouts = () => this.timeoutIds.forEach((id) => clearTimeout(id))
-
+    // - Trigger Methods -
     triggerAttack = () => {
-        this.clearTimeouts()
+        this._clearTimeouts()
         const sustainVal = this.sustain * this.modifier
 
         if (this.attack) {
@@ -51,32 +68,17 @@ class Envelope extends DotAudioNode {
             this.source.setOffset(sustainVal)
         }
     }
-
     triggerRelease = () => {
-        this.clearTimeouts()
+        this._clearTimeouts()
         this.source.setOffset(0, this.release) // Release
     }
-
     triggerStop = () => {
-        this.clearTimeouts()
+        this._clearTimeouts()
         this.source.setOffset(0)
     }
 
-    // Getters
-    getOutputs = () => [this.source]
-
-    getAttack = () => this.attack
-    getDecay = () => this.decay
-    getSustain = () => this.sustain
-    getRelease = () => this.release
-    getModifier = () => this.modifier
-
-    // Setters
-    setAttack = (val) => this.attack = val
-    setDecay = (val) => this.decay = val
-    setSustain = (val) => this.sustain = val
-    setRelease = (val) => this.release = val
-    setModifier = (val) => this.modifier = val
+    // --- Private Methods ---
+    _clearTimeouts = () => this.timeoutIds.forEach((id) => clearTimeout(id))
 }
 
 export default Envelope

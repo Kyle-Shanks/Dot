@@ -11,13 +11,13 @@ class StereoPanner extends DotAudioNode {
         }
     }
 
-    // Getters
+    // - Getters -
     getInputs = () => [this.panner]
     getOutputs = () => [this.panner]
 
     getPan = () => this.params.pan.value
 
-    // Setters
+    // - Setters -
     setPan = (val, time) => this._timeUpdate(this.params.pan, val, time)
 }
 

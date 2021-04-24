@@ -4,18 +4,21 @@ class DotAudioNode {
         this.name = 'Node'
     }
 
-    // Getters
+    // --- Public Methods ---
+    // - Getters -
     getName = () => this.name
     getParams = () => this.params
 
-    // --- Util Methods ---
+    // - Util Methods -
     // Connect and disconnect shells to allow child nodes to add validation
     connect = (destination, outputNum, inputNum) => this._connect(destination, outputNum, inputNum)
     disconnect = (destination, outputNum, inputNum) => this._disconnect(destination, outputNum, inputNum)
 
     // --- Private Methods ---
     _connect = (destination, outputNum = 0, inputNum = 0) => {
-        if (destination instanceof DotAudioNode) {
+        if (Array.isArray(destination)) {
+            destination.forEach(dest => this.connect(dest))
+        } else if (destination instanceof DotAudioNode) {
             if (!destination.hasOwnProperty('getInputs')) {
                 console.error('Cannot connect to a node with no inputs')
                 return
@@ -33,9 +36,10 @@ class DotAudioNode {
             console.error('Invalid destination type')
         }
     }
-
     _disconnect = (destination, outputNum = 0, inputNum = 0) => {
-        if (destination instanceof DotAudioNode) {
+        if (Array.isArray(destination)) {
+            destination.forEach(dest => this.disconnect(dest))
+        } else if (destination instanceof DotAudioNode) {
             if (!destination.hasOwnProperty('getInputs')) {
                 console.error('Cannot disconnect from destination provided')
                 return
@@ -64,18 +68,16 @@ class DotAudioNode {
         }, [])
     )
 
-    // Update Methods
+    // - Update Methods -
     _timeUpdate = (param, val, time = 0) => {
         time
             ? param.setTargetAtTime(val, this.AC.currentTime, time)
             : param.setValueAtTime(val, this.AC.currentTime)
     }
-
     _fadeUpdate = (aParam, bParam, val, time = 0) => {
         this._timeUpdate(aParam, 1 - val, time)
         this._timeUpdate(bParam, val, time)
     }
-
     _dryWetUpdate = (dryParam, wetParam, val, time = 0) => {
         if (val < 0.5) {
             this._timeUpdate(dryParam, 1, time)

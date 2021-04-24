@@ -40,7 +40,7 @@ class PingPongDelay extends DotAudioNode{
         this.setFeedback(0)
     }
 
-    // Getters
+    // - Getters -
     getInputs = () => [this.dryGain, this.leftDelay, this.preDelay]
     getOutputs = () => [this.dryGain, this.wetGain]
 
@@ -49,7 +49,7 @@ class PingPongDelay extends DotAudioNode{
     getTone = () => this.params.tone.value
     getFeedback = () => this.params.feedback.value
 
-    // Setters
+    // - Setters -
     setAmount = (val, time) => {
         this.amount = val
         this._dryWetUpdate(

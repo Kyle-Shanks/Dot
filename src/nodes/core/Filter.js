@@ -15,7 +15,7 @@ class Filter extends DotAudioNode {
         }
     }
 
-    // Getters
+    // - Getters -
     getInputs = () => [this.filter]
     getOutputs = () => [this.filter]
 
@@ -25,7 +25,7 @@ class Filter extends DotAudioNode {
     getDetune = () => this.params.detune.value
     getType = () => this.filter.type
 
-    // Setters
+    // - Setters -
     setFreq = (val, time) => this._timeUpdate(this.params.frequency, val, time)
     setQ = (val, time) => this._timeUpdate(this.params.frequency, val, time)
     setGain = (val, time) => this._timeUpdate(this.params.gain, val, time)

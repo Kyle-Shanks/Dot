@@ -34,7 +34,7 @@ class Flanger extends DotAudioNode {
         this.setAmount(0)
     }
 
-    // Getters
+    // - Getters -
     getInputs = () => [this.dryGain, this.inputGain]
     getOutputs = () => [this.dryGain, this.wetGain]
 
@@ -44,7 +44,7 @@ class Flanger extends DotAudioNode {
     getFeedback = () => this.params.feedback.value
     getRate = () => this.params.rate.value
 
-    // Setters
+    // - Setters -
     setAmount = (val, time) => {
         this._fadeUpdate(
             this.dryGain.getParams().gain,

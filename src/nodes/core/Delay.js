@@ -11,13 +11,13 @@ class Delay extends DotAudioNode {
         }
     }
 
-    // Getters
+    // - Getters -
     getInputs = () => [this.delay]
     getOutputs = () => [this.delay]
 
     getDelayTime = () => this.params.delayTime.value
 
-    // Setters
+    // - Setters -
     setDelayTime = (val, time) => this._timeUpdate(this.params.delayTime, val, time)
 }
 

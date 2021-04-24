@@ -16,13 +16,13 @@ class GainEnvelope extends Envelope {
         this.source.connect(this.gain.getParams().gain)
     }
 
-    // Getters
+    // - Getters -
     getInputs = () => [this.gain]
     getOutputs = () => [this.gain]
 
     getGain = () => this.params.gain.value
 
-    // Setters
+    // - Setters -
     setGain = (val, time) => this.gain.setGain(val, time)
 }
 

@@ -34,14 +34,14 @@ class Distortion extends DotAudioNode {
         this.setAmount(0)
     }
 
-    // Getters
+    // - Getters -
     getInputs = () => [this.dryGain, this.waveShaper]
     getOutputs = () => [this.dryGain, this.wetGain]
 
     getAmount = () => this.params.amount.value
     getDistortion = () => this.distortion
 
-    // Setters
+    // - Setters -
     setAmount = (val, time) => {
         this._fadeUpdate(
             this.dryGain.getParams().gain,

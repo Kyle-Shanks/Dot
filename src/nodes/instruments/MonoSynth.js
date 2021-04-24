@@ -20,6 +20,35 @@ class MonoSynth extends Synth {
         this.gainEnv.connect(this.filterEnv)
     }
 
+    // - Getters -
+    getOutputs = () => [this.filterEnv]
+
+    getFilterFreq = () => this.filterEnv.getFreq()
+    getFilterDetune = () => this.filterEnv.getFreq()
+    getFilterQ = () => this.filterEnv.getFreq()
+    getFilterGain = () => this.filterEnv.getFreq()
+    getFilterType = () => this.filterEnv.getType()
+
+    getFilterAttack = () => this.filterEnv.getAttack()
+    getFilterDecay = () => this.filterEnv.getDecay()
+    getFilterSustain = () => this.filterEnv.getSustain()
+    getFilterRelease = () => this.filterEnv.getRelease()
+    getFilterAmount = () => this.filterEnv.getModifier()
+
+    // - Setters -
+    setFilterFreq = (val, time) => this.filterEnv.setFreq(val, time)
+    setFilterDetune = (val, time) => this.filterEnv.setDetune(val, time)
+    setFilterQ = (val, time) => this.filterEnv.setQ(val, time)
+    setFilterGain = (val, time) => this.filterEnv.setGain(val, time)
+    setFilterType = (val) => this.filterEnv.getType(val)
+
+    setFilterAttack = (val) => this.filterEnv.setAttack(val)
+    setFilterDecay = (val) => this.filterEnv.setDecay(val)
+    setFilterSustain = (val) => this.filterEnv.setSustain(val)
+    setFilterRelease = (val) => this.filterEnv.setRelease(val)
+    setFilterAmount = (val) => this.filterEnv.setModifier(val)
+
+    // - Note Methods -
     noteOn = (note) => {
         this._noteOn(note)
         this.filterEnv.triggerAttack()
@@ -32,34 +61,6 @@ class MonoSynth extends Synth {
         this.noteStop()
         this.filterEnv.triggerStop()
     }
-
-    // Getters
-    getOutputs = () => [this.filterEnv]
-
-    getFilterFreq = () => this.filterEnv.getFreq()
-    getFilterDetune = () => this.filterEnv.getFreq()
-    getFilterQ = () => this.filterEnv.getFreq()
-    getFilterGain = () => this.filterEnv.getFreq()
-    getFilterType = () => this.filter.getType()
-
-    getFilterAttack = () => this.filterEnv.getAttack()
-    getFilterDecay = () => this.filterEnv.getDecay()
-    getFilterSustain = () => this.filterEnv.getSustain()
-    getFilterRelease = () => this.filterEnv.getRelease()
-    getFilterAmount = () => this.filterEnv.getModifier()
-
-    // Setters
-    setFilterFreq = (val, time) => this.filterEnv.setFreq(val, time)
-    setFilterDetune = (val, time) => this.filterEnv.setDetune(val, time)
-    setFilterQ = (val, time) => this.filterEnv.setQ(val, time)
-    setFilterGain = (val, time) => this.filterEnv.setGain(val, time)
-    setFilterType = (val) => this.filterEnv.getType(val)
-
-    setFilterAttack = (val) => this.filterEnv.setAttack(val)
-    setFilterDecay = (val) => this.filterEnv.setDecay(val)
-    setFilterSustain = (val) => this.filterEnv.setSustain(val)
-    setFilterRelease = (val) => this.filterEnv.setRelease(val)
-    setFilterAmount = (val) => this.filterEnv.setModifier(val)
 }
 
 export default MonoSynth

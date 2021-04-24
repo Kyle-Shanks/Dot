@@ -26,7 +26,7 @@ class Reverb extends DotAudioNode {
         )
     }
 
-    // Getters
+    // - Getters -
     getInputs = () => [this.dryGain, this.convolver]
     getOutputs = () => [this.dryGain, this.wetGain]
 
@@ -34,7 +34,7 @@ class Reverb extends DotAudioNode {
     getBuffer = () => this.convolver.getParams().buffer
     getNormalize = () => this.convolver.getParams().normalize
 
-    // Setters
+    // - Setters -
     setAmount = (val, time) => {
         this.amount = val
         this._dryWetUpdate(

@@ -18,7 +18,7 @@ class FilterEnvelope extends Envelope {
         this.source.connect(this.filter.getParams().frequency)
     }
 
-    // Getters
+    // - Getters -
     getInputs = () => [this.filter]
     getOutputs = () => [this.filter]
 
@@ -28,7 +28,7 @@ class FilterEnvelope extends Envelope {
     getGain = () => this.params.gain.value
     getType = () => this.filter.getType()
 
-    // Setters
+    // - Setters -
     setFreq = (val, time) => this.filter.setFreq(val, time)
     setDetune = (val, time) => this.filter.setDetune(val, time)
     setQ = (val, time) => this.filter.setQ(val, time)

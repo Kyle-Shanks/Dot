@@ -9,7 +9,7 @@ class ChannelMerger extends DotAudioNode {
         this.params = {}
     }
 
-    // Getters
+    // - Getters -
     getInputs = () => [this.channelMerger]
     getOutputs = () => [this.channelMerger]
 }

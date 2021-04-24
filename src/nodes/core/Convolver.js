@@ -9,14 +9,14 @@ class Convolver extends DotAudioNode {
         this.params = {}
     }
 
-    // Getters
+    // - Getters -
     getInputs = () => [this.convolver]
     getOutputs = () => [this.convolver]
 
     getBuffer = () => this.convolver.buffer
     getNormalize = () => this.convolver.normalize
 
-    // Setters
+    // - Setters -
     setBuffer = (val) => this.convolver.buffer = val
     setNormalize = (val) => this.convolver.normalize = val
 }

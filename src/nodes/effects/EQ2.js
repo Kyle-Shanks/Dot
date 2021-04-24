@@ -24,7 +24,7 @@ class EQ2 extends DotAudioNode {
         this.low.connect(this.high)
     }
 
-    // Getters
+    // - Getters -
     getInputs = () => [this.low]
     getOutputs = () => [this.high]
 
@@ -33,7 +33,7 @@ class EQ2 extends DotAudioNode {
     getHighFreq = () => this.params.highFreq.value
     getHighGain = () => this.params.highGain.value
 
-    // Setters
+    // - Setters -
     setLowGain = (val, time) => this.low.setGain(val, time)
     setLowFreq = (val, time) => this.low.setFreq(val, time)
     setHighGain = (val, time) => this.high.setGain(val, time)

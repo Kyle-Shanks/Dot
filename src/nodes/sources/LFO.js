@@ -25,14 +25,14 @@ class LFO extends DotAudioNode {
     start = () => this.osc.start()
     stop = () => this.osc.stop()
 
-    // Getters
+    // - Getters -
     getOutputs = () => [this.depth]
 
     getRate = () => this.params.rate.value
     getDepth = () => this.params.depth.value
     getType = () => this.params.type
 
-    // Setters
+    // - Setters -
     setRate = (val, time) => this.osc.setFreq(clamp(val, 0, MAX_RATE), time)
     setDepth = (val, time) => this.depth.setGain(val, time)
     setType = (val) => {
