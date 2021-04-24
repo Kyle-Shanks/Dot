@@ -20,9 +20,9 @@ class Distortion extends DotAudioNode {
         this.waveShaper = new WaveShaper(this.AC)
         this.wetGain = new Gain(this.AC)
 
+        this.distortion = 0
         this.params = {
             amount: this.wetGain.getParams().gain,
-            distortion: 0,
         }
 
         // Initialize
@@ -39,7 +39,7 @@ class Distortion extends DotAudioNode {
     getOutputs = () => [this.dryGain, this.wetGain]
 
     getAmount = () => this.params.amount.value
-    getDistortion = () => this.params.distortion
+    getDistortion = () => this.distortion
 
     // Setters
     setAmount = (val, time) => {
@@ -51,8 +51,8 @@ class Distortion extends DotAudioNode {
         )
     }
     setDistortion = (val) => {
-        this.params.distortion = val
         this.waveShaper.setCurve(createDistCurve(val))
+        this.distortion = val
     }
 }
 

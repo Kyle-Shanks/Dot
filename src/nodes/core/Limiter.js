@@ -20,7 +20,6 @@ class Limiter extends DotAudioNode {
             ratio: this.limiter.ratio,
             attack: this.limiter.attack,
             release: this.limiter.release,
-            reduction: this.limiter.reduction,
         }
 
         // Initialize
@@ -45,7 +44,7 @@ class Limiter extends DotAudioNode {
     getRatio = () => this.params.ratio.value
     getAttack = () => this.params.attack.value
     getRelease = () => this.params.release.value
-    getReduction = () => this.params.reduction
+    getReduction = () => this.limiter.reduction
 
     // Setters
     setKnee = (val, time) => this._timeUpdate(this.params.knee, val, time)

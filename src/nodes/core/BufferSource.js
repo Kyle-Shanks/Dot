@@ -7,8 +7,6 @@ class BufferSource extends DotAudioNode {
         this.bufferSource = this.AC.createBufferSource()
 
         this.params = {
-            buffer: this.bufferSource.buffer,
-            loop: this.bufferSource.loop,
             detune: this.bufferSource.detune,
             playbackRate: this.bufferSource.playbackRate,
         }
@@ -21,20 +19,14 @@ class BufferSource extends DotAudioNode {
     getInputs = () => [this.bufferSource]
     getOutputs = () => [this.bufferSource]
 
-    getBuffer = () => this.params.buffer
-    getLoop = () => this.params.loop
+    getBuffer = () => this.bufferSource.buffer
+    getLoop = () => this.bufferSource.loop
     getDetune = () => this.params.detune.value
     getPlaybackRate = () => this.params.playbackRate.value
 
     // Setters
-    setBuffer = val => {
-        this.bufferSource.buffer = val
-        this.params.buffer = val
-    }
-    setLoop = val => {
-        this.bufferSource.loop = val
-        this.params.loop = val
-    }
+    setBuffer = val => this.bufferSource.buffer = val
+    setLoop = val => this.bufferSource.loop = val
     setDetune = (val, time) => this._timeUpdate(this.params.detune, val, time)
     setPlaybackRate = (val, time) => this._timeUpdate(this.params.playbackRate, val, time)
 }

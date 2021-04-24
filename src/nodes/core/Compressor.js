@@ -20,7 +20,6 @@ class Compressor extends DotAudioNode {
             ratio: this.compressor.ratio,
             attack: this.compressor.attack,
             release: this.compressor.release,
-            reduction: this.compressor.reduction,
         }
 
         // Initialize
@@ -45,7 +44,7 @@ class Compressor extends DotAudioNode {
     getRatio = () => this.params.ratio.value
     getAttack = () => this.params.attack.value
     getRelease = () => this.params.release.value
-    getReduction = () => this.params.reduction
+    getReduction = () => this.compressor.reduction
 
     // Setters
     setKnee = (val, time) => this._timeUpdate(this.params.knee, val, time)

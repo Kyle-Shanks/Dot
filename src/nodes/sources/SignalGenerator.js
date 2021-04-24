@@ -28,6 +28,7 @@ class SignalGenerator extends DotAudioNode {
 
     // Getters
     getOutputs = () => [this.gain]
+
     getGain = () => this.params.gain.value
 
     // Setters

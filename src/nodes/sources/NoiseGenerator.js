@@ -64,9 +64,8 @@ class NoiseGenerator extends DotAudioNode {
         this.name = 'NoiseGenerator'
         this.bufferSource = new BufferSource(this.AC)
 
-        this.params = {
-            type,
-        }
+        this.type = type
+        this.params = {}
 
         // Initialize
         this.bufferSource.setLoop(true)
@@ -78,12 +77,13 @@ class NoiseGenerator extends DotAudioNode {
 
     // Getters
     getOutputs = () => [this.bufferSource]
-    getType = () => this.params.type
+
+    getType = () => this.type
 
     // Setters
     setType = (val) => {
         if (NOISE_TYPE.includes(val)) {
-            this.params.type = val
+            this.type = val
             if (this.bufferSource.getBuffer()) {
                 typeBufferMap[this.params.type](this.bufferSource.getBuffer())
             } else {

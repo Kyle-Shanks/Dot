@@ -13,8 +13,8 @@ class FeedbackDelay extends DotAudioNode {
         this.tone = new Filter(this.AC)
         this.wetGain = new Gain(this.AC)
 
+        this.amount = 0
         this.params = {
-            amount: 0,
             delayTime: this.delay.getParams().delayTime,
             feedback: this.feedbackGain.getParams().gain,
             tone: this.tone.getParams().frequency,
@@ -34,14 +34,14 @@ class FeedbackDelay extends DotAudioNode {
     getInputs = () => [this.dryGain, this.delay]
     getOutputs = () => [this.dryGain, this.wetGain]
 
-    getAmount = () => this.params.amount
+    getAmount = () => this.amount
     getDelayTime = () => this.params.delayTime.value
     getFeedback = () => this.params.feedback.value
     getTone = () => this.params.tone.value
 
     // Setters
     setAmount = (val, time) => {
-        this.params.amount = val
+        this.amount = val
         this._dryWetUpdate(
             this.dryGain.getParams().gain,
             this.wetGain.getParams().gain,

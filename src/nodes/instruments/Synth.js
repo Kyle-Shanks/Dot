@@ -3,6 +3,7 @@ import GainEnvelope from '../components/GainEnvelope.js'
 import Oscillator from '../sources/Oscillator.js'
 import { getNoteFreq } from '../../util/util.js'
 
+// Simple Oscillator connected to a GainEnvelope node
 class Synth extends DotAudioNode {
     constructor(AC) {
         super(AC)
@@ -12,13 +13,8 @@ class Synth extends DotAudioNode {
 
         this.currentNote = null
         this.params = {
-            waveform: this.osc.getParams().type,
+            frequency: this.osc.getParams().frequency,
             detune: this.osc.getParams().detune,
-            gainAttack: this.gainEnv.getParams().attack,
-            gainDecay: this.gainEnv.getParams().decay,
-            gainSustain: this.gainEnv.getParams().sustain,
-            gainRelease: this.gainEnv.getParams().release,
-            gainAmount: this.gainEnv.getParams().modifier,
         }
 
         // Initialize
@@ -26,59 +22,44 @@ class Synth extends DotAudioNode {
         this.osc.start()
     }
 
-    noteOn = (note) => {
-        this.currentNote = note
-        this.osc.setFreq(getNoteFreq(note))
-        this.gainEnv.triggerAttack()
-    }
-
-    noteOff = () => {
-        this.currentNote = null
-        this.gainEnv.triggerRelease()
-    }
-
-    noteStop = () => {
-        this.currentNote = null
-        this.gainEnv.triggerStop()
-    }
+    noteOn = (note) => this._noteOn(note)
+    noteOff = () => this._noteOff()
+    noteStop = () => this._noteStop()
 
     // Getters
     getOutputs = () => [this.gainEnv]
 
-    getCurrentNode = () => this.currentNote
-    getWaveform = () => this.params.waveform
+    getCurrentNote = () => this.currentNote
+    getWaveform = () => this.osc.getType()
     getDetune = () => this.params.detune
-    getAttack = () => this.params.gainAttack
-    getDecay = () => this.params.gainDecay
-    getSustain = () => this.params.gainSustain
-    getRelease = () => this.params.gainRelease
-    getGainAmount = () => this.params.gainAmount
+    getGainAttack = () => this.gainEnv.getAttack()
+    getGainDecay = () => this.gainEnv.getDecay()
+    getGainSustain = () => this.gainEnv.getSustain()
+    getGainRelease = () => this.gainEnv.getRelease()
+    getGainAmount = () => this.gainEnv.getModifier()
 
     // Setters
-    setWaveform = (val) => {
-        this.osc.setType(val)
-        this.params.waveform = val
-    }
+    setWaveform = (val) => this.osc.setType(val)
     setDetune = (val, time) => this.osc.setDetune(val, time)
-    setAttack = (val) => {
-        this.gainEnv.setAttack(val)
-        this.params.gainAttack = val
+    setGainAttack = (val) => this.gainEnv.setAttack(val)
+    setGainDecay = (val) => this.gainEnv.setDecay(val)
+    setGainSustain = (val) => this.gainEnv.setSustain(val)
+    setGainRelease = (val) => this.gainEnv.setRelease(val)
+    setGainAmount = (val) => this.gainEnv.setModifier(val)
+
+    // --- Private Methods ---
+    _noteOn = (note) => {
+        this.currentNote = note
+        this.osc.setFreq(getNoteFreq(note))
+        this.gainEnv.triggerAttack()
     }
-    setDecay = (val) => {
-        this.gainEnv.setDecay(val)
-        this.params.gainDecay = val
+    _noteOff = () => {
+        this.currentNote = null
+        this.gainEnv.triggerRelease()
     }
-    setSustain = (val) => {
-        this.gainEnv.setSustain(val)
-        this.params.gainSustain = val
-    }
-    setRelease = (val) => {
-        this.gainEnv.setRelease(val)
-        this.params.gainRelease = val
-    }
-    setGainAmount = (val) => {
-        this.gainEnv.setModifier(val)
-        this.params.gainAmount = val
+    _noteStop = () => {
+        this.currentNote = null
+        this.gainEnv.triggerStop()
     }
 }
 

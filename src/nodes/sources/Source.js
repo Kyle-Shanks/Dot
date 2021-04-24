@@ -16,6 +16,7 @@ class Source extends DotAudioNode {
 
     // Getters
     getOutputs = () => [this.source]
+
     getOffset = () => this.params.offset
 
     // Setters
