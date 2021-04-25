@@ -3,7 +3,7 @@ import GainEnvelope from '../components/GainEnvelope.js'
 import Oscillator from '../sources/Oscillator.js'
 import { getNoteFrequency } from '../../util/util.js'
 
-// Simple Oscillator connected to a GainEnvelope node
+// Simple Oscillator connected to a GainEnvelope
 class Synth extends DotAudioNode {
     constructor(AC) {
         super(AC)

@@ -1,67 +1,106 @@
 import DotAudioNode from '../DotAudioNode.js'
-import Gain from '../core/Gain.js'
-import Oscillator from '../sources/Oscillator.js'
-import Synth from './Synth.js'
+import GainEnvelope from '../components/GainEnvelope.js'
+import Limiter from '../core/Limiter.js'
+import Osc from './Osc.js'
+import fmAlgorithms from '../../util/fmAlgorithms.js'
+
+// NOTE: FMSynth can't have the normal noteOn and noteOff methods bc the oscillator that
+// is outputing the tone that the user wants to hear will change depending on the algorithm.
+// For now, there are the trigger methods for the gain envelope
+// In the future, a better system for detecting which sync should be updated could be added
 
 class FMSynth extends DotAudioNode {
     constructor(AC) {
         super(AC)
         this.name = 'FMSynth'
-        this.modulator = new Oscillator(this.AC)
-        this.modulatorGain = new Gain(this.AC)
-        this.carrier = new Synth(this.AC)
+        this.modA = new Osc(this.AC)
+        this.modB = new Osc(this.AC)
+        this.modC = new Osc(this.AC)
+        this.modD = new Osc(this.AC)
+        this.limiter = new Limiter(this.AC)
+        this.gainEnv = new GainEnvelope(this.AC)
 
+        this.algorithm = null
         this.params = {
-            modulatorFrequency: this.modulator.getParams().frequency,
-            modulatorDetune: this.modulator.getParams().detune,
-            modulatorDepth: this.modulatorGain.getParams().gain,
-            carrierFrequency: this.carrier.getParams().frequency,
-            carrierDetune: this.carrier.getParams().detune,
-            carrierGain: this.carrier.getParams().gain,
+            modAFrequency: this.modA.getParams().frequency,
+            modADetune: this.modA.getParams().detune,
+            modAGain: this.modA.getParams().gain,
+            modBFrequency: this.modB.getParams().frequency,
+            modBDetune: this.modB.getParams().detune,
+            modBGain: this.modB.getParams().gain,
+            modCFrequency: this.modC.getParams().frequency,
+            modCDetune: this.modC.getParams().detune,
+            modCGain: this.modC.getParams().gain,
+            modDFrequency: this.modD.getParams().frequency,
+            modDDetune: this.modD.getParams().detune,
+            modDGain: this.modD.getParams().gain,
         }
 
         // Initialize
-        this.modulator.connect(this.modulatorGain)
-        this.modulatorGain.connect(this.params.carrierFrequency)
-        this.modulator.start()
+        this.setAlgorithm(0)
+        this.limiter.connect(this.gainEnv)
     }
 
     // - Getters -
-    getOutputs = () => [this.carrier]
+    getOutputs = () => [this.gainEnv]
 
-    //Modulator
-    getModulatorFrequency = () => this.params.modulatorFrequency.value
-    getModulatorDetune = () => this.params.modulatorDetune.value
-    getModulatorDepth = () => this.params.modulatorDepth.value
-    // Carrier
-    getCarrierFrequency = () => this.params.carrierFrequency.value
-    getCarrierDetune = () => this.params.carrierDetune.value
+    // Algorithm
+    getAlgorithm = () => this.algorithm
+    // ModA
+    getModAFrequency = () => this.params.modAFrequency.value
+    getModADetune = () => this.params.modADetune.value
+    getModAGain = () => this.params.modAGain.value
+    // ModB
+    getModBFrequency = () => this.params.modBFrequency.value
+    getModBDetune = () => this.params.modBDetune.value
+    getModBGain = () => this.params.modBGain.value
+    // ModC
+    getModCFrequency = () => this.params.modCFrequency.value
+    getModCDetune = () => this.params.modCDetune.value
+    getModCGain = () => this.params.modCGain.value
+    // ModD
+    getModDFrequency = () => this.params.modDFrequency.value
+    getModDDetune = () => this.params.modDDetune.value
+    getModDGain = () => this.params.modDGain.value
     // Gain Envelope
-    getGainAttack = () => this.carrier.getGainAttack()
-    getGainDecay = () => this.carrier.getGainDecay()
-    getGainSustain = () => this.carrier.getGainSustain()
-    getGainRelease = () => this.carrier.getGainRelease()
-    getGainAmount = () => this.carrier.getGainAmount()
+    getGainAttack = () => this.gainEnv.getAttack()
+    getGainDecay = () => this.gainEnv.getDecay()
+    getGainSustain = () => this.gainEnv.getSustain()
+    getGainRelease = () => this.gainEnv.getRelease()
+    getGainAmount = () => this.gainEnv.getModifier()
 
     // - Setters -
-    // Modulator
-    setModulatorFrequency = (val, time) => this.modulator.setFrequency(val, time)
-    setModulatorDetune = (val, time) => this.modulator.setDetune(val, time)
-    setModulatorDepth = (val, time) => this.modulatorGain.setGain(val, time)
-    // Carrier
-    setCarrierFrequency = (val, time) => this.carrier.setFrequency(val, time)
-    setCarrierDetune = (val, time) => this.carrier.setDetune(val, time)
+    // Algorithm
+    setAlgorithm = (idx) => {
+        this.algorithm = fmAlgorithms[idx](this.modA, this.modB, this.modC, this.modD, this.limiter)
+    }
+    // ModA
+    setModAFrequency = (val, time) => this.modA.setFrequency(val, time)
+    setModADetune = (val, time) => this.modA.setDetune(val, time)
+    setModAGain = (val, time) => this.modA.setGain(val, time)
+    // ModB
+    setModBFrequency = (val, time) => this.modB.setFrequency(val, time)
+    setModBDetune = (val, time) => this.modB.setDetune(val, time)
+    setModBGain = (val, time) => this.modB.setGain(val, time)
+    // ModC
+    setModCFrequency = (val, time) => this.modC.setFrequency(val, time)
+    setModCDetune = (val, time) => this.modC.setDetune(val, time)
+    setModCGain = (val, time) => this.modC.setGain(val, time)
+    // ModD
+    setModDFrequency = (val, time) => this.modD.setFrequency(val, time)
+    setModDDetune = (val, time) => this.modD.setDetune(val, time)
+    setModDGain = (val, time) => this.modD.setGain(val, time)
     // Gain Envelope
-    setGainAttack = (val) => this.carrier.setGainAttack(val)
-    setGainDecay = (val) => this.carrier.setGainDecay(val)
-    setGainSustain = (val) => this.carrier.setGainSustain(val)
-    setGainRelease = (val) => this.carrier.setGainRelease(val)
-    setGainAmount = (val) => this.carrier.setGainAmount(val)
+    setGainAttack = (val) => this.gainEnv.setAttack(val)
+    setGainDecay = (val) => this.gainEnv.setDecay(val)
+    setGainSustain = (val) => this.gainEnv.setSustain(val)
+    setGainRelease = (val) => this.gainEnv.setRelease(val)
+    setGainAmount = (val) => this.gainEnv.setModifier(val)
 
-    // - Note Methods -
-    noteOn = (note) => this.carrier.noteOn(note)
-    noteOff = () => this.carrier.noteOff()
-    noteStop = () => this.carrier.noteStop()
+    // - Trigger Methods -
+    triggerAttack = () => this.gainEnv.triggerAttack()
+    triggerRelease = () => this.gainEnv.triggerRelease()
+    triggerStop = () => this.gainEnv.triggerStop()
 }
 
 export default FMSynth
