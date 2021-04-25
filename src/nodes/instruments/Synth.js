@@ -13,6 +13,7 @@ class Synth extends DotAudioNode {
 
         this.currentNote = null
         this.params = {
+            frequency: this.osc.getParams().frequency,
             detune: this.osc.getParams().detune,
             gain: this.gainEnv.getParams().gain,
         }
@@ -27,9 +28,11 @@ class Synth extends DotAudioNode {
     getOutputs = () => [this.gainEnv]
 
     getCurrentNote = () => this.currentNote
+    // Oscillator
     getWaveform = () => this.osc.getType()
     getFreq = () => this.params.frequency.value
     getDetune = () => this.params.detune.value
+    // Gain Envelope
     getGainAttack = () => this.gainEnv.getAttack()
     getGainDecay = () => this.gainEnv.getDecay()
     getGainSustain = () => this.gainEnv.getSustain()
@@ -37,8 +40,11 @@ class Synth extends DotAudioNode {
     getGainAmount = () => this.gainEnv.getModifier()
 
     // - Setters -
+    // Oscillator
     setWaveform = (val) => this.osc.setType(val)
+    setFreq = (val, time) => this.osc.setFreq(val, time)
     setDetune = (val, time) => this.osc.setDetune(val, time)
+    // Gain Envelope
     setGainAttack = (val) => this.gainEnv.setAttack(val)
     setGainDecay = (val) => this.gainEnv.setDecay(val)
     setGainSustain = (val) => this.gainEnv.setSustain(val)

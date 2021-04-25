@@ -12,6 +12,7 @@ class PolySynth extends DotAudioNode {
         this.polyphony = 8
         this.voicePos = 0
         this.params = {
+            frequency: this.voices.map(voice => voice.getParams().frequency),
             detune: this.voices.map(voice => voice.getParams().detune),
             gain: this.voices.map(voice => voice.getParams().gain),
             filterFrequency: this.voices.map(voice => voice.getParams().filterFrequency),
