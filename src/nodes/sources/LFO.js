@@ -33,7 +33,7 @@ class LFO extends DotAudioNode {
     getType = () => this.params.type
 
     // - Setters -
-    setRate = (val, time) => this.osc.setFreq(clamp(val, 0, MAX_RATE), time)
+    setRate = (val, time) => this.osc.setFrequency(clamp(val, 0, MAX_RATE), time)
     setDepth = (val, time) => this.depth.setGain(val, time)
     setType = (val) => {
         this.osc.setType(val)

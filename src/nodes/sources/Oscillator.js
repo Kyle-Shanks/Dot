@@ -19,12 +19,12 @@ class Oscillator extends DotAudioNode {
     // - Getters -
     getOutputs = () => [this.osc]
 
-    getFreq = () => this.params.frequency.value
+    getFrequency = () => this.params.frequency.value
     getDetune = () => this.params.detune.value
     getType = () => this.osc.type
 
     // - Setters -
-    setFreq = (val, time) => this._timeUpdate(this.params.frequency, val, time)
+    setFrequency = (val, time) => this._timeUpdate(this.params.frequency, val, time)
     setDetune = (val, time) => this._timeUpdate(this.params.detune, val, time)
     setType = (val) => {
         if (WAVEFORM.includes(val)) this.osc.type = val

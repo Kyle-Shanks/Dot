@@ -1,7 +1,7 @@
 import DotAudioNode from '../DotAudioNode.js'
 import GainEnvelope from '../components/GainEnvelope.js'
 import Oscillator from '../sources/Oscillator.js'
-import { getNoteFreq } from '../../util/util.js'
+import { getNoteFrequency } from '../../util/util.js'
 
 // Simple Oscillator connected to a GainEnvelope node
 class Synth extends DotAudioNode {
@@ -30,7 +30,7 @@ class Synth extends DotAudioNode {
     getCurrentNote = () => this.currentNote
     // Oscillator
     getWaveform = () => this.osc.getType()
-    getFreq = () => this.params.frequency.value
+    getFrequency = () => this.params.frequency.value
     getDetune = () => this.params.detune.value
     // Gain Envelope
     getGainAttack = () => this.gainEnv.getAttack()
@@ -42,7 +42,7 @@ class Synth extends DotAudioNode {
     // - Setters -
     // Oscillator
     setWaveform = (val) => this.osc.setType(val)
-    setFreq = (val, time) => this.osc.setFreq(val, time)
+    setFrequency = (val, time) => this.osc.setFrequency(val, time)
     setDetune = (val, time) => this.osc.setDetune(val, time)
     // Gain Envelope
     setGainAttack = (val) => this.gainEnv.setAttack(val)
@@ -64,7 +64,7 @@ class Synth extends DotAudioNode {
         }
 
         this.currentNote = note
-        this.osc.setFreq(getNoteFreq(note))
+        this.osc.setFrequency(getNoteFrequency(note))
         this.gainEnv.triggerAttack()
     }
     _noteOff = () => {

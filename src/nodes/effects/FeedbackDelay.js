@@ -50,7 +50,7 @@ class FeedbackDelay extends DotAudioNode {
         )
     }
     setFeedback = (val, time) => this.feedbackGain.setGain(val, time)
-    setTone = (val, time) => this.tone.setFreq(val, time)
+    setTone = (val, time) => this.tone.setFrequency(val, time)
     setDelayTime = (val, time) => this.delay.setDelayTime(val, time)
 }
 

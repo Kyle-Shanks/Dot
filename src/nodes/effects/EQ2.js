@@ -9,17 +9,17 @@ class EQ2 extends DotAudioNode {
         this.high = new Filter(this.AC)
 
         this.params = {
-            lowFreq: this.low.getParams().frequency,
+            lowFrequency: this.low.getParams().frequency,
             lowGain: this.low.getParams().gain,
-            highFreq: this.high.getParams().frequency,
+            highFrequency: this.high.getParams().frequency,
             highGain: this.high.getParams().gain,
         }
 
         // Initialize
         this.low.setType('lowshelf')
-        this.low.setFreq(320.0)
+        this.low.setFrequency(320.0)
         this.high.setType('highshelf')
-        this.high.setFreq(3200.0)
+        this.high.setFrequency(3200.0)
 
         this.low.connect(this.high)
     }
@@ -28,16 +28,16 @@ class EQ2 extends DotAudioNode {
     getInputs = () => [this.low]
     getOutputs = () => [this.high]
 
-    getLowFreq = () => this.params.lowFreq.value
+    getLowFrequency = () => this.params.lowFreq.value
     getLowGain = () => this.params.lowGain.value
-    getHighFreq = () => this.params.highFreq.value
+    getHighFrequency = () => this.params.highFreq.value
     getHighGain = () => this.params.highGain.value
 
     // - Setters -
     setLowGain = (val, time) => this.low.setGain(val, time)
-    setLowFreq = (val, time) => this.low.setFreq(val, time)
+    setLowFrequency = (val, time) => this.low.setFrequency(val, time)
     setHighGain = (val, time) => this.high.setGain(val, time)
-    setHighFreq = (val, time) => this.high.setFreq(val, time)
+    setHighFrequency = (val, time) => this.high.setFrequency(val, time)
 }
 
 export default EQ2

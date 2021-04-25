@@ -63,7 +63,7 @@ const freqMap = {
 
 export const clamp = (val, min, max) => Math.min(max, Math.max(min, val))
 
-export const getNoteFreq = (note) => {
+export const getNoteFrequency = (note) => {
     const noteName = note.slice(0, -1)
     const octave = parseInt(note.slice(-1))
     return freqMap[noteName] * Math.pow(2, octave - 4)

@@ -30,11 +30,11 @@ class FMSynth extends DotAudioNode {
     getOutputs = () => [this.carrier]
 
     //Modulator
-    getModulatorFreq = () => this.params.modulatorFrequency.value
+    getModulatorFrequency = () => this.params.modulatorFrequency.value
     getModulatorDetune = () => this.params.modulatorDetune.value
     getModulatorDepth = () => this.params.modulatorDepth.value
     // Carrier
-    getCarrierFreq = () => this.params.carrierFrequency.value
+    getCarrierFrequency = () => this.params.carrierFrequency.value
     getCarrierDetune = () => this.params.carrierDetune.value
     // Gain Envelope
     getGainAttack = () => this.carrier.getGainAttack()
@@ -45,11 +45,11 @@ class FMSynth extends DotAudioNode {
 
     // - Setters -
     // Modulator
-    setModulatorFreq = (val, time) => this.modulator.setFreq(val, time)
+    setModulatorFrequency = (val, time) => this.modulator.setFrequency(val, time)
     setModulatorDetune = (val, time) => this.modulator.setDetune(val, time)
     setModulatorDepth = (val, time) => this.modulatorGain.setGain(val, time)
     // Carrier
-    setCarrierFreq = (val, time) => this.carrier.setFreq(val, time)
+    setCarrierFrequency = (val, time) => this.carrier.setFrequency(val, time)
     setCarrierDetune = (val, time) => this.carrier.setDetune(val, time)
     // Gain Envelope
     setGainAttack = (val) => this.carrier.setGainAttack(val)

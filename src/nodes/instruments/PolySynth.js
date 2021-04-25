@@ -42,7 +42,7 @@ class PolySynth extends DotAudioNode {
     getGainRelease = () => this.voices[0].getGainRelease()
     getGainAmount = () => this.voices[0].getGainAmount()
     // Filter
-    getFilterFreq = () => this.voices[0].getFilterFreq()
+    getFilterFrequency = () => this.voices[0].getFilterFrequency()
     getFilterDetune = () => this.voices[0].getFilterDetune()
     getFilterQ = () => this.voices[0].getFilterQ()
     getFilterGain = () => this.voices[0].getFilterGain()
@@ -65,7 +65,7 @@ class PolySynth extends DotAudioNode {
     setGainRelease = (val) => this.voices.forEach(voice => voice.setGainRelease(val))
     setGainAmount = (val) => this.voices.forEach(voice => voice.setGainAmount(val))
     // Filter
-    setFilterFreq = (val, time) => this.voices.forEach(voice => voice.setFilterFreq(val, time))
+    setFilterFrequency = (val, time) => this.voices.forEach(voice => voice.setFilterFrequency(val, time))
     setFilterDetune = (val, time) => this.voices.forEach(voice => voice.setFilterDetune(val, time))
     setFilterQ = (val, time) => this.voices.forEach(voice => voice.setFilterQ(val, time))
     setFilterGain = (val, time) => this.voices.forEach(voice => voice.setFilterGain(val, time))

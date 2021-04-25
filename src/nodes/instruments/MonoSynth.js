@@ -24,10 +24,10 @@ class MonoSynth extends Synth {
     getOutputs = () => [this.filterEnv]
 
     // Filter
-    getFilterFreq = () => this.filterEnv.getFreq()
-    getFilterDetune = () => this.filterEnv.getFreq()
-    getFilterQ = () => this.filterEnv.getFreq()
-    getFilterGain = () => this.filterEnv.getFreq()
+    getFilterFrequency = () => this.filterEnv.getFrequency()
+    getFilterDetune = () => this.filterEnv.getDetune()
+    getFilterQ = () => this.filterEnv.getQ()
+    getFilterGain = () => this.filterEnv.getGain()
     getFilterType = () => this.filterEnv.getType()
     // Filter Envelope
     getFilterAttack = () => this.filterEnv.getAttack()
@@ -38,7 +38,7 @@ class MonoSynth extends Synth {
 
     // - Setters -
     // Filter
-    setFilterFreq = (val, time) => this.filterEnv.setFreq(val, time)
+    setFilterFrequency = (val, time) => this.filterEnv.setFrequency(val, time)
     setFilterDetune = (val, time) => this.filterEnv.setDetune(val, time)
     setFilterQ = (val, time) => this.filterEnv.setQ(val, time)
     setFilterGain = (val, time) => this.filterEnv.setGain(val, time)

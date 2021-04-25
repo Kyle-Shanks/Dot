@@ -63,7 +63,7 @@ class PingPongDelay extends DotAudioNode{
         this.leftFeedbackGain.setGain(val, time)
         this.rightFeedbackGain.setGain(val, time)
     }
-    setTone = (val, time) => this.tone.setFreq(val, time)
+    setTone = (val, time) => this.tone.setFrequency(val, time)
     setDelayTime = (val, time) => {
         this.preDelay.setDelayTime(val, time)
         this.leftDelay.setDelayTime(val, time)
