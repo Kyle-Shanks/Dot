@@ -15,7 +15,6 @@ class Flanger extends DotAudioNode {
         this.wetGain = new Gain(this.AC)
 
         this.params = {
-            amount: this.wetGain.getParams().gain,
             delayTime: this.delay.getParams().delayTime,
             depth: this.lfo.getParams().depth,
             feedback: this.feedback.getParams().gain,
@@ -38,7 +37,7 @@ class Flanger extends DotAudioNode {
     getInputs = () => [this.dryGain, this.inputGain]
     getOutputs = () => [this.dryGain, this.wetGain]
 
-    getAmount = () => this.params.amount.value
+    getAmount = () => this.wetGain.getGain()
     getDelayTime = () => this.params.delayTime.value
     getDepth = () => this.params.depth.value
     getFeedback = () => this.params.feedback.value

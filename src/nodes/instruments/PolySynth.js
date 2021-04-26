@@ -1,5 +1,5 @@
 import DotAudioNode from '../DotAudioNode.js'
-import Limiter from '../core/Limiter.js'
+import Limiter from '../dynamics/Limiter.js'
 import MonoSynth from './MonoSynth.js'
 
 class PolySynth extends DotAudioNode {

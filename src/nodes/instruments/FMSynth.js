@@ -1,6 +1,6 @@
 import DotAudioNode from '../DotAudioNode.js'
 import GainEnvelope from '../components/GainEnvelope.js'
-import Limiter from '../core/Limiter.js'
+import Limiter from '../dynamics/Limiter.js'
 import Osc from './Osc.js'
 import fmAlgorithms from '../../util/fmAlgorithms.js'
 
