@@ -2,12 +2,19 @@ import DotAudioNode from '../DotAudioNode.js'
 import Oscillator from '../sources/Oscillator.js'
 import Gain from '../core/Gain.js'
 
+const defaultProps = {
+    waveform: 'sine',
+    frequency: 440,
+    detune: 0,
+    gain: 1,
+}
+
 // Simple Oscillator connected to a Gain node
 class Osc extends DotAudioNode {
-    constructor(AC) {
+    constructor(AC, opts = {}) {
         super(AC)
         this.name = 'Osc'
-        this.osc = new Oscillator(this.AC)
+        this.osc = new Oscillator(this.AC, { start: true })
         this.gain = new Gain(this.AC)
 
         this.params = {
@@ -17,8 +24,18 @@ class Osc extends DotAudioNode {
         }
 
         // Initialize
+        const initProps = {
+            ...defaultProps,
+            ...opts,
+        }
+
+        this.setWaveform(initProps.waveform)
+        this.setFrequency(initProps.frequency)
+        this.setDetune(initProps.detune)
+        this.setGain(initProps.gain)
+
+        // Connections
         this.osc.connect(this.gain)
-        this.osc.start()
     }
 
     // --- Public Methods ---

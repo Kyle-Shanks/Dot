@@ -1,29 +1,55 @@
 import DotAudioNode from '../DotAudioNode.js'
-import Gain from '../core/Gain.js'
-import Oscillator from '../sources/Oscillator.js'
 import Synth from './Synth.js'
+import Osc from './Osc.js'
+
+const defaultProps = {
+    modulatorFrequency: 440,
+    modulatorDetune: 0,
+    modulatorDepth: 440,
+    carrierFrequency: 440,
+    carrierDetune: 0,
+    gainAttack: 0,
+    gainDecay: 0,
+    gainSustain: 1,
+    gainRelease: 0,
+    gainAmount: 0.75,
+}
 
 class SimpleFMSynth extends DotAudioNode {
-    constructor(AC) {
+    constructor(AC, opts = {}) {
         super(AC)
         this.name = 'SimpleFMSynth'
-        this.modulator = new Oscillator(this.AC)
-        this.modulatorGain = new Gain(this.AC)
+        this.modulator = new Osc(this.AC)
         this.carrier = new Synth(this.AC)
 
         this.params = {
             modulatorFrequency: this.modulator.getParams().frequency,
             modulatorDetune: this.modulator.getParams().detune,
-            modulatorDepth: this.modulatorGain.getParams().gain,
+            modulatorDepth: this.modulator.getParams().gain,
             carrierFrequency: this.carrier.getParams().frequency,
             carrierDetune: this.carrier.getParams().detune,
             carrierGain: this.carrier.getParams().gain,
         }
 
         // Initialize
-        this.modulator.connect(this.modulatorGain)
-        this.modulatorGain.connect(this.params.carrierFrequency)
-        this.modulator.start()
+        const initProps = {
+            ...defaultProps,
+            ...opts,
+        }
+
+        this.setModulatorFrequency(initProps.modulatorFrequency)
+        this.setModulatorDetune(initProps.modulatorDetune)
+        this.setModulatorDepth(initProps.modulatorDepth)
+        this.setCarrierFrequency(initProps.carrierFrequency)
+        this.setCarrierDetune(initProps.carrierDetune)
+        this.setGainAttack(initProps.gainAttack)
+        this.setGainDecay(initProps.gainDecay)
+        this.setGainSustain(initProps.gainSustain)
+        this.setGainRelease(initProps.gainRelease)
+        this.setGainAmount(initProps.gainAmount)
+
+        // Connections
+        this.modulator.connect(this.params.carrierFrequency)
     }
 
     // - Getters -
@@ -47,7 +73,7 @@ class SimpleFMSynth extends DotAudioNode {
     // Modulator
     setModulatorFrequency = (val, time) => this.modulator.setFrequency(val, time)
     setModulatorDetune = (val, time) => this.modulator.setDetune(val, time)
-    setModulatorDepth = (val, time) => this.modulatorGain.setGain(val, time)
+    setModulatorDepth = (val, time) => this.modulator.setGain(val, time)
     // Carrier
     setCarrierFrequency = (val, time) => this.carrier.setFrequency(val, time)
     setCarrierDetune = (val, time) => this.carrier.setDetune(val, time)

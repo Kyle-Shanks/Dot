@@ -3,15 +3,23 @@ import Gain from '../core/Gain.js'
 import Delay from '../core/Delay.js'
 import LFO from '../sources/LFO.js'
 
+const defaultProps = {
+    amount: 0,
+    delayTime: 0.01,
+    depth: 0.0015,
+    feedback: 0.6,
+    rate: 0.3333,
+}
+
 class Flanger extends DotAudioNode {
-    constructor(AC) {
+    constructor(AC, opts = {}) {
         super(AC)
         this.name = 'Flanger'
         this.dryGain = new Gain(this.AC)
         this.inputGain = new Gain(this.AC)
         this.delay = new Delay(this.AC)
         this.feedback = new Gain(this.AC)
-        this.lfo = new LFO(this.AC)
+        this.lfo = new LFO(this.AC, { start: true })
         this.wetGain = new Gain(this.AC)
 
         this.params = {
@@ -22,15 +30,24 @@ class Flanger extends DotAudioNode {
         }
 
         // Initialize
+        const initProps = {
+            ...defaultProps,
+            ...opts,
+        }
+
+        this.setAmount(initProps.amount)
+        this.setDelayTime(initProps.delayTime)
+        this.setFeedback(initProps.feedback)
+        this.setDepth(initProps.depth)
+        this.setRate(initProps.rate)
+
+        // Connections
         this.inputGain.connect(this.delay)
         this.inputGain.connect(this.wetGain)
         this.delay.connect(this.feedback)
         this.delay.connect(this.wetGain)
         this.feedback.connect(this.inputGain)
         this.lfo.connect(this.delay.getParams().delayTime)
-        this.lfo.start()
-
-        this.setAmount(0)
     }
 
     // - Getters -

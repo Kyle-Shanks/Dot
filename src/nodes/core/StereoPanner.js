@@ -1,7 +1,11 @@
 import DotAudioNode from '../DotAudioNode.js'
 
+const defaultProps = {
+    pan: 0,
+}
+
 class StereoPanner extends DotAudioNode {
-    constructor(AC) {
+    constructor(AC, opts = {}) {
         super(AC)
         this.name = 'StereoPanner'
         this.panner = this.AC.createStereoPanner()
@@ -9,6 +13,14 @@ class StereoPanner extends DotAudioNode {
         this.params = {
             pan: this.panner.pan,
         }
+
+        // Initialize
+        const initProps = {
+            ...defaultProps,
+            ...opts,
+        }
+
+        this.setPan(initProps.pan)
     }
 
     // - Getters -

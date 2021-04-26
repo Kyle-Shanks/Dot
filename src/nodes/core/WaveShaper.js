@@ -1,13 +1,27 @@
 import DotAudioNode from '../DotAudioNode.js'
 import { OVERSAMPLE } from '../../util/util.js'
 
+const defaultProps = {
+    curve: null,
+    oversample: 'none',
+}
+
 class WaveShaper extends DotAudioNode {
-    constructor(AC) {
+    constructor(AC, opts = {}) {
         super(AC)
         this.name = 'WaveShaper'
         this.waveShaper = this.AC.createWaveShaper()
 
         this.params = {}
+
+        // Initialize
+        const initProps = {
+            ...defaultProps,
+            ...opts,
+        }
+
+        this.setCurve(initProps.curve)
+        this.setOversample(initProps.oversample)
     }
 
     // - Getters -

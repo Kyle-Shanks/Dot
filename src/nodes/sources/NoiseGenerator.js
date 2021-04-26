@@ -58,18 +58,29 @@ const typeBufferMap = {
     brown: getBrownNoiseBuffer,
 }
 
+const defaultProps = {
+    type: 'white',
+    start: false,
+}
+
 class NoiseGenerator extends DotAudioNode {
-    constructor(AC, type = 'white') {
+    constructor(AC, opts = {}) {
         super(AC)
         this.name = 'NoiseGenerator'
-        this.bufferSource = new BufferSource(this.AC)
+        this.bufferSource = new BufferSource(this.AC, { loop: true })
 
-        this.type = type
+        this.type = 'white'
         this.params = {}
 
         // Initialize
-        this.bufferSource.setLoop(true)
-        this.setType(this.params.type)
+        const initProps = {
+            ...defaultProps,
+            ...opts,
+        }
+
+        this.setType(initProps.type)
+
+        if (initProps.start) this.start()
     }
 
     start = () => this.bufferSource.start()

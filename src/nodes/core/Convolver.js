@@ -1,12 +1,26 @@
 import DotAudioNode from '../DotAudioNode.js'
 
+const defaultProps = {
+    buffer: null,
+    normalize: false,
+}
+
 class Convolver extends DotAudioNode {
-    constructor(AC) {
+    constructor(AC, opts = {}) {
         super(AC)
         this.name = 'Convolver'
         this.convolver = this.AC.createConvolver()
 
         this.params = {}
+
+        // Initialize
+        const initProps = {
+            ...defaultProps,
+            ...opts,
+        }
+
+        this.setBuffer(initProps.buffer)
+        this.setNormalize(initProps.normalize)
     }
 
     // - Getters -

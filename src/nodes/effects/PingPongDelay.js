@@ -4,8 +4,15 @@ import Filter from '../core/Filter.js'
 import Delay from '../core/Delay.js'
 import ChannelMerger from '../core/ChannelMerger.js'
 
+const defaultProps = {
+    amount: 0,
+    delayTime: 0.2,
+    feedback: 0.6,
+    tone: 4400,
+}
+
 class PingPongDelay extends DotAudioNode{
-    constructor(AC) {
+    constructor(AC, opts = {}) {
         super(AC)
         this.name = 'PingPongDelay'
         this.dryGain = new Gain(this.AC)
@@ -26,6 +33,17 @@ class PingPongDelay extends DotAudioNode{
         }
 
         // Initialize
+        const initProps = {
+            ...defaultProps,
+            ...opts,
+        }
+
+        this.setAmount(initProps.amount)
+        this.setDelayTime(initProps.delayTime)
+        this.setFeedback(initProps.feedback)
+        this.setTone(initProps.tone)
+
+        // Connections
         this.preDelay.connect(this.rightDelay)
         this.leftDelay.connect(this.channelMerger, 0, 0)
         this.rightDelay.connect(this.channelMerger, 0, 1)
@@ -35,9 +53,6 @@ class PingPongDelay extends DotAudioNode{
         this.rightFeedbackGain.connect(this.leftDelay)
         this.channelMerger.connect(this.tone)
         this.tone.connect(this.wetGain)
-
-        this.setAmount(0)
-        this.setFeedback(0)
     }
 
     // - Getters -

@@ -1,7 +1,11 @@
 import DotAudioNode from '../DotAudioNode.js'
 
+const defaultProps = {
+    gain: 1,
+}
+
 class Gain extends DotAudioNode {
-    constructor(AC) {
+    constructor(AC, opts = {}) {
         super(AC)
         this.name = 'Gain'
         this.gain = this.AC.createGain()
@@ -9,6 +13,14 @@ class Gain extends DotAudioNode {
         this.params = {
             gain: this.gain.gain,
         }
+
+        // Initialize
+        const initProps = {
+            ...defaultProps,
+            ...opts,
+        }
+
+        this.setGain(initProps.gain)
     }
 
     // - Getters -

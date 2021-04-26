@@ -2,6 +2,11 @@ import DotAudioNode from '../DotAudioNode.js'
 import Gain from '../core/Gain.js'
 import WaveShaper from '../core/WaveShaper.js'
 
+const defaultProps = {
+    amount: 0,
+    distortion: 0,
+}
+
 const createDistCurve = (gain = 0) => {
     const sampleNum = 44100
     const curve = new Float32Array(sampleNum)
@@ -13,7 +18,7 @@ const createDistCurve = (gain = 0) => {
 }
 
 class Distortion extends DotAudioNode {
-    constructor(AC) {
+    constructor(AC, opts = {}) {
         super(AC)
         this.name = 'Distortion'
         this.dryGain = new Gain(this.AC)
@@ -26,12 +31,16 @@ class Distortion extends DotAudioNode {
         }
 
         // Initialize
-        this.waveShaper.setCurve(createDistCurve())
-        this.waveShaper.setOversample('none')
-        this.waveShaper.connect(this.wetGain)
+        const initProps = {
+            ...defaultProps,
+            ...opts,
+        }
 
-        this.setDistortion(0)
-        this.setAmount(0)
+        this.setAmount(initProps.amount)
+        this.setDistortion(initProps.distortion)
+
+        // Connections
+        this.waveShaper.connect(this.wetGain)
     }
 
     // - Getters -

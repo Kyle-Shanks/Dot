@@ -2,8 +2,29 @@ import DotAudioNode from '../DotAudioNode.js'
 import Limiter from '../dynamics/Limiter.js'
 import MonoSynth from './MonoSynth.js'
 
+const defaultProps = {
+    waveform: 'sine',
+    frequency: 440,
+    detune: 0,
+    gainAttack: 0,
+    gainDecay: 0,
+    gainSustain: 1,
+    gainRelease: 0,
+    gainAmount: 0.25,
+    filterFrequency: 2000,
+    filterQ: 0,
+    filterDetune: 0,
+    filterGain: 0,
+    filterType: 'lowpass',
+    filterAttack: 0,
+    filterDecay: 0,
+    filterSustain: 1,
+    filterRelease: 0,
+    filterAmount: 6000,
+}
+
 class PolySynth extends DotAudioNode {
-    constructor(AC) {
+    constructor(AC, opts = {}) {
         super(AC)
         this.name = 'PolySynth'
         this.voices = Array(8).fill(0).map(_ => new MonoSynth(this.AC))
@@ -22,8 +43,31 @@ class PolySynth extends DotAudioNode {
         }
 
         // Initialize
+        const initProps = {
+            ...defaultProps,
+            ...opts,
+        }
+
         this.voices.forEach((voice) => {
-            voice.setGainAmount(0.2)
+            voice.setWaveform(initProps.waveform)
+            voice.setFrequency(initProps.frequency)
+            voice.setDetune(initProps.detune)
+            voice.setGainAttack(initProps.gainAttack)
+            voice.setGainDecay(initProps.gainDecay)
+            voice.setGainSustain(initProps.gainSustain)
+            voice.setGainRelease(initProps.gainRelease)
+            voice.setGainAmount(initProps.gainAmount)
+            voice.setFilterType(initProps.filterType)
+            voice.setFilterFrequency(initProps.filterFrequency)
+            voice.setFilterQ(initProps.filterQ)
+            voice.setFilterDetune(initProps.filterDetune)
+            voice.setFilterGain(initProps.filterGain)
+            voice.setFilterAttack(initProps.filterAttack)
+            voice.setFilterDecay(initProps.filterDecay)
+            voice.setFilterSustain(initProps.filterSustain)
+            voice.setFilterRelease(initProps.filterRelease)
+            voice.setFilterAmount(initProps.filterAmount)
+
             voice.connect(this.limiter)
         })
     }

@@ -9,8 +9,29 @@ import fmAlgorithms from '../../util/fmAlgorithms.js'
 // For now, there are the trigger methods for the gain envelope
 // In the future, a better system for detecting which sync should be updated could be added
 
+const defaultProps = {
+    algorithm: 0,
+    modAFrequency: 440,
+    modADetune: 0,
+    modAGain: 440,
+    modBFrequency: 440,
+    modBDetune: 0,
+    modBGain: 440,
+    modCFrequency: 440,
+    modCDetune: 0,
+    modCGain: 440,
+    modDFrequency: 440,
+    modDDetune: 0,
+    modDGain: 440,
+    gainAttack: 0,
+    gainDecay: 0,
+    gainSustain: 1,
+    gainRelease: 0,
+    gainAmount: 0.75,
+}
+
 class FMSynth extends DotAudioNode {
-    constructor(AC) {
+    constructor(AC, opts = {}) {
         super(AC)
         this.name = 'FMSynth'
         this.modA = new Osc(this.AC)
@@ -37,7 +58,31 @@ class FMSynth extends DotAudioNode {
         }
 
         // Initialize
-        this.setAlgorithm(0)
+        const initProps = {
+            ...defaultProps,
+            ...opts,
+        }
+
+        this.setAlgorithm(initProps.algorithm)
+        this.setModAFrequency(initProps.modAFrequency)
+        this.setModADetune(initProps.modADetune)
+        this.setModAGain(initProps.modAGain)
+        this.setModBFrequency(initProps.modBFrequency)
+        this.setModBDetune(initProps.modBDetune)
+        this.setModBGain(initProps.modBGain)
+        this.setModCFrequency(initProps.modCFrequency)
+        this.setModCDetune(initProps.modCDetune)
+        this.setModCGain(initProps.modCGain)
+        this.setModDFrequency(initProps.modDFrequency)
+        this.setModDDetune(initProps.modDDetune)
+        this.setModDGain(initProps.modDGain)
+        this.setGainAttack(initProps.gainAttack)
+        this.setGainDecay(initProps.gainDecay)
+        this.setGainSustain(initProps.gainSustain)
+        this.setGainRelease(initProps.gainRelease)
+        this.setGainAmount(initProps.gainAmount)
+
+        // Connections
         this.limiter.connect(this.gainEnv)
     }
 

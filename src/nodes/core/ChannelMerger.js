@@ -1,7 +1,9 @@
 import DotAudioNode from '../DotAudioNode.js'
 
+const defaultProps = {}
+
 class ChannelMerger extends DotAudioNode {
-    constructor(AC) {
+    constructor(AC, opts = {}) {
         super(AC)
         this.name = 'ChannelMerger'
         this.channelMerger = this.AC.createChannelMerger(2)

@@ -1,7 +1,11 @@
 import DotAudioNode from '../DotAudioNode.js'
 
+const defaultProps = {
+    delayTime: 0,
+}
+
 class Delay extends DotAudioNode {
-    constructor(AC) {
+    constructor(AC, opts = {}) {
         super(AC)
         this.name = 'Delay'
         this.delay = this.AC.createDelay()
@@ -9,6 +13,14 @@ class Delay extends DotAudioNode {
         this.params = {
             delayTime: this.delay.delayTime,
         }
+
+        // Initialize
+        const initProps = {
+            ...defaultProps,
+            ...opts,
+        }
+
+        this.setDelayTime(initProps.delayTime)
     }
 
     // - Getters -

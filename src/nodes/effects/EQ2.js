@@ -1,12 +1,19 @@
 import DotAudioNode from '../DotAudioNode.js'
 import Filter from '../core/Filter.js'
 
+const defaultProps = {
+    lowFrequency: 320,
+    lowGain: 0,
+    highFrequency: 3200,
+    highGain: 0,
+}
+
 class EQ2 extends DotAudioNode {
-    constructor(AC) {
+    constructor(AC, opts = {}) {
         super(AC)
         this.name = 'EQ2'
-        this.low = new Filter(this.AC)
-        this.high = new Filter(this.AC)
+        this.low = new Filter(this.AC, { type: 'lowshelf', frequency: 320 })
+        this.high = new Filter(this.AC, { type: 'highshelf', frequency: 3200 })
 
         this.params = {
             lowFrequency: this.low.getParams().frequency,
@@ -16,11 +23,17 @@ class EQ2 extends DotAudioNode {
         }
 
         // Initialize
-        this.low.setType('lowshelf')
-        this.low.setFrequency(320.0)
-        this.high.setType('highshelf')
-        this.high.setFrequency(3200.0)
+        const initProps = {
+            ...defaultProps,
+            ...opts,
+        }
 
+        this.setLowFrequency(initProps.lowFrequency)
+        this.setLowGain(initProps.lowGain)
+        this.setHighFrequency(initProps.highFrequency)
+        this.setHighGain(initProps.highGain)
+
+        // Connections
         this.low.connect(this.high)
     }
 
@@ -28,9 +41,9 @@ class EQ2 extends DotAudioNode {
     getInputs = () => [this.low]
     getOutputs = () => [this.high]
 
-    getLowFrequency = () => this.params.lowFreq.value
+    getLowFrequency = () => this.params.lowFrequency.value
     getLowGain = () => this.params.lowGain.value
-    getHighFrequency = () => this.params.highFreq.value
+    getHighFrequency = () => this.params.highFrequency.value
     getHighGain = () => this.params.highGain.value
 
     // - Setters -

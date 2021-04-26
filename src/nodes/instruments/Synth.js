@@ -3,12 +3,23 @@ import GainEnvelope from '../components/GainEnvelope.js'
 import Oscillator from '../sources/Oscillator.js'
 import { getNoteFrequency } from '../../util/util.js'
 
+const defaultProps = {
+    waveform: 'sine',
+    frequency: 440,
+    detune: 0,
+    gainAttack: 0,
+    gainDecay: 0,
+    gainSustain: 1,
+    gainRelease: 0,
+    gainAmount: 0.75,
+}
+
 // Simple Oscillator connected to a GainEnvelope
 class Synth extends DotAudioNode {
-    constructor(AC) {
+    constructor(AC, opts = {}) {
         super(AC)
         this.name = 'Synth'
-        this.osc = new Oscillator(this.AC)
+        this.osc = new Oscillator(this.AC, { start: true })
         this.gainEnv = new GainEnvelope(this.AC)
 
         this.currentNote = null
@@ -19,8 +30,22 @@ class Synth extends DotAudioNode {
         }
 
         // Initialize
+        const initProps = {
+            ...defaultProps,
+            ...opts,
+        }
+
+        this.setWaveform(initProps.waveform)
+        this.setFrequency(initProps.frequency)
+        this.setDetune(initProps.detune)
+        this.setGainAttack(initProps.gainAttack)
+        this.setGainDecay(initProps.gainDecay)
+        this.setGainSustain(initProps.gainSustain)
+        this.setGainRelease(initProps.gainRelease)
+        this.setGainAmount(initProps.gainAmount)
+
+        // Connections
         this.osc.connect(this.gainEnv)
-        this.osc.start()
     }
 
     // --- Public Methods ---

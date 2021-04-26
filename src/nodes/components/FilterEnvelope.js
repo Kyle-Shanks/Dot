@@ -1,9 +1,17 @@
 import Filter from '../core/Filter.js'
 import Envelope from './Envelope.js'
 
+const defaultProps = {
+    frequency: 2000,
+    q: 0,
+    detune: 0,
+    gain: 0,
+    type: 'lowpass',
+}
+
 class FilterEnvelope extends Envelope {
-    constructor(AC) {
-        super(AC)
+    constructor(AC, opts = {}) {
+        super(AC, opts)
         this.name = 'FilterEnvelope'
         this.filter = new Filter(this.AC)
 
@@ -15,6 +23,18 @@ class FilterEnvelope extends Envelope {
         }
 
         // Initialize
+        const initProps = {
+            ...defaultProps,
+            ...opts,
+        }
+
+        this.setFrequency(initProps.frequency)
+        this.setQ(initProps.q)
+        this.setDetune(initProps.detune)
+        this.setGain(initProps.gain)
+        this.setType(initProps.type)
+
+        // Connections
         this.source.connect(this.filter.getParams().frequency)
     }
 

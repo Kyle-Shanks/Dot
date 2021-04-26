@@ -1,10 +1,23 @@
 import FilterEnvelope from '../components/FilterEnvelope.js'
 import Synth from './Synth.js'
 
+const defaultProps = {
+    filterFrequency: 2000,
+    filterQ: 0,
+    filterDetune: 0,
+    filterGain: 0,
+    filterType: 'lowpass',
+    filterAttack: 0,
+    filterDecay: 0,
+    filterSustain: 1,
+    filterRelease: 0,
+    filterAmount: 6000,
+}
+
 // Simple Oscillator connected to a GainEnvelope and a FilterEnvelope
 class MonoSynth extends Synth {
-    constructor(AC) {
-        super(AC)
+    constructor(AC, opts = {}) {
+        super(AC, opts)
         this.name = 'MonoSynth'
         this.filterEnv = new FilterEnvelope(this.AC)
 
@@ -17,6 +30,23 @@ class MonoSynth extends Synth {
         }
 
         // Initialize
+        const initProps = {
+            ...defaultProps,
+            ...opts,
+        }
+
+        this.setFilterType(initProps.filterType)
+        this.setFilterFrequency(initProps.filterFrequency)
+        this.setFilterQ(initProps.filterQ)
+        this.setFilterDetune(initProps.filterDetune)
+        this.setFilterGain(initProps.filterGain)
+        this.setFilterAttack(initProps.filterAttack)
+        this.setFilterDecay(initProps.filterDecay)
+        this.setFilterSustain(initProps.filterSustain)
+        this.setFilterRelease(initProps.filterRelease)
+        this.setFilterAmount(initProps.filterAmount)
+
+        // Connections
         this.gainEnv.connect(this.filterEnv)
     }
 

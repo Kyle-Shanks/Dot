@@ -1,8 +1,16 @@
 import DotAudioNode from '../DotAudioNode.js'
 import { FILTER_TYPE } from '../../util/util.js'
 
+const defaultProps = {
+    frequency: 11000,
+    q: 0,
+    detune: 0,
+    gain: 0,
+    type: 'lowpass',
+}
+
 class Filter extends DotAudioNode {
-    constructor(AC) {
+    constructor(AC, opts = {}) {
         super(AC)
         this.name = 'Filter'
         this.filter = this.AC.createBiquadFilter()
@@ -13,6 +21,18 @@ class Filter extends DotAudioNode {
             gain: this.filter.gain,
             detune: this.filter.detune,
         }
+
+        // Initialize
+        const initProps = {
+            ...defaultProps,
+            ...opts,
+        }
+
+        this.setFrequency(initProps.frequency)
+        this.setQ(initProps.q)
+        this.setGain(initProps.gain)
+        this.setDetune(initProps.detune)
+        this.setType(initProps.type)
     }
 
     // - Getters -

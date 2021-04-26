@@ -1,7 +1,12 @@
 import DotAudioNode from '../DotAudioNode.js'
 
+const defaultProps = {
+    offset: 1,
+    start: false,
+}
+
 class Source extends DotAudioNode {
-    constructor(AC) {
+    constructor(AC, opts = {}) {
         super(AC)
         this.name = 'Source'
         this.source = this.AC.createConstantSource()
@@ -9,6 +14,16 @@ class Source extends DotAudioNode {
         this.params = {
             offset: this.source.offset,
         }
+
+        // Initialize
+        const initProps = {
+            ...defaultProps,
+            ...opts,
+        }
+
+        this.setOffset(initProps.offset)
+
+        if (initProps.start) this.start()
     }
 
     start = () => this.source.start()

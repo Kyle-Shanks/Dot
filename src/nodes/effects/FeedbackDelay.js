@@ -3,8 +3,15 @@ import Gain from '../core/Gain.js'
 import Filter from '../core/Filter.js'
 import Delay from '../core/Delay.js'
 
+const defaultProps = {
+    amount: 0,
+    delayTime: 0.2,
+    feedback: 0.6,
+    tone: 4400,
+}
+
 class FeedbackDelay extends DotAudioNode {
-    constructor(AC) {
+    constructor(AC, opts = {}) {
         super(AC)
         this.name = 'FeedbackDelay'
         this.dryGain = new Gain(this.AC)
@@ -21,13 +28,21 @@ class FeedbackDelay extends DotAudioNode {
         }
 
         // Initialize
+        const initProps = {
+            ...defaultProps,
+            ...opts,
+        }
+
+        this.setAmount(initProps.amount)
+        this.setDelayTime(initProps.delayTime)
+        this.setFeedback(initProps.feedback)
+        this.setTone(initProps.tone)
+
+        // Connections
         this.delay.connect(this.feedbackGain)
         this.feedbackGain.connect(this.tone)
         this.feedbackGain.connect(this.delay)
         this.tone.connect(this.wetGain)
-
-        this.setAmount(0)
-        this.setFeedback(0)
     }
 
     // - Getters -

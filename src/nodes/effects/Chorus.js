@@ -7,23 +7,27 @@ import LFO from '../sources/LFO.js'
 // TODO: Need to figure out a better way to handle the phasing
 // Currently just doubling the rate of the right delay
 
+const defaultProps = {
+    amount: 0,
+    delayTime: 0.04,
+    depth: 0.005,
+    rate: 0.25,
+    feedback: 0.4,
+}
+
 class Chorus extends DotAudioNode {
-    constructor(AC) {
+    constructor(AC, opts = {}) {
         super(AC)
         this.name = 'Chorus'
         this.dryGain = new Gain(this.AC)
-        this.leftLFO = new LFO(this.AC)
-        this.rightLFO = new LFO(this.AC)
-        this.leftGain = new Gain(this.AC)
-        this.rightGain = new Gain(this.AC)
+        this.leftLFO = new LFO(this.AC, { start: true })
+        this.rightLFO = new LFO(this.AC, { start: true })
+        this.chorusGain = new Gain(this.AC, { gain: 0.6 })
         this.leftDelay = new Delay(this.AC)
         this.rightDelay = new Delay(this.AC)
         this.channelMerger = new ChannelMerger(this.AC)
         this.feedback = new Gain(this.AC)
         this.wetGain = new Gain(this.AC)
-
-        this.leftGain.setGain(0.6)
-        this.rightGain.setGain(0.6)
 
         this.params = {
             delayTime: [this.leftDelay.getParams().delayTime, this.rightDelay.getParams().delayTime],
@@ -33,8 +37,20 @@ class Chorus extends DotAudioNode {
         }
 
         // Initialize
-        this.leftGain.connect(this.leftDelay)
-        this.rightGain.connect(this.rightDelay)
+        const initProps = {
+            ...defaultProps,
+            ...opts,
+        }
+
+        this.setAmount(initProps.amount)
+        this.setDelayTime(initProps.delayTime)
+        this.setRate(initProps.rate)
+        this.setDepth(initProps.depth)
+        this.setFeedback(initProps.feedback)
+
+        // Connections
+        this.chorusGain.connect(this.leftDelay)
+        this.chorusGain.connect(this.rightDelay)
         this.leftDelay.connect(this.channelMerger, 0, 0)
         this.rightDelay.connect(this.channelMerger, 0, 1)
         this.channelMerger.connect(this.feedback)
@@ -43,22 +59,14 @@ class Chorus extends DotAudioNode {
         this.feedback.connect(this.rightDelay)
         this.leftLFO.connect(this.leftDelay.getParams().delayTime)
         this.rightLFO.connect(this.rightDelay.getParams().delayTime)
-        this.leftLFO.start()
-        this.rightLFO.start()
-
-        this.setAmount(0)
-        this.setFeedback(0.4)
-        this.setDelayTime(0.04)
-        this.setDepth(0.005)
-        this.setRate(0.25)
     }
 
     // - Getters -
-    getInputs = () => [this.dryGain, this.leftGain, this.rightGain]
+    getInputs = () => [this.dryGain, this.chorusGain]
     getOutputs = () => [this.dryGain, this.wetGain]
 
     getAmount = () => this.wetGain.getGain()
-    getDelayTime = () => this.leftGain.getDelayTime()
+    getDelayTime = () => this.leftDelay.getDelayTime()
     getFeedback = () => this.params.feedback.value
     getRate = () => this.leftLFO.getRate()
     getDepth = () => this.leftLFO.getDepth()

@@ -40,6 +40,7 @@ class Limiter extends DotAudioNode {
         this.setRelease(initProps.release)
         this.setGain(initProps.gain)
 
+        // Connections
         this.limiter.connect(this.gain)
     }
 

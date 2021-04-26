@@ -1,11 +1,19 @@
 import DotAudioNode from '../DotAudioNode.js'
 import Source from '../sources/Source.js'
 
+const defaultProps = {
+    attack: 0,
+    decay: 0,
+    sustain: 1,
+    release: 0,
+    modifier: 1,
+}
+
 class Envelope extends DotAudioNode {
-    constructor(AC) {
+    constructor(AC, opts = {}) {
         super(AC)
         this.name = 'Envelope'
-        this.source = new Source(this.AC)
+        this.source = new Source(this.AC, { start: true })
 
         this.timeoutIds = []
         this.attack = 0
@@ -16,8 +24,18 @@ class Envelope extends DotAudioNode {
         this.params = {}
 
         // Initialize
+        const initProps = {
+            ...defaultProps,
+            ...opts,
+        }
+
+        this.setAttack(initProps.attack)
+        this.setDecay(initProps.decay)
+        this.setSustain(initProps.sustain)
+        this.setRelease(initProps.release)
+        this.setModifier(initProps.modifier)
+
         this.source.setOffset(0)
-        this.source.start()
     }
 
     // --- Public Methods ---

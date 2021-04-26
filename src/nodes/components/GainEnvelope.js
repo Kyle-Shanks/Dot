@@ -1,9 +1,13 @@
 import Gain from '../core/Gain.js'
 import Envelope from './Envelope.js'
 
+const defaultProps = {
+    gain: 0,
+}
+
 class GainEnvelope extends Envelope {
-    constructor(AC) {
-        super(AC)
+    constructor(AC, opts = {}) {
+        super(AC, opts)
         this.name = 'GainEnvelope'
         this.gain = new Gain(this.AC)
 
@@ -12,7 +16,14 @@ class GainEnvelope extends Envelope {
         }
 
         // Initialize
-        this.gain.setGain(0)
+        const initProps = {
+            ...defaultProps,
+            ...opts,
+        }
+
+        this.setGain(initProps.gain)
+
+        // Connections
         this.source.connect(this.gain.getParams().gain)
     }
 

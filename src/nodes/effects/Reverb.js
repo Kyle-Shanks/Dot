@@ -4,8 +4,14 @@ import Convolver from '../core/Convolver.js'
 import reverbBase64 from '../../util/reverbBase64String.js'
 import { base64ToArrayBuffer } from '../../util/util.js'
 
+const defaultProps = {
+    amount: 0,
+    buffer: null,
+    normalize: false,
+}
+
 class Reverb extends DotAudioNode {
-    constructor(AC) {
+    constructor(AC, opts = {}) {
         super(AC)
         this.name = 'Reverb'
         this.dryGain = new Gain(this.AC)
@@ -16,14 +22,26 @@ class Reverb extends DotAudioNode {
         this.params = {}
 
         // Initialize
-        this.convolver.connect(this.wetGain)
+        const initProps = {
+            ...defaultProps,
+            ...opts,
+        }
 
-        this.setAmount(0)
-        this.AC.decodeAudioData(
-            base64ToArrayBuffer(reverbBase64),
-            buffer => this.setBuffer(buffer),
-            e => console.error('Error decoding reverb data: ' + e.err)
-        )
+        this.setAmount(initProps.amount)
+        this.setBuffer(initProps.buffer)
+        this.setNormalize(initProps.normalize)
+
+        // Load default buffer if none
+        if (!this.getBuffer()) {
+            this.AC.decodeAudioData(
+                base64ToArrayBuffer(reverbBase64),
+                buffer => this.setBuffer(buffer),
+                e => console.error('Error decoding reverb data: ' + e.err)
+            )
+        }
+
+        // Connections
+        this.convolver.connect(this.wetGain)
     }
 
     // - Getters -

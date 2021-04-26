@@ -4,9 +4,16 @@ import Oscillator from './Oscillator.js'
 import { clamp } from '../../util/util.js'
 
 const MAX_RATE = 100
+const defaultProps = {
+    rate: 1,
+    depth: 1,
+    detune: 0,
+    type: 'sine',
+    start: false,
+}
 
 class LFO extends DotAudioNode {
-    constructor(AC) {
+    constructor(AC, opts = {}) {
         super(AC)
         this.name = 'LFO'
         this.depth = new Gain(this.AC)
@@ -20,7 +27,19 @@ class LFO extends DotAudioNode {
         }
 
         // Initialize
+        const initProps = {
+            ...defaultProps,
+            ...opts,
+        }
+
+        this.setRate(initProps.rate)
+        this.setDepth(initProps.depth)
+        this.setDetune(initProps.detune)
+        this.setType(initProps.type)
+
+        // Connections
         this.osc.connect(this.depth)
+        if (initProps.start) this.start()
     }
 
     start = () => this.osc.start()

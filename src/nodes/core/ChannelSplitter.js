@@ -1,7 +1,9 @@
 import DotAudioNode from '../DotAudioNode.js'
 
+const defaultProps = {}
+
 class ChannelSplitter extends DotAudioNode {
-    constructor(AC) {
+    constructor(AC, opts = {}) {
         super(AC)
         this.name = 'ChannelSplitter'
         this.channelSplitter = this.AC.createChannelSplitter(2)
