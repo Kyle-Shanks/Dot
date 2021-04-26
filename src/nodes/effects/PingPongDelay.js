@@ -6,8 +6,11 @@ import ChannelMerger from '../core/ChannelMerger.js'
 
 const defaultProps = {
     amount: 0,
-    delayTime: 0.2,
-    feedback: 0.6,
+    preDelayTime: 0.2,
+    leftDelayTime: 0.2,
+    rightDelayTime: 0.2,
+    leftFeedback: 0.6,
+    rightFeedback: 0.6,
     tone: 4400,
 }
 
@@ -27,8 +30,11 @@ class PingPongDelay extends DotAudioNode{
 
         this.amount = 0
         this.params = {
-            delayTime: this.leftDelay.getParams().delayTime,
-            feedback: this.leftFeedbackGain.getParams().gain,
+            preDelayTime: this.preDelay.getParams().delayTime,
+            leftDelayTime: this.leftDelay.getParams().delayTime,
+            rightDelayTime: this.rightDelay.getParams().delayTime,
+            leftFeedback: this.leftFeedbackGain.getParams().gain,
+            rightFeedback: this.rightFeedbackGain.getParams().gain,
             tone: this.tone.getParams().frequency,
         }
 
@@ -39,8 +45,11 @@ class PingPongDelay extends DotAudioNode{
         }
 
         this.setAmount(initProps.amount)
-        this.setDelayTime(initProps.delayTime)
-        this.setFeedback(initProps.feedback)
+        this.setPreDelayTime(initProps.preDelayTime)
+        this.setLeftDelayTime(initProps.leftDelayTime)
+        this.setRightDelayTime(initProps.rightDelayTime)
+        this.setLeftFeedback(initProps.leftFeedback)
+        this.setRightFeedback(initProps.rightFeedback)
         this.setTone(initProps.tone)
 
         // Connections
@@ -60,9 +69,12 @@ class PingPongDelay extends DotAudioNode{
     getOutputs = () => [this.dryGain, this.wetGain]
 
     getAmount = () => this.amount
-    getDelayTime = () => this.params.delayTime.value
+    getPreDelayTime = () => this.params.preDelayTime.value
+    getLeftDelayTime = () => this.params.leftDelayTime.value
+    getRightDelayTime = () => this.params.rightDelayTime.value
+    getLeftFeedback = () => this.params.leftFeedback.value
+    getRightFeedback = () => this.params.rightFeedback.value
     getTone = () => this.params.tone.value
-    getFeedback = () => this.params.feedback.value
 
     // - Setters -
     setAmount = (val, time) => {
@@ -74,16 +86,12 @@ class PingPongDelay extends DotAudioNode{
             time,
         )
     }
-    setFeedback = (val, time) => {
-        this.leftFeedbackGain.setGain(val, time)
-        this.rightFeedbackGain.setGain(val, time)
-    }
+    setPreDelayTime = (val, time) => this.preDelay.setDelayTime(val, time)
+    setLeftDelayTime = (val, time) => this.leftDelay.setDelayTime(val, time)
+    setRightDelayTime = (val, time) => this.rightDelay.setDelayTime(val, time)
+    setLeftFeedback = (val, time) => this.leftFeedbackGain.setGain(val, time)
+    setRightFeedback = (val, time) => this.rightFeedbackGain.setGain(val, time)
     setTone = (val, time) => this.tone.setFrequency(val, time)
-    setDelayTime = (val, time) => {
-        this.preDelay.setDelayTime(val, time)
-        this.leftDelay.setDelayTime(val, time)
-        this.rightDelay.setDelayTime(val, time)
-    }
 }
 
 export default PingPongDelay

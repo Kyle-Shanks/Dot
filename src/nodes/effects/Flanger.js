@@ -7,7 +7,7 @@ const defaultProps = {
     amount: 0,
     delayTime: 0.01,
     depth: 0.0015,
-    feedback: 0.6,
+    feedback: 0.6666,
     rate: 0.3333,
 }
 
