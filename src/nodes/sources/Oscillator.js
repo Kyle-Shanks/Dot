@@ -1,8 +1,6 @@
 import DotAudioNode from 'nodes/DotAudioNode'
 import { WAVEFORM } from 'src/util/util'
 
-console.log({ WAVEFORM })
-
 const defaultProps = {
     type: 'sine',
     frequency: 440,
