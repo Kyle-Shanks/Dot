@@ -1,5 +1,5 @@
-import DotAudioNode from '../DotAudioNode.js'
-import { OVERSAMPLE } from '../../util/util.js'
+import DotAudioNode from 'nodes/DotAudioNode'
+import { OVERSAMPLE } from 'src/util/util'
 
 const defaultProps = {
     curve: null,

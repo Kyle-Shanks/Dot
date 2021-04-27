@@ -1,5 +1,5 @@
-import DotAudioNode from '../DotAudioNode.js'
-import { FILTER_TYPE } from '../../util/util.js'
+import DotAudioNode from 'nodes/DotAudioNode'
+import { FILTER_TYPE } from 'src/util/util'
 
 const defaultProps = {
     frequency: 11000,

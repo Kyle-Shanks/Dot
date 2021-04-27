@@ -1,8 +1,8 @@
-import DotAudioNode from '../DotAudioNode.js'
-import Gain from '../core/Gain.js'
-import Convolver from '../core/Convolver.js'
-import reverbBase64 from '../../util/reverbBase64String.js'
-import { base64ToArrayBuffer } from '../../util/util.js'
+import DotAudioNode from 'nodes/DotAudioNode'
+import Gain from 'nodes/core/Gain'
+import Convolver from 'nodes/core/Convolver'
+import reverbBase64 from 'src/util/reverbBase64String'
+import { base64ToArrayBuffer } from 'src/util/util'
 
 const defaultProps = {
     amount: 0,

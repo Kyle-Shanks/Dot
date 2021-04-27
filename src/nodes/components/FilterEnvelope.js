@@ -1,5 +1,5 @@
-import Filter from '../core/Filter.js'
-import Envelope from './Envelope.js'
+import Envelope from 'nodes/components/Envelope'
+import Filter from 'nodes/core/Filter'
 
 const defaultProps = {
     frequency: 2000,

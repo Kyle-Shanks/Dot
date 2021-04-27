@@ -1,8 +1,8 @@
-import DotAudioNode from '../DotAudioNode.js'
-import ChannelMerger from '../core/ChannelMerger.js'
-import Delay from '../core/Delay.js'
-import Gain from '../core/Gain.js'
-import LFO from '../sources/LFO.js'
+import DotAudioNode from 'nodes/DotAudioNode'
+import ChannelMerger from 'nodes/core/ChannelMerger'
+import Delay from 'nodes/core/Delay'
+import Gain from 'nodes/core/Gain'
+import LFO from 'nodes/sources/LFO'
 
 // TODO: Need to figure out a better way to handle the phasing
 // Currently just doubling the rate of the right delay

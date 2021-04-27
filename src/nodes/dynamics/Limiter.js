@@ -1,6 +1,6 @@
-import DotAudioNode from '../DotAudioNode.js'
-import Compressor from '../core/Compressor.js'
-import Gain from '../core/Gain.js'
+import DotAudioNode from 'nodes/DotAudioNode'
+import Compressor from 'nodes/core/Compressor'
+import Gain from 'nodes/core/Gain'
 
 const defaultProps = {
     threshold: -6,

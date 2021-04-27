@@ -1,6 +1,6 @@
-import DotAudioNode from '../DotAudioNode.js'
-import Limiter from '../dynamics/Limiter.js'
-import MonoSynth from './MonoSynth.js'
+import DotAudioNode from 'nodes/DotAudioNode'
+import Limiter from 'nodes/dynamics/Limiter'
+import MonoSynth from 'nodes/instruments/MonoSynth'
 
 const defaultProps = {
     waveform: 'sine',

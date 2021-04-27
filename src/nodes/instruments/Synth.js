@@ -1,7 +1,8 @@
-import DotAudioNode from '../DotAudioNode.js'
-import GainEnvelope from '../components/GainEnvelope.js'
-import Oscillator from '../sources/Oscillator.js'
-import { getNoteFrequency } from '../../util/util.js'
+import DotAudioNode from 'nodes/DotAudioNode'
+import GainEnvelope from 'nodes/components/GainEnvelope'
+import Oscillator from 'nodes/sources/Oscillator'
+import { getNoteFrequency } from 'src/util/util'
+
 
 const defaultProps = {
     waveform: 'sine',

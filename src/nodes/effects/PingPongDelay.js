@@ -1,8 +1,8 @@
-import DotAudioNode from '../DotAudioNode.js'
-import Gain from '../core/Gain.js'
-import Filter from '../core/Filter.js'
-import Delay from '../core/Delay.js'
-import ChannelMerger from '../core/ChannelMerger.js'
+import DotAudioNode from 'nodes/DotAudioNode'
+import Gain from 'nodes/core/Gain'
+import Filter from 'nodes/core/Filter'
+import Delay from 'nodes/core/Delay'
+import ChannelMerger from 'nodes/core/ChannelMerger'
 
 const defaultProps = {
     amount: 0,

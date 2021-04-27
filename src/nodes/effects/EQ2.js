@@ -1,5 +1,5 @@
-import DotAudioNode from '../DotAudioNode.js'
-import Filter from '../core/Filter.js'
+import DotAudioNode from 'nodes/DotAudioNode'
+import Filter from 'nodes/core/Filter'
 
 const defaultProps = {
     lowFrequency: 320,

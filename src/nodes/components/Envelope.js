@@ -1,5 +1,5 @@
-import DotAudioNode from '../DotAudioNode.js'
-import Source from '../sources/Source.js'
+import DotAudioNode from 'nodes/DotAudioNode'
+import Source from 'nodes/sources/Source'
 
 const defaultProps = {
     attack: 0,

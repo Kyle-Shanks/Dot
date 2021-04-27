@@ -1,4 +1,4 @@
-import DotAudioNode from '../DotAudioNode.js'
+import DotAudioNode from 'nodes/DotAudioNode'
 
 const defaultProps = {
     offset: 1,
