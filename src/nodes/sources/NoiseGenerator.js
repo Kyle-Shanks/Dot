@@ -1,5 +1,5 @@
 import DotAudioNode from '../DotAudioNode.js'
-import BufferSource from '../core/BufferSource.js'
+import BufferSource from './BufferSource.js'
 import { NOISE_TYPE } from '../../util/util.js'
 
 const getBuffer = (AC) => {
