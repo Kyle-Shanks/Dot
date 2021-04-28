@@ -1,5 +1,8 @@
 import DotAudioNode from 'nodes/DotAudioNode'
-import { ChannelMerger, Delay, Filter, Gain } from 'nodes'
+import Gain from 'nodes/core/Gain'
+import Filter from 'nodes/core/Filter'
+import Delay from 'nodes/core/Delay'
+import ChannelMerger from 'nodes/core/ChannelMerger'
 
 const defaultProps = {
     amount: 0,

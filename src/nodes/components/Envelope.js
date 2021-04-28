@@ -1,5 +1,5 @@
 import DotAudioNode from 'nodes/DotAudioNode'
-import { ConstantSource } from 'nodes'
+import ConstantSource from 'nodes/sources/ConstantSource'
 
 const defaultProps = {
     attack: 0,

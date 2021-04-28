@@ -1,5 +1,7 @@
 import DotAudioNode from 'nodes/DotAudioNode'
-import { GainEnvelope, Limiter, Osc } from 'nodes'
+import GainEnvelope from 'nodes/components/GainEnvelope'
+import Limiter from 'nodes/dynamics/Limiter'
+import Osc from 'nodes/instruments/Osc'
 import fmAlgorithms from 'src/util/fmAlgorithms'
 
 // NOTE: FMSynth can't have the normal noteOn and noteOff methods bc the oscillator that

@@ -1,5 +1,8 @@
 import DotAudioNode from 'nodes/DotAudioNode'
-import { ChannelMerger, Delay, Gain, LFO } from 'nodes'
+import ChannelMerger from 'nodes/core/ChannelMerger'
+import Delay from 'nodes/core/Delay'
+import Gain from 'nodes/core/Gain'
+import LFO from 'nodes/sources/LFO'
 
 // TODO: Need to figure out a better way to handle the phasing
 // Currently just doubling the rate of the right delay

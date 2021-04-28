@@ -1,5 +1,6 @@
 import DotAudioNode from 'nodes/DotAudioNode'
-import { Convolver, Gain } from 'nodes'
+import Gain from 'nodes/core/Gain'
+import Convolver from 'nodes/core/Convolver'
 import reverbBase64 from 'src/util/reverbBase64String'
 import { base64ToArrayBuffer } from 'src/util/util'
 

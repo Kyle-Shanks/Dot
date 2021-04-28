@@ -1,4 +1,5 @@
-import { Envelope, Gain } from 'nodes'
+import Envelope from 'nodes/components/Envelope'
+import Gain from 'nodes/core/Gain.js'
 
 const defaultProps = {
     gain: 0,

@@ -1,5 +1,6 @@
 import DotAudioNode from 'nodes/DotAudioNode'
-import { Gain, Oscillator } from 'nodes'
+import Gain from 'nodes/core/Gain'
+import Oscillator from 'nodes/sources/Oscillator'
 import { clamp } from 'src/util/util'
 
 const MAX_RATE = 100
