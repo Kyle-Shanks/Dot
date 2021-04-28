@@ -13,37 +13,21 @@ export const FILTER_TYPE = [
     'highshelf',
 ]
 
-// MIDI numbers for 4th octave
-// const midiNodeMap = {
-//     60: 'C',
-//     61: 'C#',
-//     62: 'D',
-//     63: 'D#',
-//     64: 'E',
-//     65: 'F',
-//     66: 'F#',
-//     67: 'G',
-//     68: 'G#',
-//     69: 'A',
-//     70: 'A#',
-//     71: 'B',
-// }
-
 // MIDI numbers for 0th octave
-// const midiNodeMap = {
-//     12: 'C',
-//     13: 'C#',
-//     14: 'D',
-//     15: 'D#',
-//     16: 'E',
-//     17: 'F',
-//     18: 'F#',
-//     19: 'G',
-//     20: 'G#',
-//     21: 'A',
-//     22: 'A#',
-//     23: 'B',
-// }
+const midiNoteMap = {
+    12: 'C',
+    13: 'C#',
+    14: 'D',
+    15: 'D#',
+    16: 'E',
+    17: 'F',
+    18: 'F#',
+    19: 'G',
+    20: 'G#',
+    21: 'A',
+    22: 'A#',
+    23: 'B',
+}
 
 // Frequencies in 4th octave
 const freqMap = {
@@ -59,6 +43,18 @@ const freqMap = {
     'A': 440.00,
     'A#': 466.16,
     'B': 493.88,
+}
+
+const midiToNote = (midi) => {
+    if (midi < 12 || midi > 120) return
+    let octave = 0
+
+    while (midi > 23) {
+        midi -= 12
+        octave++
+    }
+
+    return `${midiNoteMap[midi]}${octave}`
 }
 
 export const clamp = (val, min, max) => Math.min(max, Math.max(min, val))

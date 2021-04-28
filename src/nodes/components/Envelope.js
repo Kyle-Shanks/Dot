@@ -1,5 +1,5 @@
 import DotAudioNode from 'nodes/DotAudioNode'
-import Source from 'nodes/sources/Source'
+import ConstantSource from 'nodes/sources/ConstantSource'
 
 const defaultProps = {
     attack: 0,
@@ -13,7 +13,7 @@ class Envelope extends DotAudioNode {
     constructor(AC, opts = {}) {
         super(AC)
         this.name = 'Envelope'
-        this.source = new Source(this.AC, { start: true })
+        this.source = new ConstantSource(this.AC, { start: true })
 
         this.timeoutIds = []
         this.attack = 0

@@ -5,10 +5,10 @@ const defaultProps = {
     start: false,
 }
 
-class Source extends DotAudioNode {
+class ConstantSource extends DotAudioNode {
     constructor(AC, opts = {}) {
         super(AC)
-        this.name = 'Source'
+        this.name = 'ConstantSource'
         this.source = this.AC.createConstantSource()
 
         this.params = {
@@ -38,4 +38,4 @@ class Source extends DotAudioNode {
     setOffset = (val, time) => this._timeUpdate(this.params.offset, val, time)
 }
 
-export default Source
+export default ConstantSource

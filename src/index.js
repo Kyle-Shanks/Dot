@@ -32,11 +32,11 @@ import SimpleFMSynth from 'nodes/instruments/SimpleFMSynth'
 import Synth from 'nodes/instruments/Synth'
 // Sources
 import BufferSource from 'nodes/sources/BufferSource'
+import ConstantSource from 'nodes/sources/ConstantSource'
 import LFO from 'nodes/sources/LFO'
 import NoiseGenerator from 'nodes/sources/NoiseGenerator'
 import Oscillator from 'nodes/sources/Oscillator'
 import SignalGenerator from 'nodes/sources/SignalGenerator'
-import Source from 'nodes/sources/Source'
 
 // - Util -
 import { getNoteFrequency } from 'src/util/util'
@@ -69,11 +69,11 @@ const Dot = {
     SimpleFMSynth,
     Synth,
     BufferSource,
+    ConstantSource,
     LFO,
     NoiseGenerator,
     Oscillator,
     SignalGenerator,
-    Source,
 }
 
 export default Dot
