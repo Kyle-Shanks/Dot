@@ -1,7 +1,5 @@
 import DotAudioNode from 'nodes/DotAudioNode'
-import Gain from 'nodes/core/Gain'
-import Delay from 'nodes/core/Delay'
-import LFO from 'nodes/sources/LFO'
+import { Delay, Gain, LFO } from 'nodes'
 
 const defaultProps = {
     amount: 0,

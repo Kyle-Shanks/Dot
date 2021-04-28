@@ -1,6 +1,5 @@
 import DotAudioNode from 'nodes/DotAudioNode'
-import Synth from 'nodes/instruments/Synth'
-import Osc from 'nodes/instruments/Osc'
+import { Osc, Synth } from 'nodes'
 
 const defaultProps = {
     modulatorFrequency: 440,

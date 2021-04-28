@@ -1,7 +1,5 @@
 import DotAudioNode from 'nodes/DotAudioNode'
-import Gain from 'nodes/core/Gain'
-import WaveShaper from 'nodes/core/WaveShaper'
-import Oscillator from 'nodes/sources/Oscillator'
+import { Gain, Oscillator, WaveShaper } from 'nodes'
 
 const defaultProps = {
     gain: 1,

@@ -1,5 +1,4 @@
-import FilterEnvelope from 'nodes/components/FilterEnvelope'
-import Synth from 'nodes/instruments/Synth'
+import { FilterEnvelope, Synth } from 'nodes'
 
 const defaultProps = {
     filterFrequency: 2000,

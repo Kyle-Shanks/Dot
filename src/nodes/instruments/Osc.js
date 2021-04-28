@@ -1,6 +1,5 @@
 import DotAudioNode from 'nodes/DotAudioNode'
-import Gain from 'nodes/core/Gain'
-import Oscillator from 'nodes/sources/Oscillator'
+import { Gain, Oscillator } from 'nodes'
 
 const defaultProps = {
     waveform: 'sine',
