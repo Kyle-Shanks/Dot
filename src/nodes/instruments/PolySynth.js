@@ -1,8 +1,10 @@
 import DotAudioNode from 'nodes/DotAudioNode'
 import Limiter from 'nodes/dynamics/Limiter'
 import MonoSynth from 'nodes/instruments/MonoSynth'
+import { clamp } from 'src/util/util'
 
 const defaultProps = {
+    polyphony: 8,
     waveform: 'sine',
     frequency: 440,
     detune: 0,
@@ -48,6 +50,8 @@ class PolySynth extends DotAudioNode {
             ...opts,
         }
 
+        this.setPolyphony(initProps.polyphony)
+
         this.voices.forEach((voice) => {
             voice.setWaveform(initProps.waveform)
             voice.setFrequency(initProps.frequency)
@@ -76,6 +80,7 @@ class PolySynth extends DotAudioNode {
     // - Getters -
     getOutputs = () => [this.limiter]
 
+    getPolyphony = () => this.polyphony
     // Oscillator
     getWaveform = () => this.voices[0].getWaveform()
     getDetune = () => this.voices[0].getDetune()
@@ -99,6 +104,7 @@ class PolySynth extends DotAudioNode {
     getFilterAmount = () => this.voices[0].getFilterAmount()
 
     // - Setters -
+    setPolyphony = (val) => this.polyphony = clamp(val, 1, 8)
     // Oscillator
     setWaveform = (val) => this.voices.forEach(voice => voice.setWaveform(val))
     setDetune = (val, time) => this.voices.forEach(voice => voice.setDetune(val, time))
