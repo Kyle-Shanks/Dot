@@ -1,5 +1,6 @@
 const disconnectAll = (arr) => arr.forEach(mod => mod.disconnect())
 
+// Algorithms for FMSynth
 const fmAlgorithms = [
     // - Standard Algorithms -
     // A > B > C > D => Out

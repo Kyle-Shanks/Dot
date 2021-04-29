@@ -1,4 +1,6 @@
 export const minTime = 0.005
+export const noteRegex = /^(?![ebEB]#)([a-gA-G]#?)([0-9])$/
+export const NOTES = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B']
 export const OVERSAMPLE = ['none', '2x', '4x']
 export const NOISE_TYPE = ['white', 'pink', 'brown']
 export const WAVEFORM = ['sine', 'triangle', 'square', 'sawtooth']
