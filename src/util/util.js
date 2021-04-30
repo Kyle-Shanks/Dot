@@ -1,5 +1,4 @@
 export const minTime = 0.005
-export const noteRegex = /^(?![ebEB]#)([a-gA-G]#?)([0-9])$/
 export const NOTES = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B']
 export const OVERSAMPLE = ['none', '2x', '4x']
 export const NOISE_TYPE = ['white', 'pink', 'brown']
@@ -14,6 +13,15 @@ export const FILTER_TYPE = [
     'lowshelf',
     'highshelf',
 ]
+
+// Connect a series of nodes
+export const chain = (nodes) => {
+    if (nodes.length < 2) return
+
+    for (let i = 0; i < nodes.length - 1; i++) {
+        nodes[i].connect(nodes[i + 1])
+    }
+}
 
 // MIDI numbers for 0th octave
 const midiNoteMap = {
@@ -47,24 +55,39 @@ const freqMap = {
     'B': 493.88,
 }
 
-const midiToNote = (midi) => {
-    if (midi < 12 || midi > 120) return
+export const noteRegex = /^(?![ebEB]#)([a-gA-G]#?)([0-9])$/
+
+export const parseNote = (val) => {
+    const match = val.match(noteRegex)
+    if (!match) return console.error('Invalid note input')
+
+    return {
+        note: match[1].toUpperCase(),
+        octave: parseInt(match[2])
+    }
+}
+
+export const midiToNote = (midi) => {
+    let idx = clamp(midi, 12, 120)
     let octave = 0
 
-    while (midi > 23) {
-        midi -= 12
+    while (idx > 23) {
+        idx -= 12
         octave++
     }
 
-    return `${midiNoteMap[midi]}${octave}`
+    return `${midiNoteMap[idx]}${octave}`
+}
+export const noteToMidi = (val) => {
+    const {note, octave} = parseNote(val)
+    return NOTES.indexOf(note) + 12 * (octave + 1)
 }
 
 export const clamp = (val, min, max) => Math.min(max, Math.max(min, val))
 
-export const getNoteFrequency = (note) => {
-    const noteName = note.slice(0, -1)
-    const octave = parseInt(note.slice(-1))
-    return freqMap[noteName] * Math.pow(2, octave - 4)
+export const getNoteFrequency = (val) => {
+    const { note, octave } = parseNote(val)
+    return freqMap[note] * Math.pow(2, octave - 4)
 }
 
 export const base64ToArrayBuffer = (base64) => {

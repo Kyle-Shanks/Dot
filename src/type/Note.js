@@ -1,4 +1,11 @@
-import { NOTES, clamp, getNoteFrequency, noteRegex } from 'src/util/util'
+import {
+    NOTES,
+    clamp,
+    getNoteFrequency,
+    midiToNote,
+    noteToMidi,
+    parseNote,
+} from 'src/util/util'
 
 class Note {
     constructor(note = 'A4') {
@@ -12,21 +19,21 @@ class Note {
     getFrequency = () => this.frequency
     get = (prop) => {
         switch(prop) {
-            case 'note': return this.note;
-            case 'octave': return this.octave;
-            case 'frequency': return this.frequency;
-            default: return `${this.note}${this.octave}`;
+            case 'note': return this.note
+            case 'octave': return this.octave
+            case 'frequency': return this.frequency
+            default: return `${this.note}${this.octave}`
         }
     }
 
     // - Setters -
     set = (val) => {
-        const match = val.match(noteRegex)
-        if (!match) return console.error('Invalid note input')
+        const fullNote = typeof val === 'number' ? midiToNote(val) : val
+        const { note, octave } = parseNote(fullNote)
 
-        this.note = match[1].toUpperCase()
-        this.octave = parseInt(match[2])
-        this.frequency = this._updateFrequency()
+        this.note = note
+        this.octave = octave
+        this._updateFrequency()
     }
     setNote = (val) => {
         this.note = val
@@ -40,26 +47,8 @@ class Note {
     // - Util methods -
     transpose = (semitones) => {
         if (semitones === 0) return
-        let idx = NOTES.indexOf(this.note)
-        let mod = 0
-
-        if (semitones > 0) {
-            while (mod < semitones) {
-                idx = (idx + 1) % NOTES.length
-                this.note = NOTES[idx]
-                if (idx === 0) this.octave++
-                mod++
-            }
-        } else {
-            while (mod > semitones) {
-                idx = (idx === 0 ? NOTES.length - 1 : idx - 1)
-                this.note = NOTES[idx]
-                if (idx === NOTES.length - 1) this.octave--
-                mod--
-            }
-        }
-
-        this._updateFrequency()
+        const midi = noteToMidi(this.get())
+        this.set(clamp(midi + semitones, 12, 120))
     }
 
     // --- Private Methods ---
