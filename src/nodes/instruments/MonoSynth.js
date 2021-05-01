@@ -85,8 +85,11 @@ class MonoSynth extends Synth {
         this._noteOn(note)
         this.filterEnv.triggerAttack()
     }
-    noteOff = () => {
-        this._noteOff()
+    noteOff = (note) => {
+        // Do not release if the note if different from the current note
+        if (note && note !== this.currentNote) return
+
+        this._noteOff(note)
         this.filterEnv.triggerRelease()
     }
     noteStop = () => {

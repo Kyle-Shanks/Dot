@@ -86,7 +86,7 @@ class SimpleFMSynth extends DotAudioNode {
 
     // - Note Methods -
     noteOn = (note) => this.carrier.noteOn(note)
-    noteOff = () => this.carrier.noteOff()
+    noteOff = (note) => this.carrier.noteOff(note)
     noteStop = () => this.carrier.noteStop()
 }
 

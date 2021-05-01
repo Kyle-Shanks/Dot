@@ -160,7 +160,7 @@ class PolySynth extends DotAudioNode {
 
         // Release single note
         const targetVoices = this.voices.filter(voice => voice.getCurrentNote() === note)
-        targetVoices.forEach(voice => this._voiceNoteOff(voice))
+        targetVoices.forEach(voice => this._voiceNoteOff(voice, note))
     }
     noteStop = (note) => {
         // If note is undefined, release all notes
@@ -179,7 +179,7 @@ class PolySynth extends DotAudioNode {
     _incrementVoicePos = () => this.voicePos = (this.voicePos + 1) % this.polyphony
 
     _voiceNoteOn = (voice, note) => voice.noteOn(note)
-    _voiceNoteOff = (voice) => voice.noteOff()
+    _voiceNoteOff = (voice, note) => voice.noteOff(note)
     _voiceNoteStop = (voice) => voice.noteStop()
 }
 

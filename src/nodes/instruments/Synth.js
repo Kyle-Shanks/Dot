@@ -79,7 +79,7 @@ class Synth extends DotAudioNode {
 
     // - Note Methods -
     noteOn = (note) => this._noteOn(note)
-    noteOff = () => this._noteOff()
+    noteOff = (note) => this._noteOff(note)
     noteStop = () => this._noteStop()
 
     // --- Private Methods ---
@@ -93,7 +93,10 @@ class Synth extends DotAudioNode {
         this.osc.setFrequency(getNoteFrequency(note))
         this.gainEnv.triggerAttack()
     }
-    _noteOff = () => {
+    _noteOff = (note) => {
+        // Do not release if the note if different from the current note
+        if (note && note !== this.currentNote) return
+
         this.currentNote = null
         this.gainEnv.triggerRelease()
     }
