@@ -7,7 +7,7 @@ import fmAlgorithms from 'src/util/fmAlgorithms'
 // NOTE: FMSynth can't have the normal noteOn and noteOff methods bc the oscillator that
 // is outputing the tone that the user wants to hear will change depending on the algorithm.
 // For now, there are the trigger methods for the gain envelope
-// In the future, a better system for detecting which sync should be updated could be added
+// In the future, a better system for detecting which synth should be updated could be added
 
 const defaultProps = {
     algorithm: 0,

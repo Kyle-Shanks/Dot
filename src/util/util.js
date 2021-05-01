@@ -15,7 +15,7 @@ export const FILTER_TYPE = [
 ]
 
 // Connect a series of nodes
-export const chain = (nodes) => {
+export const chain = (...nodes) => {
     if (nodes.length < 2) return
 
     for (let i = 0; i < nodes.length - 1; i++) {
