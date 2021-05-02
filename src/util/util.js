@@ -76,7 +76,7 @@ const keyMidiMap = {
     'l': 26,
     'p': 27,
     ';': 28,
-};
+}
 
 export const noteRegex = /^(?![ebEB]#)([a-gA-G]#?)([0-9])$/
 

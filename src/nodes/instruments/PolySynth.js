@@ -12,7 +12,7 @@ const defaultProps = {
     gainDecay: 0,
     gainSustain: 1,
     gainRelease: 0,
-    gainAmount: 0.25,
+    gainAmount: 0.15,
     filterFrequency: 2000,
     filterQ: 0,
     filterDetune: 0,
