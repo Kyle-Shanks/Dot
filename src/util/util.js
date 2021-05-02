@@ -96,6 +96,7 @@ export const parseNote = (val) => {
     if (!noteInfo) return
 
     return {
+        fullNote: `${noteInfo.note}${noteInfo.octave}`,
         note: noteInfo.note,
         octave: noteInfo.octave,
         frequency: getNoteFrequency(val),

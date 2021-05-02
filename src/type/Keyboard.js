@@ -44,11 +44,11 @@ class Keyboard {
         }
 
         const note = parseKey(e.key, this.octave)
-        if (note) this.onPress(note)
+        if (note) this.onPress(note, e)
     }
     _keyup = (e) => {
         const note = parseKey(e.key, this.octave)
-        if (note) this.onRelease(note)
+        if (note) this.onRelease(note, e)
     }
 
     // Octave methods
