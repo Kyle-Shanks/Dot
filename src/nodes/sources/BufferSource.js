@@ -20,10 +20,7 @@ class BufferSource extends DotAudioNode {
         }
 
         // Initialize
-        const initProps = {
-            ...defaultProps,
-            ...opts,
-        }
+        const initProps = { ...defaultProps, ...opts }
 
         this.setBuffer(initProps.buffer)
         this.setLoop(initProps.loop)

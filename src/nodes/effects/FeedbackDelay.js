@@ -28,10 +28,7 @@ class FeedbackDelay extends DotAudioNode {
         }
 
         // Initialize
-        const initProps = {
-            ...defaultProps,
-            ...opts,
-        }
+        const initProps = { ...defaultProps, ...opts }
 
         this.setAmount(initProps.amount)
         this.setDelayTime(initProps.delayTime)

@@ -32,10 +32,7 @@ class SimpleFMSynth extends DotAudioNode {
         }
 
         // Initialize
-        const initProps = {
-            ...defaultProps,
-            ...opts,
-        }
+        const initProps = { ...defaultProps, ...opts }
 
         this.setModulatorFrequency(initProps.modulatorFrequency)
         this.setModulatorDetune(initProps.modulatorDetune)

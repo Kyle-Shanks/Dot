@@ -74,9 +74,13 @@ class DotAudioNode {
             ? param.setTargetAtTime(val, this.AC.currentTime, time)
             : param.setValueAtTime(val, this.AC.currentTime)
     }
-    _fadeUpdate = (aParam, bParam, val, time = 0) => {
+    _linearFadeUpdate = (aParam, bParam, val, time = 0) => {
         this._timeUpdate(aParam, 1 - val, time)
         this._timeUpdate(bParam, val, time)
+    }
+    _equalPowerFadeUpdate = (aParam, bParam, val, time = 0) => {
+        this._timeUpdate(aParam, Math.cos(val * 0.5 * Math.PI), time)
+        this._timeUpdate(bParam, Math.cos((1.0 - val) * 0.5 * Math.PI), time)
     }
     _dryWetUpdate = (dryParam, wetParam, val, time = 0) => {
         if (val < 0.5) {

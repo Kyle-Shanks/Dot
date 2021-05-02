@@ -39,10 +39,7 @@ class PingPongDelay extends DotAudioNode{
         }
 
         // Initialize
-        const initProps = {
-            ...defaultProps,
-            ...opts,
-        }
+        const initProps = { ...defaultProps, ...opts }
 
         this.setAmount(initProps.amount)
         this.setPreDelayTime(initProps.preDelayTime)

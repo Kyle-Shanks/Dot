@@ -28,10 +28,7 @@ class Limiter extends DotAudioNode {
         }
 
         // Initialize
-        const initProps = {
-            ...defaultProps,
-            ...opts,
-        }
+        const initProps = { ...defaultProps, ...opts }
 
         this.setThreshold(initProps.threshold)
         this.setRatio(initProps.ratio)

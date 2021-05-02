@@ -14,6 +14,8 @@ export const FILTER_TYPE = [
     'highshelf',
 ]
 
+export const clamp = (val, min, max) => Math.min(max, Math.max(min, val))
+
 // Connect a series of nodes
 export const chain = (...nodes) => {
     if (nodes.length < 2) return
@@ -40,7 +42,7 @@ const midiNoteMap = {
 }
 
 // Frequencies in 4th octave
-const freqMap = {
+const noteFreqMap = {
     'C': 261.63,
     'C#': 277.18,
     'D': 293.66,
@@ -55,20 +57,60 @@ const freqMap = {
     'B': 493.88,
 }
 
+// Key to midi mapping for 0th octave
+const keyMidiMap = {
+    'a': 12,
+    'w': 13,
+    's': 14,
+    'e': 15,
+    'd': 16,
+    'f': 17,
+    't': 18,
+    'g': 19,
+    'y': 20,
+    'h': 21,
+    'u': 22,
+    'j': 23,
+    'k': 24,
+    'o': 25,
+    'l': 26,
+    'p': 27,
+    ';': 28,
+};
+
 export const noteRegex = /^(?![ebEB]#)([a-gA-G]#?)([0-9])$/
 
-export const parseNote = (val) => {
+const getNoteInfo = (val) => {
     const match = val.match(noteRegex)
-    if (!match) return console.error('Invalid note input')
+    if (!match) return
 
     return {
         note: match[1].toUpperCase(),
-        octave: parseInt(match[2])
+        octave: parseInt(match[2]),
     }
 }
 
-export const midiToNote = (midi) => {
-    let idx = clamp(midi, 12, 120)
+// Function to parse note or midi value and return note info
+export const parseNote = (val) => {
+    const noteInfo = getNoteInfo(val)
+    if (!noteInfo) return
+
+    return {
+        note: noteInfo.note,
+        octave: noteInfo.octave,
+        frequency: getNoteFrequency(val),
+        midi: noteToMidi(val),
+    }
+}
+
+// Function to parse keyboard key and return note info
+export const parseKey = (key, octave = 0) => {
+    const midi = keyMidiMap[key] + (octave * 12)
+    return parseNote(midiToNote(midi))
+}
+
+export const midiToNote = (val) => {
+    let idx = clamp(val, 12, 120)
     let octave = 0
 
     while (idx > 23) {
@@ -79,15 +121,13 @@ export const midiToNote = (midi) => {
     return `${midiNoteMap[idx]}${octave}`
 }
 export const noteToMidi = (val) => {
-    const {note, octave} = parseNote(val)
-    return NOTES.indexOf(note) + 12 * (octave + 1)
+    const noteInfo = getNoteInfo(val)
+    return noteInfo ? NOTES.indexOf(noteInfo.note) + 12 * (noteInfo.octave + 1) : null
 }
 
-export const clamp = (val, min, max) => Math.min(max, Math.max(min, val))
-
 export const getNoteFrequency = (val) => {
-    const { note, octave } = parseNote(val)
-    return freqMap[note] * Math.pow(2, octave - 4)
+    const noteInfo = getNoteInfo(val)
+    return noteInfo ? noteFreqMap[noteInfo.note] * Math.pow(2, noteInfo.octave - 4) : null
 }
 
 export const base64ToArrayBuffer = (base64) => {

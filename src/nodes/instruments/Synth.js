@@ -31,10 +31,7 @@ class Synth extends DotAudioNode {
         }
 
         // Initialize
-        const initProps = {
-            ...defaultProps,
-            ...opts,
-        }
+        const initProps = { ...defaultProps, ...opts }
 
         this.setWaveform(initProps.waveform)
         this.setFrequency(initProps.frequency)

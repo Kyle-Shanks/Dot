@@ -16,10 +16,7 @@ class ConstantSource extends DotAudioNode {
         }
 
         // Initialize
-        const initProps = {
-            ...defaultProps,
-            ...opts,
-        }
+        const initProps = { ...defaultProps, ...opts }
 
         this.setOffset(initProps.offset)
 

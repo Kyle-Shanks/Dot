@@ -1,5 +1,4 @@
 import {
-    NOTES,
     clamp,
     getNoteFrequency,
     midiToNote,
@@ -29,18 +28,23 @@ class Note {
     // - Setters -
     set = (val) => {
         const fullNote = typeof val === 'number' ? midiToNote(val) : val
-        const { note, octave } = parseNote(fullNote)
+        const noteInfo = parseNote(fullNote)
 
-        this.note = note
-        this.octave = octave
+        if (!noteInfo) return console.error('Invalid note value')
+
+        this.note = noteInfo.note
+        this.octave = noteInfo.octave
+        this._updateMidi()
         this._updateFrequency()
     }
     setNote = (val) => {
         this.note = val
+        this._updateMidi()
         this._updateFrequency()
     }
     setOctave = (val) => {
         this.octave = clamp(val, 0, 9)
+        this._updateMidi()
         this._updateFrequency()
     }
 
@@ -53,6 +57,7 @@ class Note {
 
     // --- Private Methods ---
     _updateFrequency = () => this.frequency = getNoteFrequency(`${this.note}${this.octave}`)
+    _updateMidi = () => this.midi = noteToMidi(`${this.note}${this.octave}`)
 }
 
 export default Note

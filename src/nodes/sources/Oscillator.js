@@ -20,10 +20,7 @@ class Oscillator extends DotAudioNode {
         }
 
         // Initialize
-        const initProps = {
-            ...defaultProps,
-            ...opts,
-        }
+        const initProps = { ...defaultProps, ...opts }
 
         this.setType(initProps.type)
         this.setFrequency(initProps.frequency)

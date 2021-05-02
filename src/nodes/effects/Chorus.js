@@ -37,10 +37,7 @@ class Chorus extends DotAudioNode {
         }
 
         // Initialize
-        const initProps = {
-            ...defaultProps,
-            ...opts,
-        }
+        const initProps = { ...defaultProps, ...opts }
 
         this.setAmount(initProps.amount)
         this.setDelayTime(initProps.delayTime)
@@ -73,7 +70,7 @@ class Chorus extends DotAudioNode {
 
     // - Setters -
     setAmount = (val, time) => {
-        this._fadeUpdate(
+        this._linearFadeUpdate(
             this.dryGain.getParams().gain,
             this.wetGain.getParams().gain,
             val,

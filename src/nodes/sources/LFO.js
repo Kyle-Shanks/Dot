@@ -27,10 +27,7 @@ class LFO extends DotAudioNode {
         }
 
         // Initialize
-        const initProps = {
-            ...defaultProps,
-            ...opts,
-        }
+        const initProps = { ...defaultProps, ...opts }
 
         this.setRate(initProps.rate)
         this.setDepth(initProps.depth)

@@ -14,10 +14,7 @@ class Convolver extends DotAudioNode {
         this.params = {}
 
         // Initialize
-        const initProps = {
-            ...defaultProps,
-            ...opts,
-        }
+        const initProps = { ...defaultProps, ...opts }
 
         this.setBuffer(initProps.buffer)
         this.setNormalize(initProps.normalize)

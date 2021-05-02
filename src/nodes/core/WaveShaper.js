@@ -15,10 +15,7 @@ class WaveShaper extends DotAudioNode {
         this.params = {}
 
         // Initialize
-        const initProps = {
-            ...defaultProps,
-            ...opts,
-        }
+        const initProps = { ...defaultProps, ...opts }
 
         this.setCurve(initProps.curve)
         this.setOversample(initProps.oversample)

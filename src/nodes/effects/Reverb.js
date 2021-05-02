@@ -22,10 +22,7 @@ class Reverb extends DotAudioNode {
         this.params = {}
 
         // Initialize
-        const initProps = {
-            ...defaultProps,
-            ...opts,
-        }
+        const initProps = { ...defaultProps, ...opts }
 
         this.setAmount(initProps.amount)
         this.setBuffer(initProps.buffer)

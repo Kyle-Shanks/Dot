@@ -30,10 +30,7 @@ class MonoSynth extends Synth {
         }
 
         // Initialize
-        const initProps = {
-            ...defaultProps,
-            ...opts,
-        }
+        const initProps = { ...defaultProps, ...opts }
 
         this.setFilterType(initProps.filterType)
         this.setFilterFrequency(initProps.filterFrequency)

@@ -31,10 +31,7 @@ class Distortion extends DotAudioNode {
         }
 
         // Initialize
-        const initProps = {
-            ...defaultProps,
-            ...opts,
-        }
+        const initProps = { ...defaultProps, ...opts }
 
         this.setAmount(initProps.amount)
         this.setDistortion(initProps.distortion)
@@ -52,7 +49,7 @@ class Distortion extends DotAudioNode {
 
     // - Setters -
     setAmount = (val, time) => {
-        this._fadeUpdate(
+        this._linearFadeUpdate(
             this.dryGain.getParams().gain,
             this.wetGain.getParams().gain,
             val,

@@ -73,10 +73,7 @@ class NoiseGenerator extends DotAudioNode {
         this.params = {}
 
         // Initialize
-        const initProps = {
-            ...defaultProps,
-            ...opts,
-        }
+        const initProps = { ...defaultProps, ...opts }
 
         this.setType(initProps.type)
 

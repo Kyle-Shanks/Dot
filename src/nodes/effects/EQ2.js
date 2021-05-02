@@ -23,10 +23,7 @@ class EQ2 extends DotAudioNode {
         }
 
         // Initialize
-        const initProps = {
-            ...defaultProps,
-            ...opts,
-        }
+        const initProps = { ...defaultProps, ...opts }
 
         this.setLowFrequency(initProps.lowFrequency)
         this.setLowGain(initProps.lowGain)

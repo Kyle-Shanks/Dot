@@ -23,10 +23,7 @@ class Filter extends DotAudioNode {
         }
 
         // Initialize
-        const initProps = {
-            ...defaultProps,
-            ...opts,
-        }
+        const initProps = { ...defaultProps, ...opts }
 
         this.setFrequency(initProps.frequency)
         this.setQ(initProps.q)
