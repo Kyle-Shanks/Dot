@@ -1,7 +1,7 @@
 {
-  "name": "dot",
-  "description": "A simple web audio library",
-  "version": "1.0.0",
+  "name": "dot-audio",
+  "description": "A simple web audio library for making synthesizers",
+  "version": "0.1.0",
   "license": "MIT",
   "author": "Kyle Shanks <kyle.j.shanks@gmail.com>",
   "main": "dist/bundle.js",
@@ -14,6 +14,12 @@
     "type": "git",
     "url": "https://github.com/Kyle-Shanks/Dot"
   },
+  "keywords": [
+    "Web Audio",
+    "Web Audio API",
+    "Synth",
+    "Synthesizer"
+  ],
   "scripts": {
     "build": "webpack",
     "start": "webpack --watch --mode=development"

@@ -9,7 +9,7 @@ module.exports = {
         filename: 'bundle.js',
         path: path.resolve(__dirname, 'dist'),
         library: {
-            name: 'dot',
+            name: 'dot-audio',
             type: 'umd',
         }
     },

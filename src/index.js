@@ -1,13 +1,11 @@
-import * as Nodes from 'nodes'
-import Keyboard from 'src/input/Keyboard'
-import Note from 'src/type/Note'
-import { chain, getNoteFrequency } from 'src/util/util'
-
-export default Nodes
+export * from 'nodes'
+export * from 'src/input'
+export * from 'src/type'
 
 export {
-    Note,
-    Keyboard,
     chain,
     getNoteFrequency,
-}
+    midiToNote,
+    noteToMidi,
+    parseNote,
+} from 'src/util/util'

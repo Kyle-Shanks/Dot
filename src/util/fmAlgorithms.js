@@ -43,8 +43,7 @@ const fmAlgorithms = [
     (a, b, c, d, out) => {
         disconnectAll([a, b, c, d])
 
-        a.connect(b.getParams().frequency)
-        a.connect(c.getParams().frequency)
+        a.connect([b.getParams().frequency, c.getParams().frequency])
         b.connect(d.getParams().frequency)
         c.connect(d.getParams().frequency)
         d.connect(out)
@@ -57,8 +56,7 @@ const fmAlgorithms = [
         disconnectAll([a, b, c, d])
 
         a.connect(b.getParams().frequency)
-        b.connect(c.getParams().frequency)
-        b.connect(d.getParams().frequency)
+        b.connect([c.getParams().frequency, d.getParams().frequency])
         c.connect(out)
         d.connect(out)
 
@@ -105,9 +103,7 @@ const fmAlgorithms = [
     (a, b, c, d, out) => {
         disconnectAll([a, b, c, d])
 
-        a.connect(b.getParams().frequency)
-        a.connect(c.getParams().frequency)
-        a.connect(d.getParams().frequency)
+        a.connect([b.getParams().frequency, c.getParams().frequency, d.getParams().frequency])
         b.connect(out)
         c.connect(out)
         d.connect(out)
@@ -144,8 +140,7 @@ const fmAlgorithms = [
     (a, b, c, d, out) => {
         disconnectAll([a, b, c, d])
 
-        a.connect(a.getParams().frequency)
-        a.connect(b.getParams().frequency)
+        a.connect([a.getParams().frequency, b.getParams().frequency])
         b.connect(c.getParams().frequency)
         c.connect(d.getParams().frequency)
         d.connect(out)
@@ -157,8 +152,7 @@ const fmAlgorithms = [
     (a, b, c, d, out) => {
         disconnectAll([a, b, c, d])
 
-        a.connect(a.getParams().frequency)
-        a.connect(c.getParams().frequency)
+        a.connect([a.getParams().frequency, c.getParams().frequency])
         b.connect(c.getParams().frequency)
         c.connect(d.getParams().frequency)
         d.connect(out)
@@ -170,8 +164,7 @@ const fmAlgorithms = [
     (a, b, c, d, out) => {
         disconnectAll([a, b, c, d])
 
-        a.connect(a.getParams().frequency)
-        a.connect(d.getParams().frequency)
+        a.connect([a.getParams().frequency, d.getParams().frequency])
         b.connect(c.getParams().frequency)
         c.connect(d.getParams().frequency)
         d.connect(out)
@@ -183,8 +176,7 @@ const fmAlgorithms = [
     (a, b, c, d, out) => {
         disconnectAll([a, b, c, d])
 
-        a.connect(a.getParams().frequency)
-        a.connect(b.getParams().frequency)
+        a.connect([a.getParams().frequency, b.getParams().frequency])
         b.connect(d.getParams().frequency)
         c.connect(d.getParams().frequency)
         d.connect(out)
@@ -196,11 +188,9 @@ const fmAlgorithms = [
     (a, b, c, d, out) => {
         disconnectAll([a, b, c, d])
 
-        a.connect(a.getParams().frequency)
-        a.connect(b.getParams().frequency)
+        a.connect([a.getParams().frequency, b.getParams().frequency])
         b.connect(out)
-        c.connect(c.getParams().frequency)
-        c.connect(d.getParams().frequency)
+        c.connect([c.getParams().frequency, d.getParams().frequency])
         d.connect(out)
 
         return '[A > A] > B + [C > C] > D => Out'
@@ -210,10 +200,12 @@ const fmAlgorithms = [
     (a, b, c, d, out) => {
         disconnectAll([a, b, c, d])
 
-        a.connect(a.getParams().frequency)
-        a.connect(b.getParams().frequency)
-        a.connect(c.getParams().frequency)
-        a.connect(d.getParams().frequency)
+        a.connect([
+            a.getParams().frequency,
+            b.getParams().frequency,
+            c.getParams().frequency,
+            d.getParams().frequency,
+        ])
         b.connect(out)
         c.connect(out)
         d.connect(out)
@@ -225,8 +217,7 @@ const fmAlgorithms = [
     (a, b, c, d, out) => {
         disconnectAll([a, b, c, d])
 
-        a.connect(a.getParams().frequency)
-        a.connect(b.getParams().frequency)
+        a.connect([a.getParams().frequency, b.getParams().frequency])
         b.connect(out)
         c.connect(out)
         d.connect(out)
@@ -238,8 +229,7 @@ const fmAlgorithms = [
     (a, b, c, d, out) => {
         disconnectAll([a, b, c, d])
 
-        a.connect(a.getParams().frequency)
-        a.connect(out)
+        a.connect([a.getParams().frequency, out])
         b.connect(out)
         c.connect(out)
         d.connect(out)
