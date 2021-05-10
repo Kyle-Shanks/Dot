@@ -1,4 +1,4 @@
-import DotAudioNode from 'nodes/DotAudioNode'
+import DotAudioNode from 'nodes/core/DotAudioNode'
 import GainEnvelope from 'nodes/components/GainEnvelope'
 import Limiter from 'nodes/dynamics/Limiter'
 import Osc from 'nodes/instruments/Osc'

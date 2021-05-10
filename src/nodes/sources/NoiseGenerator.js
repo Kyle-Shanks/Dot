@@ -1,4 +1,4 @@
-import DotAudioNode from 'nodes/DotAudioNode'
+import DotAudioNode from 'nodes/core/DotAudioNode'
 import BufferSource from 'nodes/sources/BufferSource'
 import { NOISE_TYPE } from 'src/util/util'
 

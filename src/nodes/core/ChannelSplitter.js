@@ -1,4 +1,4 @@
-import DotAudioNode from 'nodes/DotAudioNode'
+import DotAudioNode from 'nodes/core/DotAudioNode'
 
 /**
  * A node used to split an audio signal into two.

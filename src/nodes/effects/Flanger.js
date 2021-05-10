@@ -1,4 +1,4 @@
-import DotAudioNode from 'nodes/DotAudioNode'
+import DotAudioNode from 'nodes/core/DotAudioNode'
 import Gain from 'nodes/core/Gain'
 import Delay from 'nodes/core/Delay'
 import LFO from 'nodes/sources/LFO'

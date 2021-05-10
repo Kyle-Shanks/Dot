@@ -1,4 +1,4 @@
-import DotAudioNode from 'nodes/DotAudioNode'
+import DotAudioNode from 'nodes/core/DotAudioNode'
 import { OVERSAMPLE } from 'src/util/util'
 
 const defaultProps = {

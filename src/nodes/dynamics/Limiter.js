@@ -1,4 +1,4 @@
-import DotAudioNode from 'nodes/DotAudioNode'
+import DotAudioNode from 'nodes/core/DotAudioNode'
 import Compressor from 'nodes/core/Compressor'
 import Gain from 'nodes/core/Gain'
 

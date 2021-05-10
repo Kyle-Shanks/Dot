@@ -1,4 +1,4 @@
-import DotAudioNode from 'nodes/DotAudioNode'
+import DotAudioNode from 'nodes/core/DotAudioNode'
 import GainEnvelope from 'nodes/components/GainEnvelope'
 import Oscillator from 'nodes/sources/Oscillator'
 import { getNoteFrequency } from 'src/util/util'

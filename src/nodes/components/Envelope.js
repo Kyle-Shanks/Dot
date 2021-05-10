@@ -1,4 +1,4 @@
-import DotAudioNode from 'nodes/DotAudioNode'
+import DotAudioNode from 'nodes/core/DotAudioNode'
 import ConstantSource from 'nodes/sources/ConstantSource'
 
 const defaultProps = {

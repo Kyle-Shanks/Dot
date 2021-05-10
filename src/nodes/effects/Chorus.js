@@ -1,4 +1,4 @@
-import DotAudioNode from 'nodes/DotAudioNode'
+import DotAudioNode from 'nodes/core/DotAudioNode'
 import ChannelMerger from 'nodes/core/ChannelMerger'
 import Delay from 'nodes/core/Delay'
 import Gain from 'nodes/core/Gain'

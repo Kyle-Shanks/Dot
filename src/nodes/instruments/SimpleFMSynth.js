@@ -1,4 +1,4 @@
-import DotAudioNode from 'nodes/DotAudioNode'
+import DotAudioNode from 'nodes/core/DotAudioNode'
 import Synth from 'nodes/instruments/Synth'
 import Osc from 'nodes/instruments/Osc'
 
