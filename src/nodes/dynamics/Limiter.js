@@ -26,6 +26,8 @@ class Limiter extends DotAudioNode {
             release: this.limiter.getParams().release,
             gain: this.gain.getParams().gain
         }
+        this.inputs = [this.limiter]
+        this.outputs = [this.gain]
 
         // Initialize
         const initProps = { ...defaultProps, ...opts }
@@ -42,9 +44,6 @@ class Limiter extends DotAudioNode {
     }
 
     // - Getters -
-    getInputs = () => [this.limiter]
-    getOutputs = () => [this.gain]
-
     // Compressor
     getKnee = () => this.params.knee.value
     getThreshold = () => this.params.threshold.value

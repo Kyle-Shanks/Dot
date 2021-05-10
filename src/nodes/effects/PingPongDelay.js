@@ -37,6 +37,8 @@ class PingPongDelay extends DotAudioNode{
             rightFeedback: this.rightFeedbackGain.getParams().gain,
             tone: this.tone.getParams().frequency,
         }
+        this.inputs = [this.dryGain, this.leftDelay, this.preDelay]
+        this.outputs = [this.dryGain, this.wetGain]
 
         // Initialize
         const initProps = { ...defaultProps, ...opts }
@@ -62,9 +64,6 @@ class PingPongDelay extends DotAudioNode{
     }
 
     // - Getters -
-    getInputs = () => [this.dryGain, this.leftDelay, this.preDelay]
-    getOutputs = () => [this.dryGain, this.wetGain]
-
     getAmount = () => this.amount
     getPreDelayTime = () => this.params.preDelayTime.value
     getLeftDelayTime = () => this.params.leftDelayTime.value

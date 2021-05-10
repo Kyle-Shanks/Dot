@@ -25,6 +25,8 @@ class LFO extends DotAudioNode {
             depth: this.depth.getParams().gain,
             type: this.osc.getParams().type,
         }
+        this.inputs = null
+        this.outputs = [this.depth]
 
         // Initialize
         const initProps = { ...defaultProps, ...opts }
@@ -43,8 +45,6 @@ class LFO extends DotAudioNode {
     stop = () => this.osc.stop()
 
     // - Getters -
-    getOutputs = () => [this.depth]
-
     getRate = () => this.params.rate.value
     getDetune = () => this.params.detune.value
     getDepth = () => this.params.depth.value

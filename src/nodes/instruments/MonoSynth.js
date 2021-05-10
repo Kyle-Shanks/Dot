@@ -28,6 +28,8 @@ class MonoSynth extends Synth {
             filterDetune: this.filterEnv.getParams().detune,
             filterGain: this.filterEnv.getParams().gain,
         }
+        this.inputs = null
+        this.outputs = [this.filterEnv]
 
         // Initialize
         const initProps = { ...defaultProps, ...opts }
@@ -48,8 +50,6 @@ class MonoSynth extends Synth {
     }
 
     // - Getters -
-    getOutputs = () => [this.filterEnv]
-
     // Filter
     getFilterFrequency = () => this.filterEnv.getFrequency()
     getFilterDetune = () => this.filterEnv.getDetune()

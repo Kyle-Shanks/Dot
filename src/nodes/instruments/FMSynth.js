@@ -56,6 +56,8 @@ class FMSynth extends DotAudioNode {
             modDDetune: this.modD.getParams().detune,
             modDGain: this.modD.getParams().gain,
         }
+        this.inputs = null
+        this.outputs = [this.gainEnv]
 
         // Initialize
         const initProps = { ...defaultProps, ...opts }
@@ -84,8 +86,6 @@ class FMSynth extends DotAudioNode {
     }
 
     // - Getters -
-    getOutputs = () => [this.gainEnv]
-
     // Algorithm
     getAlgorithm = () => this.algorithm
     // ModA

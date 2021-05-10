@@ -26,6 +26,8 @@ class FeedbackDelay extends DotAudioNode {
             feedback: this.feedbackGain.getParams().gain,
             tone: this.tone.getParams().frequency,
         }
+        this.inputs = [this.dryGain, this.delay]
+        this.outputs = [this.dryGain, this.wetGain]
 
         // Initialize
         const initProps = { ...defaultProps, ...opts }
@@ -43,9 +45,6 @@ class FeedbackDelay extends DotAudioNode {
     }
 
     // - Getters -
-    getInputs = () => [this.dryGain, this.delay]
-    getOutputs = () => [this.dryGain, this.wetGain]
-
     getAmount = () => this.amount
     getDelayTime = () => this.params.delayTime.value
     getFeedback = () => this.params.feedback.value

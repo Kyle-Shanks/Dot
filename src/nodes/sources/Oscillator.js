@@ -18,6 +18,8 @@ class Oscillator extends DotAudioNode {
             frequency: this.osc.frequency,
             detune: this.osc.detune,
         }
+        this.inputs = null
+        this.outputs = [this.osc]
 
         // Initialize
         const initProps = { ...defaultProps, ...opts }
@@ -33,8 +35,6 @@ class Oscillator extends DotAudioNode {
     stop = () => this.osc.stop()
 
     // - Getters -
-    getOutputs = () => [this.osc]
-
     getFrequency = () => this.params.frequency.value
     getDetune = () => this.params.detune.value
     getWaveform = () => this.getType()

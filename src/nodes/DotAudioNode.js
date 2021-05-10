@@ -1,17 +1,79 @@
+/**
+ * Base class for Dot audio nodes.
+ *
+ * @param {AudioContext} AC - Audio context
+ * @returns {DotAudioNode} Audio Node
+ */
 class DotAudioNode {
     constructor(AC) {
         this.AC = AC
-        this.name = 'Node'
+        this.name = 'DotAudioNode'
     }
 
     // --- Public Methods ---
-    // - Getters -
+    /**
+     * Get the name of the node
+     * @returns {String} Node name
+     */
     getName = () => this.name
+
+    /**
+     * Get the array of params for the node
+     * @returns {Object.<string, AudioParam>} Node params
+     */
     getParams = () => this.params
+
+    /**
+     * Get an array of the inputs for this node
+     * @returns {Array.<DotAudioNode|AudioNode|AudioParam>}
+     */
+    getInputs = () => this.inputs
+
+    /**
+     * Get an array of the outputs for this node
+     * @returns {Array.<DotAudioNode|AudioNode>}
+     */
+    getOutputs = () => this.outputs
 
     // - Util Methods -
     // Connect and disconnect shells to allow child nodes to add validation
+    /**
+     * Connect this node to a DotAudioNode, AudioNode, or AudioParam.
+     * An array can be passed to connect to multiple destinations.
+     * Optionally pass output and input channels.
+     *
+     * @example
+     * const synth = new Dot.Synth(AC)
+     * const reverb = new Dot.Reverb(AC)
+     *
+     * synth.connect(reverb) // Connect
+     *
+     * @param {DotAudioNode | AudioNode | AudioParam | Array.<DotAudioNode|AudioNode|AudioParam>}
+     *      destination - The input/destination to connect to
+     * @param {Number} outputNum - Output channel to connect with
+     * @param {Number} inputNum - Input channel to connect to
+     * @returns {DotAudioNode} this
+     */
     connect = (destination, outputNum, inputNum) => this._connect(destination, outputNum, inputNum)
+
+    /**
+     * Disconnect this node from one if its connections.
+     * If no destination is passed, all connections will be removed.
+     * Optionally pass output and input channels.
+     *
+     * @example
+     * const synth = new Dot.Synth(AC)
+     * const reverb = new Dot.Reverb(AC)
+     *
+     * synth.connect(reverb) // Connect
+     * synth.disconnect(reverb) // Disconnect
+     *
+     * @param {AudioParam | AudioNode | DotAudioNode | Array.<DotAudioNode|AudioParam|AudioNode>}
+     *      destination - The input/destination to disconnect from
+     * @param {Number} outputNum - Output channel to disconnect from
+     * @param {Number} inputNum - Input channel to disconnect from
+     * @returns {DotAudioNode} this
+     */
     disconnect = (destination, outputNum, inputNum) => this._disconnect(destination, outputNum, inputNum)
 
     // --- Private Methods ---
@@ -19,7 +81,7 @@ class DotAudioNode {
         if (Array.isArray(destination)) {
             destination.forEach(dest => this.connect(dest))
         } else if (destination instanceof DotAudioNode) {
-            if (!destination.hasOwnProperty('getInputs')) {
+            if (!destination.getInputs()) {
                 console.error('Cannot connect to a node with no inputs')
                 return
             }
@@ -35,12 +97,14 @@ class DotAudioNode {
         } else {
             console.error('Invalid destination type')
         }
+
+        return this
     }
     _disconnect = (destination, outputNum = 0, inputNum = 0) => {
         if (Array.isArray(destination)) {
             destination.forEach(dest => this.disconnect(dest))
         } else if (destination instanceof DotAudioNode) {
-            if (!destination.hasOwnProperty('getInputs')) {
+            if (!destination.getInputs()) {
                 console.error('Cannot disconnect from destination provided')
                 return
             }
@@ -54,6 +118,8 @@ class DotAudioNode {
         } else {
             this.getOutputs().forEach(output => output.disconnect(destination))
         }
+
+        return this
     }
 
     // Recursively go down to get the default audio nodes/params for all inputs
@@ -69,6 +135,7 @@ class DotAudioNode {
     )
 
     // - Update Methods -
+    _update = (param, val) => param.setValueAtTime(val, this.AC.currentTime)
     _timeUpdate = (param, val, time = 0) => {
         time
             ? param.setTargetAtTime(val, this.AC.currentTime, time)

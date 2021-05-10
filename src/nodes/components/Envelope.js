@@ -9,6 +9,19 @@ const defaultProps = {
     modifier: 1,
 }
 
+/**
+ * Constant source envelope that can be connected to AudioParams to modulate over time.
+ *
+ * @extends DotAudioNode
+ * @param {AudioContext} AC - Audio context
+ * @param {Object} opts - Initialization options
+ * @param {Number} opts.attack - Initial attack time
+ * @param {Number} opts.decay - Initial decay time
+ * @param {Number} opts.sustain - Initial sustain value
+ * @param {Number} opts.release - Initial release time
+ * @param {Number} opts.modifier - Initial modifier value
+ * @returns {Envelope} Envelope Node
+ */
 class Envelope extends DotAudioNode {
     constructor(AC, opts = {}) {
         super(AC)
@@ -21,7 +34,10 @@ class Envelope extends DotAudioNode {
         this.sustain = 1
         this.release = 0
         this.modifier = 1
+
         this.params = {}
+        this.inputs = null
+        this.outputs = [this.source]
 
         // Initialize
         const initProps = { ...defaultProps, ...opts }
@@ -37,19 +53,70 @@ class Envelope extends DotAudioNode {
 
     // --- Public Methods ---
     // - Getters -
-    getOutputs = () => [this.source]
-
+    /**
+     * Get the attack time of the envelope
+     * @returns {Number}
+     */
     getAttack = () => this.attack
+
+    /**
+     * Get the decay time of the envelope
+     * @returns {Number}
+     */
     getDecay = () => this.decay
+
+    /**
+     * Get the sustain value of the envelope
+     * @returns {Number}
+     */
     getSustain = () => this.sustain
+
+    /**
+     * Get the release time of the envelope
+     * @returns {Number}
+     */
     getRelease = () => this.release
+
+    /**
+     * Get the modifier value of the envelope
+     * @returns {Number}
+     */
     getModifier = () => this.modifier
 
     // - Setters -
+    /**
+     * Get the attack time of the envelope
+     * @param {Number} val
+     * @returns
+     */
     setAttack = (val) => this.attack = val
+
+    /**
+     * Get the decay time of the envelope
+     * @param {Number} val
+     * @returns
+     */
     setDecay = (val) => this.decay = val
+
+    /**
+     * Get the sustain value of the envelope
+     * @param {Number} val
+     * @returns
+     */
     setSustain = (val) => this.sustain = val
+
+    /**
+     * Get the release time of the envelope
+     * @param {Number} val
+     * @returns
+     */
     setRelease = (val) => this.release = val
+
+    /**
+     * Get the modifier value of the envelope
+     * @param {Number} val
+     * @returns
+     */
     setModifier = (val) => this.modifier = val
 
     // - Util Methods -
@@ -63,6 +130,10 @@ class Envelope extends DotAudioNode {
     }
 
     // - Trigger Methods -
+    /**
+     * Triggers the attack of the envelope.
+     * Will automatically trigger the decay after the attack time.
+     */
     triggerAttack = () => {
         this._clearTimeouts()
         const sustainVal = this.sustain * this.modifier
@@ -83,10 +154,18 @@ class Envelope extends DotAudioNode {
             this.source.setOffset(sustainVal)
         }
     }
+
+    /**
+     * Triggers the release of the envelope.
+     */
     triggerRelease = () => {
         this._clearTimeouts()
         this.source.setOffset(0, this.release) // Release
     }
+
+    /**
+     * Triggers an instant stop of the envelope.
+     */
     triggerStop = () => {
         this._clearTimeouts()
         this.source.setOffset(0)

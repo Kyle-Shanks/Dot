@@ -20,6 +20,8 @@ class Reverb extends DotAudioNode {
 
         this.amount = 0
         this.params = {}
+        this.inputs = [this.dryGain, this.convolver]
+        this.outputs = [this.dryGain, this.wetGain]
 
         // Initialize
         const initProps = { ...defaultProps, ...opts }
@@ -42,9 +44,6 @@ class Reverb extends DotAudioNode {
     }
 
     // - Getters -
-    getInputs = () => [this.dryGain, this.convolver]
-    getOutputs = () => [this.dryGain, this.wetGain]
-
     getAmount = () => this.amount
     getBuffer = () => this.convolver.getParams().buffer
     getNormalize = () => this.convolver.getParams().normalize

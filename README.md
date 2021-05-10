@@ -149,8 +149,6 @@ All DotAudioNodes have access to a `::connect` and `::disconnect` methods to con
 
 **Warning:** Native audio nodes will note be able to connect to DotAudioNodes directly, but may be connected to params via the `::getParams` method.
 
----
-
 ## Core Nodes
 Dot includes the following core nodes:
 - ChannelMerger
@@ -163,8 +161,6 @@ Dot includes the following core nodes:
 - StereoPanner
 - WaveShaper
 
----
-
 ## Instruments
 Instruments are pre-built general purpose sound sources for easy use in a project. All instruments have methods to set their primary properties and `::noteOn`, `::noteOff`, and `::noteStop` methods to play notes that are passed in and trigger the instrument's envelope(s). (FMSynth is the only exception due to the algorithms having different carriers. The `::triggerAttack` and `::triggerRelease` methods can be used to trigger the envelope in that case)
 
@@ -174,7 +170,6 @@ Dot includes the following instruments:
 - PolySynth - An 8 voice polyphonic synth built using MonoSynths
 - SimpleFMSynth - One modulator and one carrier connected to a gain envelope
 - FMSynth - Uses 4 modulators that are connected via different built-in algorithms, then connected to a gain envelope
----
 ## Effects
 There are many effect nodes, each with their own methods to control their properties.
 

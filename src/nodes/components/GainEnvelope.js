@@ -5,6 +5,18 @@ const defaultProps = {
     gain: 0,
 }
 
+/**
+ * An envelope connected to a gain node.
+ * Can be used to modulate the gain of the incoming signal over time.
+ *
+ * @extends Envelope
+ * @param {AudioContext} AC - Audio context
+ * @param {Object} opts - Initialization options
+ * @param {Number} opts.gain - Initial gain value
+ * @params
+ * gain - The base gain for the gain node
+ * @returns {GainEnvelope} GainEnvelope Node
+ */
 class GainEnvelope extends Envelope {
     constructor(AC, opts = {}) {
         super(AC, opts)
@@ -14,6 +26,8 @@ class GainEnvelope extends Envelope {
         this.params = {
             gain: this.gain.getParams().gain
         }
+        this.inputs = [this.gain]
+        this.outputs = [this.gain]
 
         // Initialize
         const initProps = { ...defaultProps, ...opts }
@@ -25,12 +39,21 @@ class GainEnvelope extends Envelope {
     }
 
     // - Getters -
-    getInputs = () => [this.gain]
-    getOutputs = () => [this.gain]
-
+    /**
+     * Get the base gain value on the gain node
+     * @returns {Number} Gain value
+     */
     getGain = () => this.params.gain.value
 
     // - Setters -
+    /**
+     * Set the base gain value of the gain node
+     * Uses timeUpdate method to allow for changes over time
+     *
+     * @param {Number} val - gain value
+     * @param {Number} [time] - update time in seconds (optional)
+     * @returns
+     */
     setGain = (val, time) => this.gain.setGain(val, time)
 }
 

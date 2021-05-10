@@ -21,6 +21,8 @@ class EQ2 extends DotAudioNode {
             highFrequency: this.high.getParams().frequency,
             highGain: this.high.getParams().gain,
         }
+        this.inputs = [this.low]
+        this.outputs = [this.high]
 
         // Initialize
         const initProps = { ...defaultProps, ...opts }
@@ -35,9 +37,6 @@ class EQ2 extends DotAudioNode {
     }
 
     // - Getters -
-    getInputs = () => [this.low]
-    getOutputs = () => [this.high]
-
     getLowFrequency = () => this.params.lowFrequency.value
     getLowGain = () => this.params.lowGain.value
     getHighFrequency = () => this.params.highFrequency.value

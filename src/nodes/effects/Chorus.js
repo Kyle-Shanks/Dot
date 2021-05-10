@@ -35,6 +35,8 @@ class Chorus extends DotAudioNode {
             rate: [this.leftLFO.getParams().rate, this.rightLFO.getParams().rate],
             depth: [this.leftLFO.getParams().depth, this.rightLFO.getParams().depth],
         }
+        this.inputs = [this.dryGain, this.chorusGain]
+        this.outputs = [this.dryGain, this.wetGain]
 
         // Initialize
         const initProps = { ...defaultProps, ...opts }
@@ -59,9 +61,6 @@ class Chorus extends DotAudioNode {
     }
 
     // - Getters -
-    getInputs = () => [this.dryGain, this.chorusGain]
-    getOutputs = () => [this.dryGain, this.wetGain]
-
     getAmount = () => this.wetGain.getGain()
     getDelayTime = () => this.leftDelay.getDelayTime()
     getFeedback = () => this.params.feedback.value

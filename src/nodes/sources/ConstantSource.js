@@ -14,6 +14,8 @@ class ConstantSource extends DotAudioNode {
         this.params = {
             offset: this.source.offset,
         }
+        this.inputs = null
+        this.outputs = [this.source]
 
         // Initialize
         const initProps = { ...defaultProps, ...opts }
@@ -27,8 +29,6 @@ class ConstantSource extends DotAudioNode {
     stop = () => this.source.stop()
 
     // - Getters -
-    getOutputs = () => [this.source]
-
     getOffset = () => this.params.offset
 
     // - Setters -

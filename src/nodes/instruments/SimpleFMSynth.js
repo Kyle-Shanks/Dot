@@ -30,6 +30,8 @@ class SimpleFMSynth extends DotAudioNode {
             carrierDetune: this.carrier.getParams().detune,
             carrierGain: this.carrier.getParams().gain,
         }
+        this.input = null
+        this.outputs = [this.carrier]
 
         // Initialize
         const initProps = { ...defaultProps, ...opts }
@@ -50,8 +52,6 @@ class SimpleFMSynth extends DotAudioNode {
     }
 
     // - Getters -
-    getOutputs = () => [this.carrier]
-
     //Modulator
     getModulatorFrequency = () => this.params.modulatorFrequency.value
     getModulatorDetune = () => this.params.modulatorDetune.value

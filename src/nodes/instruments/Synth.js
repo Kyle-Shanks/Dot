@@ -29,6 +29,8 @@ class Synth extends DotAudioNode {
             detune: this.osc.getParams().detune,
             gain: this.gainEnv.getParams().gain,
         }
+        this.inputs = null
+        this.outputs = [this.gainEnv]
 
         // Initialize
         const initProps = { ...defaultProps, ...opts }
@@ -48,8 +50,6 @@ class Synth extends DotAudioNode {
 
     // --- Public Methods ---
     // - Getters -
-    getOutputs = () => [this.gainEnv]
-
     getCurrentNote = () => this.currentNote
     // Oscillator
     getWaveform = () => this.osc.getType()

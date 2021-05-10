@@ -22,6 +22,8 @@ class Osc extends DotAudioNode {
             detune: this.osc.getParams().detune,
             gain: this.gain.getParams().gain,
         }
+        this.inputs = null
+        this.outputs = [this.gain]
 
         // Initialize
         const initProps = { ...defaultProps, ...opts }
@@ -37,8 +39,6 @@ class Osc extends DotAudioNode {
 
     // --- Public Methods ---
     // - Getters -
-    getOutputs = () => [this.gain]
-
     // Oscillator
     getWaveform = () => this.osc.getType()
     getFrequency = () => this.params.frequency.value

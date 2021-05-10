@@ -18,6 +18,8 @@ class BufferSource extends DotAudioNode {
             detune: this.bufferSource.detune,
             playbackRate: this.bufferSource.playbackRate,
         }
+        this.inputs = [this.bufferSource]
+        this.outputs = [this.bufferSource]
 
         // Initialize
         const initProps = { ...defaultProps, ...opts }
@@ -34,9 +36,6 @@ class BufferSource extends DotAudioNode {
     stop = () => this.bufferSource.stop()
 
     // - Getters -
-    getInputs = () => [this.bufferSource]
-    getOutputs = () => [this.bufferSource]
-
     getBuffer = () => this.bufferSource.buffer
     getLoop = () => this.bufferSource.loop
     getDetune = () => this.params.detune.value

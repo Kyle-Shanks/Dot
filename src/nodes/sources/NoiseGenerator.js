@@ -71,6 +71,8 @@ class NoiseGenerator extends DotAudioNode {
 
         this.type = 'white'
         this.params = {}
+        this.inputs = null
+        this.outputs = [this.bufferSource]
 
         // Initialize
         const initProps = { ...defaultProps, ...opts }
@@ -84,8 +86,6 @@ class NoiseGenerator extends DotAudioNode {
     stop = () => this.bufferSource.stop()
 
     // - Getters -
-    getOutputs = () => [this.bufferSource]
-
     getType = () => this.type
 
     // - Setters -

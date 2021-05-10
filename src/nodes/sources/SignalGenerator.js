@@ -19,6 +19,8 @@ class SignalGenerator extends DotAudioNode {
         this.params = {
             gain: this.gain.getParams().gain,
         }
+        this.inputs = null
+        this.outputs = [this.gain]
 
         // Initialize
         const initProps = { ...defaultProps, ...opts }
@@ -35,8 +37,6 @@ class SignalGenerator extends DotAudioNode {
     stop = () => this.osc.stop()
 
     // - Getters -
-    getOutputs = () => [this.gain]
-
     getGain = () => this.params.gain.value
 
     // - Setters -

@@ -43,6 +43,8 @@ class PolySynth extends DotAudioNode {
             filterDetune: this.voices.map(voice => voice.getParams().filterDetune),
             filterGain: this.voices.map(voice => voice.getParams().filterGain),
         }
+        this.inputs = null
+        this.outputs = [this.limiter]
 
         // Initialize
         const initProps = { ...defaultProps, ...opts }
@@ -75,8 +77,6 @@ class PolySynth extends DotAudioNode {
 
     // --- Public Methods ---
     // - Getters -
-    getOutputs = () => [this.limiter]
-
     getPolyphony = () => this.polyphony
     // Oscillator
     getWaveform = () => this.voices[0].getWaveform()

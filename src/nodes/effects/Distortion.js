@@ -29,6 +29,8 @@ class Distortion extends DotAudioNode {
         this.params = {
             amount: this.wetGain.getParams().gain,
         }
+        this.inputs = [this.dryGain, this.waveShaper]
+        this.outputs = [this.dryGain, this.wetGain]
 
         // Initialize
         const initProps = { ...defaultProps, ...opts }
@@ -41,9 +43,6 @@ class Distortion extends DotAudioNode {
     }
 
     // - Getters -
-    getInputs = () => [this.dryGain, this.waveShaper]
-    getOutputs = () => [this.dryGain, this.wetGain]
-
     getAmount = () => this.params.amount.value
     getDistortion = () => this.distortion
 
