@@ -12,14 +12,13 @@ import Filter from './core/Filter'
 import Gain from './core/Gain'
 import StereoPanner from './core/StereoPanner'
 import WaveShaper from './core/WaveShaper'
-// Dynamics
-import Limiter from './dynamics/Limiter'
 // Effects
 import Chorus from './effects/Chorus'
 import Distortion from './effects/Distortion'
 import EQ2 from './effects/EQ2'
 import FeedbackDelay from './effects/FeedbackDelay'
 import Flanger from './effects/Flanger'
+import Limiter from './effects/Limiter'
 import PingPongDelay from './effects/PingPongDelay'
 import Reverb from './effects/Reverb'
 // Instruments

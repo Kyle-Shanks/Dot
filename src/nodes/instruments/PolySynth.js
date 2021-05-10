@@ -1,5 +1,5 @@
 import DotAudioNode from 'nodes/core/DotAudioNode'
-import Limiter from 'nodes/dynamics/Limiter'
+import Limiter from 'nodes/effects/Limiter'
 import MonoSynth from 'nodes/instruments/MonoSynth'
 import { clamp } from 'src/util/util'
 
