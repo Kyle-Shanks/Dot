@@ -3,7 +3,6 @@ import GainEnvelope from 'nodes/components/GainEnvelope'
 import Oscillator from 'nodes/sources/Oscillator'
 import { getNoteFrequency } from 'src/util/util'
 
-
 const defaultProps = {
     waveform: 'sine',
     frequency: 440,

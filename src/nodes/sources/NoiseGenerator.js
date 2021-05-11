@@ -63,6 +63,17 @@ const defaultProps = {
     start: false,
 }
 
+/**
+ * A source node that outputs three types of noise using a BufferSource node.
+ * Can output white, pink, or brown noise.
+ *
+ * @extends DotAudioNode
+ * @param {AudioContext} AC - Audio context
+ * @param {Object} opts - Initialization options
+ * @param {AudioBuffer} opts.type - Initial noise type
+ * @param {Boolean} opts.start - Property to autostart the source node
+ * @returns {NoiseGenerator} NoiseGenerator Node
+ */
 class NoiseGenerator extends DotAudioNode {
     constructor(AC, opts = {}) {
         super(AC)
@@ -82,13 +93,30 @@ class NoiseGenerator extends DotAudioNode {
         if (initProps.start) this.start()
     }
 
+    /**
+     * Starts output from the source node
+     * @returns
+     */
     start = () => this.bufferSource.start()
+
+    /**
+     * Stops output from the source node
+     * @returns
+     */
     stop = () => this.bufferSource.stop()
 
     // - Getters -
+    /**
+     * Get the current noise type
+     * @returns {String} Noise type
+     */
     getType = () => this.type
 
     // - Setters -
+    /**
+     * Set the noise type that is output
+     * @param {String} val - Noise type (white, pink, brown)
+     */
     setType = (val) => {
         if (NOISE_TYPE.includes(val)) {
             this.type = val

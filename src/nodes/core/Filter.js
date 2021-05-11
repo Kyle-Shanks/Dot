@@ -32,7 +32,9 @@ const defaultProps = {
  * q - The Q factor, or quality factor of the filter.
  * detune - The detune of the filter frequency in cents. (100 cents/semitone, 1200 cents/octave)
  * gain - The gain of the filter in dB. Gain is only used if the filter type is set to lowshelf, highshelf, or peaking.
- * type - The type of the filter. For more information, refer to the web audio api documentation (https://developer.mozilla.org/en-US/docs/Web/API/BiquadFilterNode/type).
+ * type - The type of the filter.
+ * For more information, refer to the web audio api documentation.
+ * (https://developer.mozilla.org/en-US/docs/Web/API/BiquadFilterNode)
  * @returns {Filter} Filter Node
  */
 class Filter extends DotAudioNode {

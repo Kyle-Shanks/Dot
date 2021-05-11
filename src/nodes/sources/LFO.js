@@ -12,6 +12,24 @@ const defaultProps = {
     start: false,
 }
 
+/**
+ * A source node that outputs low frequency oscillations for updating audio params.
+ * Consists of an oscilator connected to a gain node.
+ *
+ * @extends DotAudioNode
+ * @param {AudioContext} AC - Audio context
+ * @param {Object} opts - Initialization options
+ * @param {AudioBuffer} opts.rate - Initial lfo rate
+ * @param {AudioBuffer} opts.depth - Initial depth value
+ * @param {AudioBuffer} opts.detune - Initial detune value
+ * @param {AudioBuffer} opts.type - Initial waveform
+ * @param {Boolean} opts.start - Property to autostart the source node
+ * @params
+ * rate - Frequency of the oscillator
+ * depth - Gain of the gain node
+ * detune - Detune value of the oscillator
+ * @returns {LFO} LFO Node
+ */
 class LFO extends DotAudioNode {
     constructor(AC, opts = {}) {
         super(AC)
@@ -23,7 +41,6 @@ class LFO extends DotAudioNode {
             rate: this.osc.getParams().frequency,
             detune: this.osc.getParams().detune,
             depth: this.depth.getParams().gain,
-            type: this.osc.getParams().type,
         }
         this.inputs = null
         this.outputs = [this.depth]
@@ -41,23 +58,80 @@ class LFO extends DotAudioNode {
         if (initProps.start) this.start()
     }
 
+    /**
+     * Starts the oscillator
+     * @returns
+     */
     start = () => this.osc.start()
+
+    /**
+     * Stops the oscillator
+     * @returns
+     */
     stop = () => this.osc.stop()
 
     // - Getters -
+    /**
+     * Get the rate of the LFO
+     * @returns {Number} LFO Rate
+     */
     getRate = () => this.params.rate.value
+
+    /**
+     * Get the detune of the LFO
+     * @returns {Number} Detune
+     */
     getDetune = () => this.params.detune.value
+
+    /**
+     * Get the depth of the LFO
+     * @returns {Number} Depth
+     */
     getDepth = () => this.params.depth.value
-    getType = () => this.params.type
+
+    /**
+     * Get the waveform of the LFO
+     * @returns {String} Waveform
+     */
+    getType = () => this.osc.getType()
 
     // - Setters -
+    /**
+     * Set the rate of the lfo
+     * Uses timeUpdate method to allow for changes over time
+     *
+     * @param {Number} val - rate
+     * @param {Number} [time] - update time in seconds (optional)
+     * @returns
+     */
     setRate = (val, time) => this.osc.setFrequency(clamp(val, 0, MAX_RATE), time)
+
+    /**
+     * Set the detune of the lfo
+     * Uses timeUpdate method to allow for changes over time
+     *
+     * @param {Number} val - detune
+     * @param {Number} [time] - update time in seconds (optional)
+     * @returns
+     */
     setDetune = (val, time) => this.osc.setDetune(val, time)
+
+    /**
+     * Set the depth of the lfo
+     * Uses timeUpdate method to allow for changes over time
+     *
+     * @param {Number} val - depth
+     * @param {Number} [time] - update time in seconds (optional)
+     * @returns
+     */
     setDepth = (val, time) => this.depth.setGain(val, time)
-    setType = (val) => {
-        this.osc.setType(val)
-        this.params.type = val
-    }
+
+    /**
+     * Set the waveform of the lfo
+     * @param {String} val - Waveform
+     * @returns
+     */
+    setType = (val) => this.osc.setType(val)
 }
 
 export default LFO
