@@ -54,66 +54,66 @@ class Envelope extends DotAudioNode {
     // --- Public Methods ---
     // - Getters -
     /**
-     * Get the attack time of the envelope
+     * Get the attack time of the envelope.
      * @returns {Number}
      */
     getAttack = () => this.attack
 
     /**
-     * Get the decay time of the envelope
+     * Get the decay time of the envelope.
      * @returns {Number}
      */
     getDecay = () => this.decay
 
     /**
-     * Get the sustain value of the envelope
+     * Get the sustain value of the envelope.
      * @returns {Number}
      */
     getSustain = () => this.sustain
 
     /**
-     * Get the release time of the envelope
+     * Get the release time of the envelope.
      * @returns {Number}
      */
     getRelease = () => this.release
 
     /**
-     * Get the modifier value of the envelope
+     * Get the modifier value of the envelope.
      * @returns {Number}
      */
     getModifier = () => this.modifier
 
     // - Setters -
     /**
-     * Get the attack time of the envelope
+     * Get the attack time of the envelope.
      * @param {Number} val - attack time value
      * @returns
      */
     setAttack = (val) => this.attack = val
 
     /**
-     * Get the decay time of the envelope
+     * Get the decay time of the envelope.
      * @param {Number} val - decay time value
      * @returns
      */
     setDecay = (val) => this.decay = val
 
     /**
-     * Get the sustain value of the envelope
+     * Get the sustain value of the envelope.
      * @param {Number} val - sustain value
      * @returns
      */
     setSustain = (val) => this.sustain = val
 
     /**
-     * Get the release time of the envelope
+     * Get the release time of the envelope.
      * @param {Number} val - release time value
      * @returns
      */
     setRelease = (val) => this.release = val
 
     /**
-     * Get the modifier value of the envelope
+     * Get the modifier value of the envelope.
      * @param {Number} val - modifier value
      * @returns
      */

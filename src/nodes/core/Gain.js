@@ -42,16 +42,15 @@ class Gain extends DotAudioNode {
 
     // - Getters -
     /**
-     * Get the current gain value
+     * Get the current gain value.
      * @returns {Number} Gain value
      */
     getGain = () => this.params.gain.value
 
     // - Setters -
     /**
-     * Set the gain of the node
-     * Uses timeUpdate method to allow for changes over time
-     *
+     * Set the gain of the node.
+     * Uses timeUpdate method to allow for changes over time.
      * @param {Number} val - gain value
      * @param {Number} [time] - update time in seconds (optional)
      * @returns

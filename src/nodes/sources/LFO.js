@@ -97,9 +97,9 @@ class LFO extends DotAudioNode {
 
     // - Setters -
     /**
-     * Set the rate of the lfo
-     * Uses timeUpdate method to allow for changes over time
-     *
+     * Set the rate of the lfo.
+     * Calls the setFrequency method on the oscillator.
+     * Frequency max is set to 100Hz.
      * @param {Number} val - rate
      * @param {Number} [time] - update time in seconds (optional)
      * @returns
@@ -107,9 +107,8 @@ class LFO extends DotAudioNode {
     setRate = (val, time) => this.osc.setFrequency(clamp(val, 0, MAX_RATE), time)
 
     /**
-     * Set the detune of the lfo
-     * Uses timeUpdate method to allow for changes over time
-     *
+     * Set the detune of the lfo.
+     * Calls the setDetune method on the oscillator.
      * @param {Number} val - detune
      * @param {Number} [time] - update time in seconds (optional)
      * @returns
@@ -117,9 +116,8 @@ class LFO extends DotAudioNode {
     setDetune = (val, time) => this.osc.setDetune(val, time)
 
     /**
-     * Set the depth of the lfo
-     * Uses timeUpdate method to allow for changes over time
-     *
+     * Set the depth of the lfo.
+     * Calls the setGain method on the gain node.
      * @param {Number} val - depth
      * @param {Number} [time] - update time in seconds (optional)
      * @returns
@@ -127,7 +125,8 @@ class LFO extends DotAudioNode {
     setDepth = (val, time) => this.depth.setGain(val, time)
 
     /**
-     * Set the waveform of the lfo
+     * Set the waveform of the lfo.
+     * Calls the setType method on the oscillator.
      * @param {String} val - Waveform
      * @returns
      */

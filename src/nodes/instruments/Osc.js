@@ -54,41 +54,40 @@ class Osc extends DotAudioNode {
 
     // - Getters -
     /**
-     * Get the waveform of the oscillator
+     * Get the waveform of the oscillator.
      * @returns {String} Waveform
      */
     getWaveform = () => this.osc.getType()
 
     /**
-     * Get the frequency of the oscillator
+     * Get the frequency of the oscillator.
      * @returns {Number} Frequency
      */
     getFrequency = () => this.params.frequency.value
 
     /**
-     * Get the detune of the oscillator
+     * Get the detune of the oscillator.
      * @returns {Number} Detune
      */
     getDetune = () => this.params.detune.value
 
     /**
-     * Get the gain of the gain node
+     * Get the gain of the gain node.
      * @returns {Number} Gain
      */
     getGain = () => this.params.gain.value
 
     // - Setters -
     /**
-     * Set the waveform of the oscillator
+     * Set the waveform of the oscillator.
      * @param {String} val - Waveform
      * @returns
      */
     setWaveform = (val) => this.osc.setType(val)
 
     /**
-     * Set the frequency of the oscillator
-     * Uses timeUpdate method to allow for changes over time
-     *
+     * Set the frequency of the oscillator.
+     * Calls the setFrequency method on the oscillator.
      * @param {Number} val - Frequency
      * @param {Number} [time] - update time in seconds (optional)
      * @returns
@@ -96,9 +95,8 @@ class Osc extends DotAudioNode {
     setFrequency = (val, time) => this.osc.setFrequency(val, time)
 
     /**
-     * Set the detune of the oscillator
-     * Uses timeUpdate method to allow for changes over time
-     *
+     * Set the detune of the oscillator.
+     * Calls the setDetune method on the oscillator.
      * @param {Number} val - Detune
      * @param {Number} [time] - update time in seconds (optional)
      * @returns
@@ -106,9 +104,8 @@ class Osc extends DotAudioNode {
     setDetune = (val, time) => this.osc.setDetune(val, time)
 
     /**
-     * Set the gain of the gain node
-     * Uses timeUpdate method to allow for changes over time
-     *
+     * Set the gain of the gain node.
+     * Calls the setGain method on the gain node.
      * @param {Number} val - Gain
      * @param {Number} [time] - update time in seconds (optional)
      * @returns

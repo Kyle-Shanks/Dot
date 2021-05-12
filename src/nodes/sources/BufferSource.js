@@ -104,7 +104,6 @@ class BufferSource extends DotAudioNode {
     /**
      * Set the detune value of the source node
      * Uses timeUpdate method to allow for changes over time
-     *
      * @param {Number} val - detune value
      * @param {Number} [time] - update time in seconds (optional)
      * @returns
@@ -114,7 +113,6 @@ class BufferSource extends DotAudioNode {
     /**
      * Set the playback rate of the source node
      * Uses timeUpdate method to allow for changes over time
-     *
      * @param {Number} val - playback rate
      * @param {Number} [time] - update time in seconds (optional)
      * @returns

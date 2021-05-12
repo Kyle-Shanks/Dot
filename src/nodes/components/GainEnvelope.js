@@ -40,16 +40,15 @@ class GainEnvelope extends Envelope {
 
     // - Getters -
     /**
-     * Get the base gain value on the gain node
+     * Get the base gain value on the gain node.
      * @returns {Number} Gain value
      */
     getGain = () => this.params.gain.value
 
     // - Setters -
     /**
-     * Set the base gain value of the gain node
-     * Uses timeUpdate method to allow for changes over time
-     *
+     * Set the base gain value of the gain node.
+     * Calls the setGain method on the gain node.
      * @param {Number} val - gain value
      * @param {Number} [time] - update time in seconds (optional)
      * @returns

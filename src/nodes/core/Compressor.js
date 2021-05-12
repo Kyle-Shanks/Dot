@@ -63,46 +63,45 @@ class Compressor extends DotAudioNode {
 
     // - Getters -
     /**
-     * Get the threshold in dB
+     * Get the threshold in dB.
      * @returns {Number}
      */
     getThreshold = () => this.params.threshold.value
 
     /**
-     * Get the compression ratio
+     * Get the compression ratio.
      * @returns {Number}
      */
     getRatio = () => this.params.ratio.value
 
     /**
-     * Get the current knee value
+     * Get the current knee value.
      * @returns {Number}
      */
     getKnee = () => this.params.knee.value
 
     /**
-     * Get the attack time
+     * Get the attack time.
      * @returns {Number}
      */
     getAttack = () => this.params.attack.value
 
     /**
-     * Get the release time
+     * Get the release time.
      * @returns {Number}
      */
     getRelease = () => this.params.release.value
 
     /**
-     * Get the current gain reduction in dB
+     * Get the current gain reduction in dB.
      * @returns {Number}
      */
     getReduction = () => this.compressor.reduction
 
     // - Setters -
     /**
-     * Set the threshold
-     * Uses timeUpdate method to allow for changes over time
-     *
+     * Set the threshold.
+     * Uses timeUpdate method to allow for changes over time.
      * @param {Number} val - target value
      * @param {Number} [time] - update time in seconds (optional)
      * @returns
@@ -110,9 +109,8 @@ class Compressor extends DotAudioNode {
     setThreshold = (val, time) => this._timeUpdate(this.params.threshold, val, time)
 
     /**
-     * Set the compression ratio
-     * Uses timeUpdate method to allow for changes over time
-     *
+     * Set the compression ratio.
+     * Uses timeUpdate method to allow for changes over time.
      * @param {Number} val - target value
      * @param {Number} [time] - update time in seconds (optional)
      * @returns
@@ -120,9 +118,8 @@ class Compressor extends DotAudioNode {
     setRatio = (val, time) => this._timeUpdate(this.params.ratio, val, time)
 
     /**
-     * Set the knee value
-     * Uses timeUpdate method to allow for changes over time
-     *
+     * Set the knee value.
+     * Uses timeUpdate method to allow for changes over time.
      * @param {Number} val - target value
      * @param {Number} [time] - update time in seconds (optional)
      * @returns
@@ -130,7 +127,7 @@ class Compressor extends DotAudioNode {
     setKnee = (val, time) => this._timeUpdate(this.params.knee, val, time)
 
     /**
-     * Set the attack time
+     * Set the attack time.
      * @param {Number} val - target value
      * @param {Number} [time] - update time in seconds (optional)
      * @returns
@@ -138,7 +135,7 @@ class Compressor extends DotAudioNode {
     setAttack = (val, time) => this._timeUpdate(this.params.attack, val, time)
 
     /**
-     * Set the release time
+     * Set the release time.
      * @param {Number} val - target value
      * @param {Number} [time] - update time in seconds (optional)
      * @returns

@@ -42,16 +42,15 @@ class StereoPanner extends DotAudioNode {
 
     // - Getters -
     /**
-     * Get the current pan value
+     * Get the current pan value.
      * @returns {Number} Pan value
      */
     getPan = () => this.params.pan.value
 
     // - Setters -
     /**
-     * Set the pan of the node
-     * Uses timeUpdate method to allow for changes over time
-     *
+     * Set the pan of the node.
+     * Uses timeUpdate method to allow for changes over time.
      * @param {Number} val - New pan value
      * @param {Number} [time] - update time in seconds (optional)
      * @returns

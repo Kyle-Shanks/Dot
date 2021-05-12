@@ -61,7 +61,6 @@ class ConstantSource extends DotAudioNode {
     /**
      * Set the offset value of the source node
      * Uses timeUpdate method to allow for changes over time
-     *
      * @param {Number} val - offset value
      * @param {Number} [time] - update time in seconds (optional)
      * @returns

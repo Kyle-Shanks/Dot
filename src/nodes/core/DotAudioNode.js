@@ -12,25 +12,25 @@ class DotAudioNode {
 
     // --- Public Methods ---
     /**
-     * Get the name of the node
+     * Get the name of the node.
      * @returns {String} Node name
      */
     getName = () => this.name
 
     /**
-     * Get the array of params for the node
+     * Get the array of params for the node.
      * @returns {Object.<string, AudioParam>} Node params
      */
     getParams = () => this.params
 
     /**
-     * Get an array of the inputs for this node
+     * Get an array of the inputs for this node.
      * @returns {Array.<DotAudioNode|AudioNode|AudioParam>}
      */
     getInputs = () => this.inputs
 
     /**
-     * Get an array of the outputs for this node
+     * Get an array of the outputs for this node.
      * @returns {Array.<DotAudioNode|AudioNode>}
      */
     getOutputs = () => this.outputs
@@ -41,7 +41,6 @@ class DotAudioNode {
      * Connect this node to a DotAudioNode, AudioNode, or AudioParam.
      * An array can be passed to connect to multiple destinations.
      * Optionally pass output and input channels.
-     *
      * @example
      * const synth = new Dot.Synth(AC)
      * const reverb = new Dot.Reverb(AC)
@@ -60,7 +59,6 @@ class DotAudioNode {
      * Disconnect this node from one if its connections.
      * If no destination is passed, all connections will be removed.
      * Optionally pass output and input channels.
-     *
      * @example
      * const synth = new Dot.Synth(AC)
      * const reverb = new Dot.Reverb(AC)

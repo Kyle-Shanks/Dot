@@ -42,16 +42,15 @@ class Delay extends DotAudioNode {
 
     // - Getters -
     /**
-     * Get the current delay time
+     * Get the current delay time.
      * @returns {Number} Delay time
      */
     getDelayTime = () => this.params.delayTime.value
 
     // - Setters -
     /**
-     * Set the delay time of the node
-     * Uses timeUpdate method to allow for changes over time
-     *
+     * Set the delay time of the node.
+     * Uses timeUpdate method to allow for changes over time.
      * @param {Number} val - New delay time value
      * @param {Number} [time] - update time in seconds (optional)
      * @returns
