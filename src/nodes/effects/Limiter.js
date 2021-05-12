@@ -11,6 +11,28 @@ const defaultProps = {
     gain: 0.75
 }
 
+/**
+ * A Limiter effect used to limit the dynamic range of the incoming signal.
+ * Built using a Compressor node with more aggressive settings connected to a Gain node.
+ *
+ * @extends DotAudioNode
+ * @param {AudioContext} AC - Audio context
+ * @param {Object} opts - Initialization options
+ * @param {Number} opts.threshold - Compression threshold in dB
+ * @param {Number} opts.ratio - Compression ratio
+ * @param {Number} opts.knee - Compression knee value
+ * @param {Number} opts.attack - Compression attack time
+ * @param {Number} opts.release - Compression release time
+ * @param {Number} opts.gain - Output gain value
+ * @params
+ * threshold - Compressor threshold
+ * ratio - Compressor ratio
+ * knee - Compressor knee value
+ * attack - Compressor attack time
+ * release - Compressor release time
+ * gain - Gain value of the gain node
+ * @returns {Limiter} Limiter Node
+ */
 class Limiter extends DotAudioNode {
     constructor(AC, opts = {}) {
         super(AC)
@@ -45,23 +67,104 @@ class Limiter extends DotAudioNode {
 
     // - Getters -
     // Compressor
+    /**
+     * Get the current knee value.
+     * @returns {Number}
+     */
     getKnee = () => this.params.knee.value
+
+    /**
+     * Get the threshold in dB.
+     * @returns {Number}
+     */
     getThreshold = () => this.params.threshold.value
+
+    /**
+     * Get the compression ratio.
+     * @returns {Number}
+     */
     getRatio = () => this.params.ratio.value
+
+    /**
+     * Get the attack time.
+     * @returns {Number}
+     */
     getAttack = () => this.params.attack.value
+
+    /**
+     * Get the release time.
+     * @returns {Number}
+     */
     getRelease = () => this.params.release.value
+
+    /**
+     * Get the current gain reduction in dB.
+     * @returns {Number}
+     */
     getReduction = () => this.limiter.reduction
+
     // Gain
+    /**
+     * Get the gain value of the output gain.
+     * @returns {Number}
+     */
     getGain = () => this.params.gain.value
 
     // - Setters -
     // Compressor
+    /**
+     * Set the knee value.
+     * Calls the setKnee method of the compressor.
+     * @param {Number} val - knee value
+     * @param {Number} [time] - update time in seconds (optional)
+     * @returns
+     */
     setKnee = (val, time) => this.limiter.setKnee(val, time)
+
+    /**
+     * Set the threshold.
+     * Calls the setThreshold method of the compressor.
+     * @param {Number} val - threshold
+     * @param {Number} [time] - update time in seconds (optional)
+     * @returns
+     */
     setThreshold = (val, time) => this.limiter.setThreshold(val, time)
+
+    /**
+     * Set the compression ratio.
+     * Calls the setRatio method of the compressor.
+     * @param {Number} val - ratio
+     * @param {Number} [time] - update time in seconds (optional)
+     * @returns
+     */
     setRatio = (val, time) => this.limiter.setRatio(val, time)
+
+    /**
+     * Set the attack time.
+     * Calls the setAttack method of the compressor.
+     * @param {Number} val - attack time
+     * @param {Number} [time] - update time in seconds (optional)
+     * @returns
+     */
     setAttack = (val, time) => this.limiter.setAttack(val, time)
+
+    /**
+     * Set the release time.
+     * Calls the setRelease method of the compressor.
+     * @param {Number} val - release time
+     * @param {Number} [time] - update time in seconds (optional)
+     * @returns
+     */
     setRelease = (val, time) => this.limiter.setRelease(val, time)
+
     // Gain
+    /**
+     * Set the gain value of the output.
+     * Calls the setGain method of the output gain node.
+     * @param {Number} val - gain value
+     * @param {Number} [time] - update time in seconds (optional)
+     * @returns
+     */
     setGain = (val, time) => this.gain.setGain(val, time)
 }
 

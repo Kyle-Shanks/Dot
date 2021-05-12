@@ -18,19 +18,20 @@ class DotAudioNode {
     getName = () => this.name
 
     /**
-     * Get the array of params for the node.
+     * Get the array of params of the node.
+     * Gives access to the audio params of the node that can be connected to.
      * @returns {Object.<string, AudioParam>} Node params
      */
     getParams = () => this.params
 
     /**
-     * Get an array of the inputs for this node.
+     * Get an array of the inputs of this node.
      * @returns {Array.<DotAudioNode|AudioNode|AudioParam>}
      */
     getInputs = () => this.inputs
 
     /**
-     * Get an array of the outputs for this node.
+     * Get an array of the outputs of this node.
      * @returns {Array.<DotAudioNode|AudioNode>}
      */
     getOutputs = () => this.outputs
@@ -120,7 +121,7 @@ class DotAudioNode {
         return this
     }
 
-    // Recursively go down to get the default audio nodes/params for all inputs
+    // Recursively go down to get the default audio nodes/params of all inputs
     _getInputNodes = () => (
         this.getInputs().reduce((nodes, input) => {
             if (input instanceof DotAudioNode) {

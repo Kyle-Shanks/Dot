@@ -10,6 +10,22 @@ const defaultProps = {
     tone: 4400,
 }
 
+/**
+ * A feedback delay effect to adds echos and other delay-based effects to the incoming signal.
+ *
+ * @extends DotAudioNode
+ * @param {AudioContext} AC - Audio context
+ * @param {Object} opts - Initialization options
+ * @param {Number} opts.amount - The dry/wet amount of the node
+ * @param {Number} opts.delayTime - The delay time of the delay node
+ * @param {Number} opts.feedback - The gain value of the feedback gain node
+ * @param {Number} opts.tone - The cutoff frequency of the low-pass filter
+ * @params
+ * delayTime - The delay time of the delay node
+ * feedback - The gain value of the feedback gain node
+ * tone - The frequency of the low-pass filter
+ * @returns {FeedbackDelay} FeedbackDelay Node
+ */
 class FeedbackDelay extends DotAudioNode {
     constructor(AC, opts = {}) {
         super(AC)
@@ -45,12 +61,38 @@ class FeedbackDelay extends DotAudioNode {
     }
 
     // - Getters -
+    /**
+     * Get the dry/wet amount of the node.
+     * @returns {Number} Dry/set amount
+     */
     getAmount = () => this.amount
+
+    /**
+     * Get the delay time of the node.
+     * @returns {Number} Delay time
+     */
     getDelayTime = () => this.params.delayTime.value
+
+    /**
+     * Get the feedback of the node.
+     * @returns {Number} Feedback value
+     */
     getFeedback = () => this.params.feedback.value
+
+    /**
+     * Get the tone value of the node.
+     * @returns {Number} Tone frequency
+     */
     getTone = () => this.params.tone.value
 
     // - Setters -
+    /**
+     * Set the dry/wet amount of the node.
+     * Uses dryWetUpdate method to allow for changes over time.
+     * @param {Number} val - Dry/set amount
+     * @param {Number} [time] - update time in seconds (optional)
+     * @returns
+     */
     setAmount = (val, time) => {
         this.amount = val
         this._dryWetUpdate(
@@ -60,9 +102,33 @@ class FeedbackDelay extends DotAudioNode {
             time,
         )
     }
-    setFeedback = (val, time) => this.feedbackGain.setGain(val, time)
-    setTone = (val, time) => this.tone.setFrequency(val, time)
+
+    /**
+     * Set the delay time of the node.
+     * Calls the setDelayTime method of the delay node.
+     * @param {Number} val - delay time
+     * @param {Number} [time] - update time in seconds (optional)
+     * @returns
+     */
     setDelayTime = (val, time) => this.delay.setDelayTime(val, time)
+
+    /**
+     * Set the feedback value of the node.
+     * Calls the setGain method of the feedback gain.
+     * @param {Number} val - feedback gain value
+     * @param {Number} [time] - update time in seconds (optional)
+     * @returns
+     */
+    setFeedback = (val, time) => this.feedbackGain.setGain(val, time)
+
+    /**
+     * Set the tone value of the node.
+     * Calls the setFrequency method of the tone (filter node).
+     * @param {Number} val - tone frequency
+     * @param {Number} [time] - update time in seconds (optional)
+     * @returns
+     */
+    setTone = (val, time) => this.tone.setFrequency(val, time)
 }
 
 export default FeedbackDelay

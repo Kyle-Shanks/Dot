@@ -17,6 +17,16 @@ const createDistCurve = (gain = 0) => {
     })
 }
 
+/**
+ * A Distortion effect used to clip/distort the incoming signal.
+ *
+ * @extends DotAudioNode
+ * @param {AudioContext} AC - Audio context
+ * @param {Object} opts - Initialization options
+ * @param {Number} opts.amount - The dry/wet amount for the node
+ * @param {Number} opts.distortion - The distortion amount to generate the waveshaping curve
+ * @returns {Distortion} Distortion Node
+ */
 class Distortion extends DotAudioNode {
     constructor(AC, opts = {}) {
         super(AC)
@@ -26,9 +36,7 @@ class Distortion extends DotAudioNode {
         this.wetGain = new Gain(this.AC)
 
         this.distortion = 0
-        this.params = {
-            amount: this.wetGain.getParams().gain,
-        }
+        this.params = {}
         this.inputs = [this.dryGain, this.waveShaper]
         this.outputs = [this.dryGain, this.wetGain]
 
@@ -43,10 +51,26 @@ class Distortion extends DotAudioNode {
     }
 
     // - Getters -
-    getAmount = () => this.params.amount.value
+    /**
+     * Get the dry/wet amount level of the node.
+     * @returns {Number} Dry/wet amount
+     */
+    getAmount = () => this.wetGain.getGain()
+
+    /**
+     * Get the distortion value of the node.
+     * @returns {Number} Distortion value
+     */
     getDistortion = () => this.distortion
 
     // - Setters -
+    /**
+     * Set the dry/wet amount of the node.
+     * Uses linearFadeUpdate method to evenly fade and to allow for changes over time.
+     * @param {Number} val - Dry/set amount
+     * @param {Number} [time] - update time in seconds (optional)
+     * @returns
+     */
     setAmount = (val, time) => {
         this._linearFadeUpdate(
             this.dryGain.getParams().gain,
@@ -55,6 +79,11 @@ class Distortion extends DotAudioNode {
             time,
         )
     }
+
+    /**
+     * Set the distortion value of the node.
+     * @param {Number} val - Distortion value
+     */
     setDistortion = (val) => {
         this.waveShaper.setCurve(createDistCurve(val))
         this.distortion = val

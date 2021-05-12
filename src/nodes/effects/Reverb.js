@@ -10,6 +10,17 @@ const defaultProps = {
     normalize: false,
 }
 
+/**
+ * A convolusion reverb effect to adds width and space effects to the incoming signal.
+ *
+ * @extends DotAudioNode
+ * @param {AudioContext} AC - Audio context
+ * @param {Object} opts - Initialization options
+ * @param {Number} opts.amount - The dry/wet amount of the node
+ * @param {AudioBuffer} opts.buffer - The buffer value of the convolver node
+ * @param {Boolean} opts.normalize - The normalize value of the convolver node
+ * @returns {Reverb} Reverb Node
+ */
 class Reverb extends DotAudioNode {
     constructor(AC, opts = {}) {
         super(AC)
@@ -44,11 +55,32 @@ class Reverb extends DotAudioNode {
     }
 
     // - Getters -
+    /**
+     * Get the dry/wet amount of the node.
+     * @returns {Number} Dry/set amount
+     */
     getAmount = () => this.amount
+
+    /**
+     * Get the current audio buffer of the convolver node.
+     * @returns {AudioBuffer} Audio buffer
+     */
     getBuffer = () => this.convolver.getParams().buffer
+
+    /**
+     * Get the current normalize value of the convolver node.
+     * @returns {Boolean} Normalize value
+     */
     getNormalize = () => this.convolver.getParams().normalize
 
     // - Setters -
+    /**
+     * Set the dry/wet amount of the node.
+     * Uses dryWetUpdate method to allow for changes over time.
+     * @param {Number} val - Dry/set amount
+     * @param {Number} [time] - update time in seconds (optional)
+     * @returns
+     */
     setAmount = (val, time) => {
         this.amount = val
         this._dryWetUpdate(
@@ -58,7 +90,21 @@ class Reverb extends DotAudioNode {
             time,
         )
     }
+
+    /**
+     * Set the audio buffer of the convolver node.
+     * Calls the setBuffer method on the convolver node.
+     * @param {AudioBuffer} val - Audio buffer
+     * @returns
+     */
     setBuffer = (val) => this.convolver.setBuffer(val)
+
+    /**
+     * Set the normalize value of the convolver node.
+     * Calls the setNormalize method on the convolver node.
+     * @param {Boolean} val - Normalize value
+     * @returns
+     */
     setNormalize = (val) => this.convolver.setNormalize(val)
 }
 

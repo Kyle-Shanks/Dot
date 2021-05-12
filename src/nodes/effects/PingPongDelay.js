@@ -14,6 +14,28 @@ const defaultProps = {
     tone: 4400,
 }
 
+/**
+ * A ping pong delay effect to adds echos and other delay-based effects to the incoming signal.
+ *
+ * @extends DotAudioNode
+ * @param {AudioContext} AC - Audio context
+ * @param {Object} opts - Initialization options
+ * @param {Number} opts.amount - The dry/wet amount of the node
+ * @param {Number} opts.preDelayTime - The delay time of the initial delay node
+ * @param {Number} opts.leftDelayTime - The delay time of the left delay node
+ * @param {Number} opts.rightDelayTime - The delay time of the right delay node
+ * @param {Number} opts.leftFeedback - The gain value of the left feedback gain node
+ * @param {Number} opts.rightFeedback - The gain value of the right feedback gain node
+ * @param {Number} opts.tone - The cutoff frequency of the low-pass filter
+ * @params
+ * preDelayTime - The delay time of the initial delay node
+ * leftDelayTime - The delay time of the left delay node
+ * rightDelayTime - The delay time of the right delay node
+ * leftFeedback - The gain value of the left feedback gain node
+ * rightFeedback - The gain value of the right feedback gain node
+ * tone - The frequency of the low-pass filter
+ * @returns {PingPongDelay} PingPongDelay Node
+ */
 class PingPongDelay extends DotAudioNode{
     constructor(AC, opts = {}) {
         super(AC)
@@ -64,15 +86,56 @@ class PingPongDelay extends DotAudioNode{
     }
 
     // - Getters -
+    /**
+     * Get the dry/wet amount of the node.
+     * @returns {Number} Dry/set amount
+     */
     getAmount = () => this.amount
+
+    /**
+     * Get the initial delay time of the node.
+     * @returns {Number} Delay time
+     */
     getPreDelayTime = () => this.params.preDelayTime.value
+
+    /**
+     * Get the left delay time of the node.
+     * @returns {Number} Delay time
+     */
     getLeftDelayTime = () => this.params.leftDelayTime.value
+
+    /**
+     * Get the right delay time of the node.
+     * @returns {Number} Delay time
+     */
     getRightDelayTime = () => this.params.rightDelayTime.value
+
+    /**
+     * Get the left feedback of the node.
+     * @returns {Number} Feedback value
+     */
     getLeftFeedback = () => this.params.leftFeedback.value
+
+    /**
+     * Get the right feedback of the node.
+     * @returns {Number} Feedback value
+     */
     getRightFeedback = () => this.params.rightFeedback.value
+
+    /**
+     * Get the tone value of the node.
+     * @returns {Number} Tone frequency
+     */
     getTone = () => this.params.tone.value
 
     // - Setters -
+    /**
+     * Set the dry/wet amount of the node.
+     * Uses dryWetUpdate method to allow for changes over time.
+     * @param {Number} val - Dry/set amount
+     * @param {Number} [time] - update time in seconds (optional)
+     * @returns
+     */
     setAmount = (val, time) => {
         this.amount = val
         this._dryWetUpdate(
@@ -82,11 +145,59 @@ class PingPongDelay extends DotAudioNode{
             time,
         )
     }
+
+    /**
+     * Set the initial delay time of the node.
+     * Calls the setDelayTime method of the initial delay node.
+     * @param {Number} val - delay time
+     * @param {Number} [time] - update time in seconds (optional)
+     * @returns
+     */
     setPreDelayTime = (val, time) => this.preDelay.setDelayTime(val, time)
+
+    /**
+     * Set the left delay time of the node.
+     * Calls the setDelayTime method of the left delay node.
+     * @param {Number} val - delay time
+     * @param {Number} [time] - update time in seconds (optional)
+     * @returns
+     */
     setLeftDelayTime = (val, time) => this.leftDelay.setDelayTime(val, time)
+
+    /**
+     * Set the right delay time of the node.
+     * Calls the setDelayTime method of the right delay node.
+     * @param {Number} val - delay time
+     * @param {Number} [time] - update time in seconds (optional)
+     * @returns
+     */
     setRightDelayTime = (val, time) => this.rightDelay.setDelayTime(val, time)
+
+    /**
+     * Set the left feedback value of the node.
+     * Calls the setGain method of the left feedback gain.
+     * @param {Number} val - feedback gain value
+     * @param {Number} [time] - update time in seconds (optional)
+     * @returns
+     */
     setLeftFeedback = (val, time) => this.leftFeedbackGain.setGain(val, time)
+
+    /**
+     * Set the right feedback value of the node.
+     * Calls the setGain method of the right feedback gain.
+     * @param {Number} val - feedback gain value
+     * @param {Number} [time] - update time in seconds (optional)
+     * @returns
+     */
     setRightFeedback = (val, time) => this.rightFeedbackGain.setGain(val, time)
+
+    /**
+     * Set the tone value of the node.
+     * Calls the setFrequency method of the tone (filter node).
+     * @param {Number} val - tone frequency
+     * @param {Number} [time] - update time in seconds (optional)
+     * @returns
+     */
     setTone = (val, time) => this.tone.setFrequency(val, time)
 }
 

@@ -128,6 +128,7 @@ class Compressor extends DotAudioNode {
 
     /**
      * Set the attack time.
+     * Uses timeUpdate method to allow for changes over time.
      * @param {Number} val - target value
      * @param {Number} [time] - update time in seconds (optional)
      * @returns
@@ -136,6 +137,7 @@ class Compressor extends DotAudioNode {
 
     /**
      * Set the release time.
+     * Uses timeUpdate method to allow for changes over time.
      * @param {Number} val - target value
      * @param {Number} [time] - update time in seconds (optional)
      * @returns

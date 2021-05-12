@@ -15,9 +15,7 @@ const defaultProps = {
  * @param {Object} opts - Initialization options
  * @param {Float32Array} opts.curve - Initial curve of the node
  * @param {String} opts.oversample - Initial oversample setting of the node
- * @params
- * pan - Pan value (-1 for full left pan, 1 for full right pan)
- * @returns {Pan} Pan Node
+ * @returns {WaveShaper} WaveShaper Node
  */
 class WaveShaper extends DotAudioNode {
     constructor(AC, opts = {}) {
