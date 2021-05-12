@@ -21,13 +21,13 @@ const defaultProps = {
  * @param {AudioContext} AC - Audio context
  * @param {Object} opts - Initialization options
  * @param {AudioBuffer} opts.waveform - Initial waveform
- * @param {Boolean} opts.frequency - Initial frequency
- * @param {Number} opts.detune - Initial detune value
- * @param {Number} opts.gainAttack - Initial gain value
- * @param {Number} opts.gainDecay - Initial gain value
- * @param {Number} opts.gainSustain - Initial gain value
- * @param {Number} opts.gainRelease - Initial gain value
- * @param {Number} opts.gainAmount - Initial gain value
+ * @param {Boolean} opts.frequency - Frequency of the oscillator
+ * @param {Number} opts.detune - Detune value of the oscillator
+ * @param {Number} opts.gainAttack - Attack time of the gain envelope
+ * @param {Number} opts.gainDecay - Decay time of the gain envelope
+ * @param {Number} opts.gainSustain - Sustain value of the gain envelope
+ * @param {Number} opts.gainRelease - Release time of the gain envelope
+ * @param {Number} opts.gainAmount - Modifier value of the gain envelope
  * @params
  * frequency - Frequency of the oscillator
  * detune - Detune value of the oscillator
