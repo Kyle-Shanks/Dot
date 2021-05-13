@@ -248,7 +248,7 @@ class MonoSynth extends Synth {
      * Releases the note given if it matches the current note.
      * If a note is not given, it will release any current note being played.
      * Calls the Synth::noteOff and triggerRelease on the filter envelope.
-     * @param {String} [note] - Note to be stopped (optional)
+     * @param {String} [note] - Note to be released (optional)
      * @returns
      */
     noteOff = (note) => {

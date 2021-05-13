@@ -248,7 +248,7 @@ class SimpleFMSynth extends DotAudioNode {
      * Releases the note given if it matches the current note.
      * If a note is not given, it will release any current note being played.
      * Calls noteOff on the carrier.
-     * @param {String} [note] - Note to be stopped (optional)
+     * @param {String} [note] - Note to be released (optional)
      * @returns
      */
     noteOff = (note) => this.carrier.noteOff(note)
