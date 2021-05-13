@@ -50,8 +50,8 @@ class DotAudioNode {
      *
      * @param {DotAudioNode | AudioNode | AudioParam | Array.<DotAudioNode|AudioNode|AudioParam>}
      *      destination - The input/destination to connect to
-     * @param {Number} outputNum - Output channel to connect with
-     * @param {Number} inputNum - Input channel to connect to
+     * @param {Number} [outputNum] - Output channel to connect with (optional)
+     * @param {Number} [inputNum] - Input channel to connect to (optional)
      * @returns {DotAudioNode} this
      */
     connect = (destination, outputNum, inputNum) => this._connect(destination, outputNum, inputNum)
@@ -69,8 +69,8 @@ class DotAudioNode {
      *
      * @param {AudioParam | AudioNode | DotAudioNode | Array.<DotAudioNode|AudioParam|AudioNode>}
      *      destination - The input/destination to disconnect from
-     * @param {Number} outputNum - Output channel to disconnect from
-     * @param {Number} inputNum - Input channel to disconnect from
+     * @param {Number} [outputNum] - Output channel to disconnect from (optional)
+     * @param {Number} [inputNum] - Input channel to disconnect from (optional)
      * @returns {DotAudioNode} this
      */
     disconnect = (destination, outputNum, inputNum) => this._disconnect(destination, outputNum, inputNum)
