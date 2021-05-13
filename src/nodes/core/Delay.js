@@ -53,7 +53,6 @@ class Delay extends DotAudioNode {
      * Uses timeUpdate method to allow for changes over time.
      * @param {Number} val - New delay time value
      * @param {Number} [time] - update time in seconds (optional)
-     * @returns
      */
     setDelayTime = (val, time) => this._timeUpdate(this.params.delayTime, val, time)
 }

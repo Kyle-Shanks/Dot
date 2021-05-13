@@ -99,7 +99,6 @@ class Filter extends DotAudioNode {
      * Uses timeUpdate method to allow for changes over time.
      * @param {Number} val - frequency value
      * @param {Number} [time] - update time in seconds (optional)
-     * @returns
      */
     setFrequency = (val, time) => this._timeUpdate(this.params.frequency, val, time)
 
@@ -108,7 +107,6 @@ class Filter extends DotAudioNode {
      * Uses timeUpdate method to allow for changes over time.
      * @param {Number} val - q value
      * @param {Number} [time] - update time in seconds (optional)
-     * @returns
      */
     setQ = (val, time) => this._timeUpdate(this.params.frequency, val, time)
 
@@ -117,7 +115,6 @@ class Filter extends DotAudioNode {
      * Uses timeUpdate method to allow for changes over time.
      * @param {Number} val - gain value
      * @param {Number} [time] - update time in seconds (optional)
-     * @returns
      */
     setGain = (val, time) => this._timeUpdate(this.params.gain, val, time)
 
@@ -126,14 +123,12 @@ class Filter extends DotAudioNode {
      * Uses timeUpdate method to allow for changes over time.
      * @param {Number} val - detune value
      * @param {Number} [time] - update time in seconds (optional)
-     * @returns
      */
     setDetune = (val, time) => this._timeUpdate(this.params.detune, val, time)
 
     /**
      * Set the type of the filter.
      * @param {String} val - type value
-     * @returns
      */
     setType = (val) => {
         if (FILTER_TYPE.includes(val)) this.filter.type = val

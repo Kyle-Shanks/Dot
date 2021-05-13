@@ -117,7 +117,6 @@ class Limiter extends DotAudioNode {
      * Calls the setKnee method of the compressor.
      * @param {Number} val - knee value
      * @param {Number} [time] - update time in seconds (optional)
-     * @returns
      */
     setKnee = (val, time) => this.limiter.setKnee(val, time)
 
@@ -126,7 +125,6 @@ class Limiter extends DotAudioNode {
      * Calls the setThreshold method of the compressor.
      * @param {Number} val - threshold
      * @param {Number} [time] - update time in seconds (optional)
-     * @returns
      */
     setThreshold = (val, time) => this.limiter.setThreshold(val, time)
 
@@ -135,7 +133,6 @@ class Limiter extends DotAudioNode {
      * Calls the setRatio method of the compressor.
      * @param {Number} val - ratio
      * @param {Number} [time] - update time in seconds (optional)
-     * @returns
      */
     setRatio = (val, time) => this.limiter.setRatio(val, time)
 
@@ -144,7 +141,6 @@ class Limiter extends DotAudioNode {
      * Calls the setAttack method of the compressor.
      * @param {Number} val - attack time
      * @param {Number} [time] - update time in seconds (optional)
-     * @returns
      */
     setAttack = (val, time) => this.limiter.setAttack(val, time)
 
@@ -153,7 +149,6 @@ class Limiter extends DotAudioNode {
      * Calls the setRelease method of the compressor.
      * @param {Number} val - release time
      * @param {Number} [time] - update time in seconds (optional)
-     * @returns
      */
     setRelease = (val, time) => this.limiter.setRelease(val, time)
 
@@ -163,7 +158,6 @@ class Limiter extends DotAudioNode {
      * Calls the setGain method of the output gain node.
      * @param {Number} val - gain value
      * @param {Number} [time] - update time in seconds (optional)
-     * @returns
      */
     setGain = (val, time) => this.gain.setGain(val, time)
 }

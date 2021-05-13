@@ -93,7 +93,6 @@ class FilterEnvelope extends Envelope {
      * Calls the setFrequency method on the filter.
      * @param {Number} val - frequency value
      * @param {Number} [time] - update time in seconds (optional)
-     * @returns
      */
     setFrequency = (val, time) => this.filter.setFrequency(val, time)
 
@@ -102,7 +101,6 @@ class FilterEnvelope extends Envelope {
      * Calls the setQ method on the filter.
      * @param {Number} val - q factor value
      * @param {Number} [time] - update time in seconds (optional)
-     * @returns
      */
     setQ = (val, time) => this.filter.setQ(val, time)
 
@@ -111,7 +109,6 @@ class FilterEnvelope extends Envelope {
      * Calls the setDetune method on the filter.
      * @param {Number} val - detune value
      * @param {Number} [time] - update time in seconds (optional)
-     * @returns
      */
     setDetune = (val, time) => this.filter.setDetune(val, time)
 
@@ -120,14 +117,12 @@ class FilterEnvelope extends Envelope {
      * Calls the setGain method on the filter.
      * @param {Number} val - gain value
      * @param {Number} [time] - update time in seconds (optional)
-     * @returns
      */
     setGain = (val, time) => this.filter.setGain(val, time)
 
     /**
      * Set the filter node's type.
      * @param {String} val - filter type
-     * @returns
      */
     setType = (val) => this.filter.setType(val)
 }

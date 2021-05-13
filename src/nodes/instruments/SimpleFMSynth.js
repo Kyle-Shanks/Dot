@@ -153,7 +153,6 @@ class SimpleFMSynth extends DotAudioNode {
      * Calls the setFrequency method on the modulator.
      * @param {Number} val - Frequency
      * @param {Number} [time] - update time in seconds (optional)
-     * @returns
      */
     setModulatorFrequency = (val, time) => this.modulator.setFrequency(val, time)
 
@@ -162,7 +161,6 @@ class SimpleFMSynth extends DotAudioNode {
      * Calls the setDetune method on the modulator.
      * @param {Number} val - Detune
      * @param {Number} [time] - update time in seconds (optional)
-     * @returns
      */
     setModulatorDetune = (val, time) => this.modulator.setDetune(val, time)
 
@@ -171,7 +169,6 @@ class SimpleFMSynth extends DotAudioNode {
      * Calls the setGain method on the modulator.
      * @param {Number} val - Depth
      * @param {Number} [time] - update time in seconds (optional)
-     * @returns
      */
     setModulatorDepth = (val, time) => this.modulator.setGain(val, time)
 
@@ -181,7 +178,6 @@ class SimpleFMSynth extends DotAudioNode {
      * Calls the setFrequency method on the carrier.
      * @param {Number} val - Frequency
      * @param {Number} [time] - update time in seconds (optional)
-     * @returns
      */
     setCarrierFrequency = (val, time) => this.carrier.setFrequency(val, time)
 
@@ -190,7 +186,6 @@ class SimpleFMSynth extends DotAudioNode {
      * Calls the setDetune method on the carrier.
      * @param {Number} val - Detune
      * @param {Number} [time] - update time in seconds (optional)
-     * @returns
      */
     setCarrierDetune = (val, time) => this.carrier.setDetune(val, time)
 
@@ -199,7 +194,6 @@ class SimpleFMSynth extends DotAudioNode {
      * Set the attack time of the carrier's gain envelope.
      * Calls the setGainAttack method on the carrier.
      * @param {Number} val - Attack time
-     * @returns
      */
     setGainAttack = (val) => this.carrier.setGainAttack(val)
 
@@ -207,7 +201,6 @@ class SimpleFMSynth extends DotAudioNode {
      * Set the decay time of the carrier's gain envelope.
      * Calls the setGainDecay method on the carrier.
      * @param {Number} val - Decay time
-     * @returns
      */
     setGainDecay = (val) => this.carrier.setGainDecay(val)
 
@@ -215,7 +208,6 @@ class SimpleFMSynth extends DotAudioNode {
      * Set the sustain value of the carrier's gain envelope.
      * Calls the setGainSustain method on the carrier.
      * @param {Number} val - Sustain value
-     * @returns
      */
     setGainSustain = (val) => this.carrier.setGainSustain(val)
 
@@ -223,7 +215,6 @@ class SimpleFMSynth extends DotAudioNode {
      * Set the release time of the carrier's gain envelope.
      * Calls the setGainRelease method on the carrier.
      * @param {Number} val - Release time
-     * @returns
      */
     setGainRelease = (val) => this.carrier.setGainRelease(val)
 
@@ -231,7 +222,6 @@ class SimpleFMSynth extends DotAudioNode {
      * Set the modifier amount of the carrier's gain envelope.
      * Calls the setGainAmount method on the carrier.
      * @param {Number} val - Modifier value
-     * @returns
      */
     setGainAmount = (val) => this.carrier.setGainAmount(val)
 
@@ -240,7 +230,6 @@ class SimpleFMSynth extends DotAudioNode {
      * Plays the note given.
      * Calls the noteOn method on the carrier.
      * @param {String} note - Note to be played
-     * @returns
      */
     noteOn = (note) => this.carrier.noteOn(note)
 
@@ -249,14 +238,12 @@ class SimpleFMSynth extends DotAudioNode {
      * If a note is not given, it will release any current note being played.
      * Calls noteOff on the carrier.
      * @param {String} [note] - Note to be released (optional)
-     * @returns
      */
     noteOff = (note) => this.carrier.noteOff(note)
 
     /**
      * Stops any note currently being played.
      * Calls noteStop on the carrier.
-     * @returns
      */
     noteStop = () => this.carrier.noteStop()
 }

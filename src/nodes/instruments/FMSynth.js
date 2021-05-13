@@ -260,7 +260,6 @@ class FMSynth extends DotAudioNode {
      * Calls the setFrequency method on modulator (Osc).
      * @param {Number} val - Frequency
      * @param {Number} [time] - update time in seconds (optional)
-     * @returns
      */
     setModAFrequency = (val, time) => this.modA.setFrequency(val, time)
 
@@ -269,7 +268,6 @@ class FMSynth extends DotAudioNode {
      * Calls the setDetune method on modulator (Osc).
      * @param {Number} val - Detune value
      * @param {Number} [time] - update time in seconds (optional)
-     * @returns
      */
     setModADetune = (val, time) => this.modA.setDetune(val, time)
 
@@ -278,7 +276,6 @@ class FMSynth extends DotAudioNode {
      * Calls the setGain method on modulator (Osc).
      * @param {Number} val - Gain value
      * @param {Number} [time] - update time in seconds (optional)
-     * @returns
      */
     setModAGain = (val, time) => this.modA.setGain(val, time)
 
@@ -288,7 +285,6 @@ class FMSynth extends DotAudioNode {
      * Calls the setFrequency method on modulator (Osc).
      * @param {Number} val - Frequency
      * @param {Number} [time] - update time in seconds (optional)
-     * @returns
      */
     setModBFrequency = (val, time) => this.modB.setFrequency(val, time)
 
@@ -297,7 +293,6 @@ class FMSynth extends DotAudioNode {
      * Calls the setDetune method on modulator (Osc).
      * @param {Number} val - Detune value
      * @param {Number} [time] - update time in seconds (optional)
-     * @returns
      */
     setModBDetune = (val, time) => this.modB.setDetune(val, time)
 
@@ -306,7 +301,6 @@ class FMSynth extends DotAudioNode {
      * Calls the setGain method on modulator (Osc).
      * @param {Number} val - Gain value
      * @param {Number} [time] - update time in seconds (optional)
-     * @returns
      */
     setModBGain = (val, time) => this.modB.setGain(val, time)
 
@@ -316,7 +310,6 @@ class FMSynth extends DotAudioNode {
      * Calls the setFrequency method on modulator (Osc).
      * @param {Number} val - Frequency
      * @param {Number} [time] - update time in seconds (optional)
-     * @returns
      */
     setModCFrequency = (val, time) => this.modC.setFrequency(val, time)
 
@@ -325,7 +318,6 @@ class FMSynth extends DotAudioNode {
      * Calls the setDetune method on modulator (Osc).
      * @param {Number} val - Detune value
      * @param {Number} [time] - update time in seconds (optional)
-     * @returns
      */
     setModCDetune = (val, time) => this.modC.setDetune(val, time)
 
@@ -334,7 +326,6 @@ class FMSynth extends DotAudioNode {
      * Calls the setGain method on modulator (Osc).
      * @param {Number} val - Gain value
      * @param {Number} [time] - update time in seconds (optional)
-     * @returns
      */
     setModCGain = (val, time) => this.modC.setGain(val, time)
 
@@ -344,7 +335,6 @@ class FMSynth extends DotAudioNode {
      * Calls the setFrequency method on modulator (Osc).
      * @param {Number} val - Frequency
      * @param {Number} [time] - update time in seconds (optional)
-     * @returns
      */
     setModDFrequency = (val, time) => this.modD.setFrequency(val, time)
 
@@ -353,7 +343,6 @@ class FMSynth extends DotAudioNode {
      * Calls the setDetune method on modulator (Osc).
      * @param {Number} val - Detune value
      * @param {Number} [time] - update time in seconds (optional)
-     * @returns
      */
     setModDDetune = (val, time) => this.modD.setDetune(val, time)
 
@@ -362,7 +351,6 @@ class FMSynth extends DotAudioNode {
      * Calls the setGain method on modulator (Osc).
      * @param {Number} val - Gain value
      * @param {Number} [time] - update time in seconds (optional)
-     * @returns
      */
     setModDGain = (val, time) => this.modD.setGain(val, time)
 
@@ -371,7 +359,6 @@ class FMSynth extends DotAudioNode {
      * Set the attack time of the gain envelope.
      * Calls the setAttack method on the gain envelope.
      * @param {Number} val - Attack time
-     * @returns
      */
     setGainAttack = (val) => this.gainEnv.setAttack(val)
 
@@ -379,7 +366,6 @@ class FMSynth extends DotAudioNode {
      * Set the decay time of the gain envelope.
      * Calls the setDecay method on the gain envelope.
      * @param {Number} val - Decay time
-     * @returns
      */
     setGainDecay = (val) => this.gainEnv.setDecay(val)
 
@@ -387,7 +373,6 @@ class FMSynth extends DotAudioNode {
      * Set the sustain value of the gain envelope.
      * Calls the setSustain method on the gain envelope.
      * @param {Number} val - Sustain value
-     * @returns
      */
     setGainSustain = (val) => this.gainEnv.setSustain(val)
 
@@ -395,7 +380,6 @@ class FMSynth extends DotAudioNode {
      * Set the release time of the gain envelope.
      * Calls the setRelease method on the gain envelope.
      * @param {Number} val - Release time
-     * @returns
      */
     setGainRelease = (val) => this.gainEnv.setRelease(val)
 
@@ -403,7 +387,6 @@ class FMSynth extends DotAudioNode {
      * Set the gain modifier of the gain envelope.
      * Calls the setModifier method on the gain envelope.
      * @param {Number} val - Modifier amount
-     * @returns
      */
     setGainAmount = (val) => this.gainEnv.setModifier(val)
 

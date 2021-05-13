@@ -229,7 +229,6 @@ class PolySynth extends DotAudioNode {
     /**
      * Set the maximum number of active voices for the node
      * @param {Number} val - Polyphony setting
-     * @returns
      */
     setPolyphony = (val) => this.polyphony = clamp(val, 1, 8)
 
@@ -237,7 +236,6 @@ class PolySynth extends DotAudioNode {
     /**
      * Set the waveform for each of the node's oscillators.
      * @param {String} val - Waveform
-     * @returns
      */
     setWaveform = (val) => this.voices.forEach(voice => voice.setWaveform(val))
 
@@ -245,7 +243,6 @@ class PolySynth extends DotAudioNode {
      * Set the detune for each of the node's oscillators.
      * @param {Number} val - Detune value
      * @param {Number} [time] - update time in seconds (optional)
-     * @returns
      */
     setDetune = (val, time) => this.voices.forEach(voice => voice.setDetune(val, time))
 
@@ -253,35 +250,30 @@ class PolySynth extends DotAudioNode {
     /**
      * Set the attack time of the gain envelope.
      * @param {Number} val - Attack time
-     * @returns
      */
     setGainAttack = (val) => this.voices.forEach(voice => voice.setGainAttack(val))
 
     /**
      * Set the attack time of the gain envelope.
      * @param {Number} val - Attack time
-     * @returns
      */
     setGainDecay = (val) => this.voices.forEach(voice => voice.setGainDecay(val))
 
     /**
      * Set the sustain value of the gain envelope.
      * @param {Number} val - Sustain value
-     * @returns
      */
     setGainSustain = (val) => this.voices.forEach(voice => voice.setGainSustain(val))
 
     /**
      * Set the release time of the gain envelope.
      * @param {Number} val - Release time
-     * @returns
      */
     setGainRelease = (val) => this.voices.forEach(voice => voice.setGainRelease(val))
 
     /**
      * Set the gain modifier of the gain envelope.
      * @param {Number} val - Modifier amount
-     * @returns
      */
     setGainAmount = (val) => this.voices.forEach(voice => voice.setGainAmount(val))
 
@@ -290,7 +282,6 @@ class PolySynth extends DotAudioNode {
      * Set the cutoff frequency of the filter envelope's filter.
      * @param {Number} val - Frequency value
      * @param {Number} [time] - update time in seconds (optional)
-     * @returns
      */
     setFilterFrequency = (val, time) => this.voices.forEach(voice => voice.setFilterFrequency(val, time))
 
@@ -298,7 +289,6 @@ class PolySynth extends DotAudioNode {
      * Set the detune of the filter envelope's filter.
      * @param {Number} val - Detune value
      * @param {Number} [time] - update time in seconds (optional)
-     * @returns
      */
     setFilterDetune = (val, time) => this.voices.forEach(voice => voice.setFilterDetune(val, time))
 
@@ -306,7 +296,6 @@ class PolySynth extends DotAudioNode {
      * Set the Q value of the filter envelope's filter.
      * @param {Number} val - Q value
      * @param {Number} [time] - update time in seconds (optional)
-     * @returns
      */
     setFilterQ = (val, time) => this.voices.forEach(voice => voice.setFilterQ(val, time))
 
@@ -314,14 +303,12 @@ class PolySynth extends DotAudioNode {
      * Set the gain of the filter envelope's filter.
      * @param {Number} val - Gain value
      * @param {Number} [time] - update time in seconds (optional)
-     * @returns
      */
     setFilterGain = (val, time) => this.voices.forEach(voice => voice.setFilterGain(val, time))
 
     /**
      * Set the filter type of the filter envelope's filter.
      * @param {String} val - Filter type
-     * @returns
      */
     setFilterType = (val) => this.voices.forEach(voice => voice.setFilterType(val))
 
@@ -329,35 +316,30 @@ class PolySynth extends DotAudioNode {
     /**
      * Set the attack time of the filter envelope.
      * @param {Number} val - Attack time
-     * @returns
      */
     setFilterAttack = (val) => this.voices.forEach(voice => voice.setFilterAttack(val))
 
     /**
      * Set the attack time of the filter envelope.
      * @param {Number} val - Attack time
-     * @returns
      */
     setFilterDecay = (val) => this.voices.forEach(voice => voice.setFilterDecay(val))
 
     /**
      * Set the sustain value of the filter envelope.
      * @param {Number} val - Sustain value
-     * @returns
      */
     setFilterSustain = (val) => this.voices.forEach(voice => voice.setFilterSustain(val))
 
     /**
      * Set the release time of the filter envelope.
      * @param {Number} val - Release time
-     * @returns
      */
     setFilterRelease = (val) => this.voices.forEach(voice => voice.setFilterRelease(val))
 
     /**
      * Set the frequency modifier of the filter envelope.
      * @param {Number} val - Modifier amount
-     * @returns
      */
     setFilterAmount = (val) => this.voices.forEach(voice => voice.setFilterAmount(val))
 
@@ -365,7 +347,6 @@ class PolySynth extends DotAudioNode {
     /**
      * Plays the given note or array of notes.
      * @param {String | Array.<String>} note - Note(s) to be played
-     * @returns
      */
     noteOn = (note) => {
         // If note is an array of notes, play each
@@ -395,7 +376,6 @@ class PolySynth extends DotAudioNode {
      * Releases the note or array of notes given.
      * If a note is not given, it will release all current notes being played.
      * @param {String | Array.<String>} [note] - Note(s) to be released (optional)
-     * @returns
      */
     noteOff = (note) => {
         // If note is undefined, release all notes
@@ -413,7 +393,6 @@ class PolySynth extends DotAudioNode {
      * Stops the note or array of notes given.
      * If a note is not given, it will stop all current notes being played.
      * @param {String | Array.<String>} [note] - Note(s) to be stopped (optional)
-     * @returns
      */
     noteStop = (note) => {
         // If note is undefined, release all notes

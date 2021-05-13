@@ -84,7 +84,6 @@ class EQ2 extends DotAudioNode {
      * Calls the setFrequency method of the low band (filter node).
      * @param {Number} val - frequency
      * @param {Number} [time] - update time in seconds (optional)
-     * @returns
      */
     setLowFrequency = (val, time) => this.low.setFrequency(val, time)
 
@@ -93,7 +92,6 @@ class EQ2 extends DotAudioNode {
      * Calls the setGain method of the low band (filter node).
      * @param {Number} val - gain value
      * @param {Number} [time] - update time in seconds (optional)
-     * @returns
      */
     setLowGain = (val, time) => this.low.setGain(val, time)
 
@@ -102,7 +100,6 @@ class EQ2 extends DotAudioNode {
      * Calls the setFrequency method of the high band (filter node).
      * @param {Number} val - frequency
      * @param {Number} [time] - update time in seconds (optional)
-     * @returns
      */
     setHighFrequency = (val, time) => this.high.setFrequency(val, time)
 
@@ -111,7 +108,6 @@ class EQ2 extends DotAudioNode {
      * Calls the setGain method of the high band (filter node).
      * @param {Number} val - gain value
      * @param {Number} [time] - update time in seconds (optional)
-     * @returns
      */
     setHighGain = (val, time) => this.high.setGain(val, time)
 }

@@ -53,7 +53,6 @@ class Gain extends DotAudioNode {
      * Uses timeUpdate method to allow for changes over time.
      * @param {Number} val - gain value
      * @param {Number} [time] - update time in seconds (optional)
-     * @returns
      */
     setGain = (val, time) => this._timeUpdate(this.params.gain, val, time)
 }

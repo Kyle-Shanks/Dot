@@ -49,13 +49,11 @@ class Oscillator extends DotAudioNode {
 
     /**
      * Starts the oscillator
-     * @returns
      */
     start = () => this.osc.start()
 
     /**
      * Stops the oscillator
-     * @returns
      */
     stop = () => this.osc.stop()
 
@@ -91,7 +89,6 @@ class Oscillator extends DotAudioNode {
      *
      * @param {Number} val - Frequency
      * @param {Number} [time] - update time in seconds (optional)
-     * @returns
      */
     setFrequency = (val, time) => this._timeUpdate(this.params.frequency, val, time)
 
@@ -101,21 +98,18 @@ class Oscillator extends DotAudioNode {
      *
      * @param {Number} val - Detune
      * @param {Number} [time] - update time in seconds (optional)
-     * @returns
      */
     setDetune = (val, time) => this._timeUpdate(this.params.detune, val, time)
 
     /**
      * Set the waveform of the oscillator (Alias for setType)
      * @param {String} val - Waveform
-     * @returns
      */
     setWaveform = (val) => this.setType(val)
 
     /**
      * Set the waveform of the oscillator
      * @param {String} val - Waveform
-     * @returns
      */
     setType = (val) => {
         if (WAVEFORM.includes(val)) this.osc.type = val

@@ -51,14 +51,12 @@ class WaveShaper extends DotAudioNode {
     /**
      * Set the node's waveshaping curve.
      * @param {Float32Array} val - Waveshaping curve
-     * @returns
      */
     setCurve = (val) => this.waveShaper.curve = val
 
     /**
      * Set the node's oversample setting.
      * @param {String} val - Oversample setting
-     * @returns
      */
     setOversample = (val) => {
         if (OVERSAMPLE.includes(val)) this.waveShaper.oversample = val

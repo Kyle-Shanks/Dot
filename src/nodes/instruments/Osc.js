@@ -81,7 +81,6 @@ class Osc extends DotAudioNode {
     /**
      * Set the waveform of the oscillator.
      * @param {String} val - Waveform
-     * @returns
      */
     setWaveform = (val) => this.osc.setType(val)
 
@@ -90,7 +89,6 @@ class Osc extends DotAudioNode {
      * Calls the setFrequency method on the oscillator.
      * @param {Number} val - Frequency
      * @param {Number} [time] - update time in seconds (optional)
-     * @returns
      */
     setFrequency = (val, time) => this.osc.setFrequency(val, time)
 
@@ -99,7 +97,6 @@ class Osc extends DotAudioNode {
      * Calls the setDetune method on the oscillator.
      * @param {Number} val - Detune
      * @param {Number} [time] - update time in seconds (optional)
-     * @returns
      */
     setDetune = (val, time) => this.osc.setDetune(val, time)
 
@@ -108,7 +105,6 @@ class Osc extends DotAudioNode {
      * Calls the setGain method on the gain node.
      * @param {Number} val - Gain
      * @param {Number} [time] - update time in seconds (optional)
-     * @returns
      */
     setGain = (val, time) => this.gain.setGain(val, time)
 }

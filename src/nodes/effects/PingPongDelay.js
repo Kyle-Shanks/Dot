@@ -134,7 +134,6 @@ class PingPongDelay extends DotAudioNode{
      * Uses dryWetUpdate method to allow for changes over time.
      * @param {Number} val - Dry/set amount
      * @param {Number} [time] - update time in seconds (optional)
-     * @returns
      */
     setAmount = (val, time) => {
         this.amount = val
@@ -151,7 +150,6 @@ class PingPongDelay extends DotAudioNode{
      * Calls the setDelayTime method of the initial delay node.
      * @param {Number} val - delay time
      * @param {Number} [time] - update time in seconds (optional)
-     * @returns
      */
     setPreDelayTime = (val, time) => this.preDelay.setDelayTime(val, time)
 
@@ -160,7 +158,6 @@ class PingPongDelay extends DotAudioNode{
      * Calls the setDelayTime method of the left delay node.
      * @param {Number} val - delay time
      * @param {Number} [time] - update time in seconds (optional)
-     * @returns
      */
     setLeftDelayTime = (val, time) => this.leftDelay.setDelayTime(val, time)
 
@@ -169,7 +166,6 @@ class PingPongDelay extends DotAudioNode{
      * Calls the setDelayTime method of the right delay node.
      * @param {Number} val - delay time
      * @param {Number} [time] - update time in seconds (optional)
-     * @returns
      */
     setRightDelayTime = (val, time) => this.rightDelay.setDelayTime(val, time)
 
@@ -178,7 +174,6 @@ class PingPongDelay extends DotAudioNode{
      * Calls the setGain method of the left feedback gain.
      * @param {Number} val - feedback gain value
      * @param {Number} [time] - update time in seconds (optional)
-     * @returns
      */
     setLeftFeedback = (val, time) => this.leftFeedbackGain.setGain(val, time)
 
@@ -187,7 +182,6 @@ class PingPongDelay extends DotAudioNode{
      * Calls the setGain method of the right feedback gain.
      * @param {Number} val - feedback gain value
      * @param {Number} [time] - update time in seconds (optional)
-     * @returns
      */
     setRightFeedback = (val, time) => this.rightFeedbackGain.setGain(val, time)
 
@@ -196,7 +190,6 @@ class PingPongDelay extends DotAudioNode{
      * Calls the setFrequency method of the tone (filter node).
      * @param {Number} val - tone frequency
      * @param {Number} [time] - update time in seconds (optional)
-     * @returns
      */
     setTone = (val, time) => this.tone.setFrequency(val, time)
 }

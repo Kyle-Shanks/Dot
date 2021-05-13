@@ -51,13 +51,11 @@ class BufferSource extends DotAudioNode {
 
     /**
      * Starts output from the source node
-     * @returns
      */
     start = () => this.bufferSource.start()
 
     /**
      * Stops output from the source node
-     * @returns
      */
     stop = () => this.bufferSource.stop()
 
@@ -90,14 +88,12 @@ class BufferSource extends DotAudioNode {
     /**
      * Set the buffer of the source node
      * @param {AudioBuffer} val - Audio buffer
-     * @returns
      */
     setBuffer = (val) => this.bufferSource.buffer = val
 
     /**
      * Set the loop value of the source node
      * @param {Boolean} val - Loop value
-     * @returns
      */
     setLoop = (val) => this.bufferSource.loop = val
 
@@ -106,7 +102,6 @@ class BufferSource extends DotAudioNode {
      * Uses timeUpdate method to allow for changes over time
      * @param {Number} val - detune value
      * @param {Number} [time] - update time in seconds (optional)
-     * @returns
      */
     setDetune = (val, time) => this._timeUpdate(this.params.detune, val, time)
 
@@ -115,7 +110,6 @@ class BufferSource extends DotAudioNode {
      * Uses timeUpdate method to allow for changes over time
      * @param {Number} val - playback rate
      * @param {Number} [time] - update time in seconds (optional)
-     * @returns
      */
     setPlaybackRate = (val, time) => this._timeUpdate(this.params.playbackRate, val, time)
 }

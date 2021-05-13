@@ -79,7 +79,6 @@ class Reverb extends DotAudioNode {
      * Uses dryWetUpdate method to allow for changes over time.
      * @param {Number} val - Dry/set amount
      * @param {Number} [time] - update time in seconds (optional)
-     * @returns
      */
     setAmount = (val, time) => {
         this.amount = val
@@ -95,7 +94,6 @@ class Reverb extends DotAudioNode {
      * Set the audio buffer of the convolver node.
      * Calls the setBuffer method on the convolver node.
      * @param {AudioBuffer} val - Audio buffer
-     * @returns
      */
     setBuffer = (val) => this.convolver.setBuffer(val)
 
@@ -103,7 +101,6 @@ class Reverb extends DotAudioNode {
      * Set the normalize value of the convolver node.
      * Calls the setNormalize method on the convolver node.
      * @param {Boolean} val - Normalize value
-     * @returns
      */
     setNormalize = (val) => this.convolver.setNormalize(val)
 }

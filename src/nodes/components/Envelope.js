@@ -10,7 +10,8 @@ const defaultProps = {
 }
 
 /**
- * Constant source envelope that can be connected to AudioParams to modulate over time.
+ * A general-purpose envelope that can be connected to AudioParams to modulate values over time.
+ * Built using a ConstantSource node.
  *
  * @extends DotAudioNode
  * @param {AudioContext} AC - Audio context
@@ -87,35 +88,30 @@ class Envelope extends DotAudioNode {
     /**
      * Get the attack time of the envelope.
      * @param {Number} val - attack time value
-     * @returns
      */
     setAttack = (val) => this.attack = val
 
     /**
      * Get the decay time of the envelope.
      * @param {Number} val - decay time value
-     * @returns
      */
     setDecay = (val) => this.decay = val
 
     /**
      * Get the sustain value of the envelope.
      * @param {Number} val - sustain value
-     * @returns
      */
     setSustain = (val) => this.sustain = val
 
     /**
      * Get the release time of the envelope.
      * @param {Number} val - release time value
-     * @returns
      */
     setRelease = (val) => this.release = val
 
     /**
      * Get the modifier value of the envelope.
      * @param {Number} val - modifier value
-     * @returns
      */
     setModifier = (val) => this.modifier = val
 

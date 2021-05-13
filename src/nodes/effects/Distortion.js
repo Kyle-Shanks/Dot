@@ -69,7 +69,6 @@ class Distortion extends DotAudioNode {
      * Uses linearFadeUpdate method to evenly fade and to allow for changes over time.
      * @param {Number} val - Dry/set amount
      * @param {Number} [time] - update time in seconds (optional)
-     * @returns
      */
     setAmount = (val, time) => {
         this._linearFadeUpdate(

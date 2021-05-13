@@ -95,13 +95,11 @@ class NoiseGenerator extends DotAudioNode {
 
     /**
      * Starts output from the source node
-     * @returns
      */
     start = () => this.bufferSource.start()
 
     /**
      * Stops output from the source node
-     * @returns
      */
     stop = () => this.bufferSource.stop()
 

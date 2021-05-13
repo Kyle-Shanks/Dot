@@ -40,13 +40,11 @@ class ConstantSource extends DotAudioNode {
 
     /**
      * Starts output from the source node
-     * @returns
      */
     start = () => this.source.start()
 
     /**
      * Stops output from the source node
-     * @returns
      */
     stop = () => this.source.stop()
 
@@ -63,7 +61,6 @@ class ConstantSource extends DotAudioNode {
      * Uses timeUpdate method to allow for changes over time
      * @param {Number} val - offset value
      * @param {Number} [time] - update time in seconds (optional)
-     * @returns
      */
     setOffset = (val, time) => this._timeUpdate(this.params.offset, val, time)
 }

@@ -91,7 +91,6 @@ class FeedbackDelay extends DotAudioNode {
      * Uses dryWetUpdate method to allow for changes over time.
      * @param {Number} val - Dry/set amount
      * @param {Number} [time] - update time in seconds (optional)
-     * @returns
      */
     setAmount = (val, time) => {
         this.amount = val
@@ -108,7 +107,6 @@ class FeedbackDelay extends DotAudioNode {
      * Calls the setDelayTime method of the delay node.
      * @param {Number} val - delay time
      * @param {Number} [time] - update time in seconds (optional)
-     * @returns
      */
     setDelayTime = (val, time) => this.delay.setDelayTime(val, time)
 
@@ -117,7 +115,6 @@ class FeedbackDelay extends DotAudioNode {
      * Calls the setGain method of the feedback gain.
      * @param {Number} val - feedback gain value
      * @param {Number} [time] - update time in seconds (optional)
-     * @returns
      */
     setFeedback = (val, time) => this.feedbackGain.setGain(val, time)
 
@@ -126,7 +123,6 @@ class FeedbackDelay extends DotAudioNode {
      * Calls the setFrequency method of the tone (filter node).
      * @param {Number} val - tone frequency
      * @param {Number} [time] - update time in seconds (optional)
-     * @returns
      */
     setTone = (val, time) => this.tone.setFrequency(val, time)
 }

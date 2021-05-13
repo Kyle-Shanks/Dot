@@ -51,7 +51,6 @@ class GainEnvelope extends Envelope {
      * Calls the setGain method on the gain node.
      * @param {Number} val - gain value
      * @param {Number} [time] - update time in seconds (optional)
-     * @returns
      */
     setGain = (val, time) => this.gain.setGain(val, time)
 }

@@ -115,7 +115,6 @@ class Chorus extends DotAudioNode {
      * Uses linearFadeUpdate method to evenly fade and to allow for changes over time.
      * @param {Number} val - Dry/set amount
      * @param {Number} [time] - update time in seconds (optional)
-     * @returns
      */
     setAmount = (val, time) => {
         this._linearFadeUpdate(
@@ -131,7 +130,6 @@ class Chorus extends DotAudioNode {
      * Calls the setGain method of the feedback gain node.
      * @param {Number} val - Feedback
      * @param {Number} [time] - update time in seconds (optional)
-     * @returns
      */
     setFeedback = (val, time) => this.feedback.setGain(val, time)
 
@@ -140,7 +138,6 @@ class Chorus extends DotAudioNode {
      * Calls the setRate method of both delay time lfos.
      * @param {Number} val - depth
      * @param {Number} [time] - update time in seconds (optional)
-     * @returns
      */
     setRate = (val, time) => {
         this.leftLFO.setRate(val, time)
@@ -152,7 +149,6 @@ class Chorus extends DotAudioNode {
      * Calls the setDepth method of both delay time lfos.
      * @param {Number} val - depth
      * @param {Number} [time] - update time in seconds (optional)
-     * @returns
      */
     setDepth = (val, time) => {
         this.leftLFO.setDepth(val, time)
@@ -164,7 +160,6 @@ class Chorus extends DotAudioNode {
      * Calls the setDelayTime method of both delay nodes.
      * @param {Number} val - Delay time
      * @param {Number} [time] - update time in seconds (optional)
-     * @returns
      */
     setDelayTime = (val, time) => {
         this.leftDelay.setDelayTime(val, time)

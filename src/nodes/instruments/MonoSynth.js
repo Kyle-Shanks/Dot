@@ -152,7 +152,6 @@ class MonoSynth extends Synth {
      * Calls the setFrequency method on the filter envelope.
      * @param {Number} val - Frequency
      * @param {Number} [time] - update time in seconds (optional)
-     * @returns
      */
     setFilterFrequency = (val, time) => this.filterEnv.setFrequency(val, time)
 
@@ -161,7 +160,6 @@ class MonoSynth extends Synth {
      * Calls the setDetune method on the filter envelope.
      * @param {Number} val - Detune
      * @param {Number} [time] - update time in seconds (optional)
-     * @returns
      */
     setFilterDetune = (val, time) => this.filterEnv.setDetune(val, time)
 
@@ -170,7 +168,6 @@ class MonoSynth extends Synth {
      * Calls the setQ method on the filter envelope.
      * @param {Number} val - Q
      * @param {Number} [time] - update time in seconds (optional)
-     * @returns
      */
     setFilterQ = (val, time) => this.filterEnv.setQ(val, time)
 
@@ -179,7 +176,6 @@ class MonoSynth extends Synth {
      * Calls the setGain method on the filter envelope.
      * @param {Number} val - Gain
      * @param {Number} [time] - update time in seconds (optional)
-     * @returns
      */
     setFilterGain = (val, time) => this.filterEnv.setGain(val, time)
 
@@ -187,7 +183,6 @@ class MonoSynth extends Synth {
      * Set the type of the filter envelope's filter.
      * Calls the setType method on the filter envelope.
      * @param {String} val - Filter type
-     * @returns
      */
     setFilterType = (val) => this.filterEnv.setType(val)
 
@@ -196,7 +191,6 @@ class MonoSynth extends Synth {
      * Set the attack time of the filter envelope.
      * Calls the setAttack method on the filter envelope.
      * @param {Number} val - Attack time
-     * @returns
      */
     setFilterAttack = (val) => this.filterEnv.setAttack(val)
 
@@ -204,7 +198,6 @@ class MonoSynth extends Synth {
      * Set the decay time of the filter envelope.
      * Calls the setDecay method on the filter envelope.
      * @param {Number} val - Decay time
-     * @returns
      */
     setFilterDecay = (val) => this.filterEnv.setDecay(val)
 
@@ -212,7 +205,6 @@ class MonoSynth extends Synth {
      * Set the sustain value of the filter envelope.
      * Calls the setSustain method on the filter envelope.
      * @param {Number} val - Sustain value
-     * @returns
      */
     setFilterSustain = (val) => this.filterEnv.setSustain(val)
 
@@ -220,7 +212,6 @@ class MonoSynth extends Synth {
      * Set the release time of the filter envelope.
      * Calls the setRelease method on the filter envelope.
      * @param {Number} val - Release time
-     * @returns
      */
     setFilterRelease = (val) => this.filterEnv.setRelease(val)
 
@@ -228,7 +219,6 @@ class MonoSynth extends Synth {
      * Set the modifier value of the filter envelope.
      * Calls the setModifier method on the filter envelope.
      * @param {Number} val - Filter amount
-     * @returns
      */
     setFilterAmount = (val) => this.filterEnv.setModifier(val)
 
@@ -237,7 +227,6 @@ class MonoSynth extends Synth {
      * Plays the note given.
      * Calls the Synth::noteOn and triggerAttack on the filter envelope.
      * @param {String} note - Note to be played
-     * @returns
      */
     noteOn = (note) => {
         this._noteOn(note)
@@ -249,7 +238,6 @@ class MonoSynth extends Synth {
      * If a note is not given, it will release any current note being played.
      * Calls the Synth::noteOff and triggerRelease on the filter envelope.
      * @param {String} [note] - Note to be released (optional)
-     * @returns
      */
     noteOff = (note) => {
         // Do not release if the note if different from the current note
@@ -262,7 +250,6 @@ class MonoSynth extends Synth {
     /**
      * Stops any note currently being played.
      * Calls the Synth::noteStop and triggerStop on the filter envelope.
-     * @returns
      */
     noteStop = () => {
         this._noteStop()
