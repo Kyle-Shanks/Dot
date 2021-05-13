@@ -12,8 +12,8 @@ const defaultProps = {
  * @extends DotAudioNode
  * @param {AudioContext} AC - Audio context
  * @param {Object} opts - Initialization options
- * @param {AudioBuffer} opts.offset - Initial offset value
- * @param {Boolean} opts.start - Property to autostart the source node
+ * @param {Number} opts.offset - Initial offset value (default: 1)
+ * @param {Boolean} opts.start - Property to autostart the source node (default: false)
  * @params
  * offset - The offset of the output from the source node
  * @returns {ConstantSource} ConstantSource Node

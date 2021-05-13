@@ -22,11 +22,11 @@ const defaultProps = {
  * @extends DotAudioNode
  * @param {AudioContext} AC - Audio context
  * @param {Object} opts - Initialization options
- * @param {Number} opts.frequency - Initial frequency value of the filter
- * @param {Number} opts.q - Initial q value of the filter
- * @param {Number} opts.detune - Initial detune of the filter
- * @param {Number} opts.gain - Initial gain of the filter
- * @param {String} opts.type - Initial type of the filter
+ * @param {Number} opts.frequency - Initial frequency value of the filter (default: 11000)
+ * @param {Number} opts.q - Initial q value of the filter (default: 0)
+ * @param {Number} opts.detune - Initial detune of the filter (default: 0)
+ * @param {Number} opts.gain - Initial gain of the filter (default: 0)
+ * @param {String} opts.type - Initial type of the filter (default: 'lowpass')
  * @params
  * frequency - The cutoff frequency of the filter in Hz.
  * q - The Q factor, or quality factor of the filter.

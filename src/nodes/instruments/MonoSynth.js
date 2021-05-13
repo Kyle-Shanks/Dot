@@ -21,16 +21,16 @@ const defaultProps = {
  * @extends Synth
  * @param {AudioContext} AC - Audio context
  * @param {Object} opts - Initialization options
- * @param {Number} opts.filterFrequency - Frequency of the filter envelope's filter
- * @param {Number} opts.filterQ - Q value of the filter envelope's filter
- * @param {Number} opts.filterDetune - Detune value of the filter envelope's filter
- * @param {Number} opts.filterGain - Gain of the filter envelope's filter
- * @param {Number} opts.filterType - Type of the filter envelope's filter
- * @param {Number} opts.filterAttack - Attack time of the filter envelope
- * @param {Number} opts.filterDecay - Decay time of the filter envelope
- * @param {Number} opts.filterSustain - Sustain value of the filter envelope
- * @param {Number} opts.filterRelease - Release time of the filter envelope
- * @param {Number} opts.filterAmount - Modifier value of the filter envelope
+ * @param {Number} opts.filterFrequency - Frequency of the filter envelope's filter (default: 2000)
+ * @param {Number} opts.filterQ - Q value of the filter envelope's filter (default: 0)
+ * @param {Number} opts.filterDetune - Detune value of the filter envelope's filter (default: 0)
+ * @param {Number} opts.filterGain - Gain of the filter envelope's filter (default: 0)
+ * @param {Number} opts.filterType - Type of the filter envelope's filter (default: 'lowpass')
+ * @param {Number} opts.filterAttack - Attack time of the filter envelope (default: 0)
+ * @param {Number} opts.filterDecay - Decay time of the filter envelope (default: 0)
+ * @param {Number} opts.filterSustain - Sustain value of the filter envelope (default: 1)
+ * @param {Number} opts.filterRelease - Release time of the filter envelope (default: 0)
+ * @param {Number} opts.filterAmount - Modifier value of the filter envelope (default: 6000)
  * @params
  * filterFrequency - Frequency of the filter envelope's filter
  * filterQ - Q value of the filter envelope's filter

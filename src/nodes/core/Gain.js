@@ -17,7 +17,7 @@ const defaultProps = {
  * @extends DotAudioNode
  * @param {AudioContext} AC - Audio context
  * @param {Object} opts - Initialization options
- * @param {Number} opts.gain - Initial gain of the node
+ * @param {Number} opts.gain - Initial gain of the node (default: 1)
  * @params
  * gain - Gain adjustment of the incoming signal
  * @returns {Gain} Gain Node

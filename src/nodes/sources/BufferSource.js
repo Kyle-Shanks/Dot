@@ -15,11 +15,11 @@ const defaultProps = {
  * @extends DotAudioNode
  * @param {AudioContext} AC - Audio context
  * @param {Object} opts - Initialization options
- * @param {AudioBuffer} opts.buffer - Initial buffer value
- * @param {Boolean} opts.loop - Initial loop value
- * @param {Number} opts.detune - Initial detune value for the source node
- * @param {Number} opts.playbackRate - Initial playback rate value
- * @param {Boolean} opts.start - Property to autostart the source node
+ * @param {AudioBuffer} opts.buffer - Initial buffer value (default: null)
+ * @param {Boolean} opts.loop - Initial loop value (default: false)
+ * @param {Number} opts.detune - Initial detune value for the source node (default: 0)
+ * @param {Number} opts.playbackRate - Initial playback rate value (default: 1.0)
+ * @param {Boolean} opts.start - Property to autostart the source node (default: false)
  * @params
  * detune - Detune value of the audio
  * playbackRate - The speed that the audio is played back at

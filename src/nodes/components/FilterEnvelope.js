@@ -16,11 +16,11 @@ const defaultProps = {
  * @extends Envelope
  * @param {AudioContext} AC - Audio context
  * @param {Object} opts - Initialization options
- * @param {Number} opts.frequency - Initial frequency of the filter in Hz
- * @param {Number} opts.q - Initial q factor of the filter
- * @param {Number} opts.detune - Initial detune of the filter
- * @param {Number} opts.gain - Initial gain value of the filter
- * @param {Number} opts.type - Initial fitler type
+ * @param {Number} opts.frequency - Frequency of the filter in Hz (default: 2000)
+ * @param {Number} opts.q - Q factor of the filter (default: 0)
+ * @param {Number} opts.detune - Detune value of the filter (default: 0)
+ * @param {Number} opts.gain - Gain value of the filter (default: 0)
+ * @param {Number} opts.type - Fitler type of the filter (default: 'lowpass')
  * @params
  * frequency - Frequency of the filter node
  * q - Q factor of the filter node

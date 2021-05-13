@@ -70,8 +70,8 @@ const defaultProps = {
  * @extends DotAudioNode
  * @param {AudioContext} AC - Audio context
  * @param {Object} opts - Initialization options
- * @param {AudioBuffer} opts.type - Initial noise type
- * @param {Boolean} opts.start - Property to autostart the source node
+ * @param {String} opts.type - Initial noise type (default: 'white')
+ * @param {Boolean} opts.start - Property to autostart the source node (default: false)
  * @returns {NoiseGenerator} NoiseGenerator Node
  */
 class NoiseGenerator extends DotAudioNode {

@@ -22,11 +22,11 @@ const defaultProps = {
  * @extends DotAudioNode
  * @param {AudioContext} AC - Audio context
  * @param {Object} opts - Initialization options
- * @param {Number} opts.threshold - Initial compression threshold in dB
- * @param {Number} opts.ratio - Initial compression ratio
- * @param {Number} opts.knee - Initial compression knee value
- * @param {Number} opts.attack - Initial compression attack time
- * @param {Number} opts.release - Initial compression release time
+ * @param {Number} opts.threshold - Initial compression threshold in dB (default: -24)
+ * @param {Number} opts.ratio - Initial compression ratio (default: 12)
+ * @param {Number} opts.knee - Initial compression knee value (default: 30)
+ * @param {Number} opts.attack - Initial compression attack time (default: 0.003)
+ * @param {Number} opts.release - Initial compression release time (default: 0.25)
  * @params
  * threshold - Compressor threshold
  * ratio - Compressor ratio

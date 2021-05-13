@@ -13,8 +13,8 @@ const defaultProps = {
  * @extends DotAudioNode
  * @param {AudioContext} AC - Audio context
  * @param {Object} opts - Initialization options
- * @param {Float32Array} opts.curve - Initial curve of the node
- * @param {String} opts.oversample - Initial oversample setting of the node
+ * @param {Float32Array} opts.curve - Initial curve of the node (default: null)
+ * @param {String} opts.oversample - Initial oversample setting of the node (default: 'none')
  * @returns {WaveShaper} WaveShaper Node
  */
 class WaveShaper extends DotAudioNode {

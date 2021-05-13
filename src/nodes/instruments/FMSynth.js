@@ -38,24 +38,24 @@ const defaultProps = {
  * @extends DotAudioNode
  * @param {AudioContext} AC - Audio context
  * @param {Object} opts - Initialization options
- * @param {AudioBuffer} opts.algorithm - The index of the algorithm
- * @param {AudioBuffer} opts.modAFrequency - The frequency of the modulator A
- * @param {AudioBuffer} opts.modADetune - The detune of the modulator A
- * @param {AudioBuffer} opts.modAGain - The gain of the modulator A
- * @param {AudioBuffer} opts.modBFrequency - The frequency of the modulator B
- * @param {AudioBuffer} opts.modBDetune - The detune of the modulator B
- * @param {AudioBuffer} opts.modBGain - The gain of the modulator B
- * @param {AudioBuffer} opts.modCFrequency - The frequency of the modulator C
- * @param {AudioBuffer} opts.modCDetune - The detune of the modulator C
- * @param {AudioBuffer} opts.modCGain - The gain of the modulator C
- * @param {AudioBuffer} opts.modDFrequency - The frequency of the modulator D
- * @param {AudioBuffer} opts.modDDetune - The detune of the modulator D
- * @param {AudioBuffer} opts.modDGain - The gain of the modulator D
- * @param {AudioBuffer} opts.gainAttack - The attack time of the gain envelope
- * @param {AudioBuffer} opts.gainDecay - The decay time of the gain envelope
- * @param {AudioBuffer} opts.gainSustain - The sustain value of the gain envelope
- * @param {AudioBuffer} opts.gainRelease - The release time of the gain envelope
- * @param {AudioBuffer} opts.gainAmount - The gain modifier of the gain envelope
+ * @param {Number} opts.algorithm - The index of the algorithm (default: 0)
+ * @param {Number} opts.modAFrequency - The frequency of the modulator A (default: 440)
+ * @param {Number} opts.modADetune - The detune of the modulator A (default: 0)
+ * @param {Number} opts.modAGain - The gain of the modulator A (default: 440)
+ * @param {Number} opts.modBFrequency - The frequency of the modulator B (default: 440)
+ * @param {Number} opts.modBDetune - The detune of the modulator B (default: 0)
+ * @param {Number} opts.modBGain - The gain of the modulator B (default: 440)
+ * @param {Number} opts.modCFrequency - The frequency of the modulator C (default: 440)
+ * @param {Number} opts.modCDetune - The detune of the modulator C (default: 0)
+ * @param {Number} opts.modCGain - The gain of the modulator C (default: 440)
+ * @param {Number} opts.modDFrequency - The frequency of the modulator D (default: 440)
+ * @param {Number} opts.modDDetune - The detune of the modulator D (default: 0)
+ * @param {Number} opts.modDGain - The gain of the modulator D (default: 440)
+ * @param {Number} opts.gainAttack - The attack time of the gain envelope (default: 0)
+ * @param {Number} opts.gainDecay - The decay time of the gain envelope (default: 0)
+ * @param {Number} opts.gainSustain - The sustain value of the gain envelope (default: 1)
+ * @param {Number} opts.gainRelease - The release time of the gain envelope (default: 0)
+ * @param {Number} opts.gainAmount - The gain modifier of the gain envelope (default: 0.75)
  * @params
  * modAFrequency - The frequency of modulator A
  * modADetune - The detune value of modulator A

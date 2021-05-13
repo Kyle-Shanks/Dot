@@ -16,10 +16,10 @@ const defaultProps = {
  * @extends DotAudioNode
  * @param {AudioContext} AC - Audio context
  * @param {Object} opts - Initialization options
- * @param {Number} opts.amount - The dry/wet amount of the node
- * @param {Number} opts.delayTime - The delay time of the delay node
- * @param {Number} opts.feedback - The gain value of the feedback gain node
- * @param {Number} opts.tone - The cutoff frequency of the low-pass filter
+ * @param {Number} opts.amount - The dry/wet amount of the node (default: 0)
+ * @param {Number} opts.delayTime - The delay time of the delay node (default: 0.2)
+ * @param {Number} opts.feedback - The gain value of the feedback gain node (default: 0.6)
+ * @param {Number} opts.tone - The cutoff frequency of the low-pass filter (default: 4400)
  * @params
  * delayTime - The delay time of the delay node
  * feedback - The gain value of the feedback gain node

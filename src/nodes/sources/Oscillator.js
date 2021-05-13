@@ -15,10 +15,10 @@ const defaultProps = {
  * @extends DotAudioNode
  * @param {AudioContext} AC - Audio context
  * @param {Object} opts - Initialization options
- * @param {AudioBuffer} opts.type - Initial waveform
- * @param {AudioBuffer} opts.frequency - Initial frequency value
- * @param {AudioBuffer} opts.detune - Initial detune value
- * @param {Boolean} opts.start - Property to autostart the source node
+ * @param {String} opts.type - Initial waveform (default: 'sine')
+ * @param {Number} opts.frequency - Initial frequency value (default: 440)
+ * @param {Number} opts.detune - Initial detune value (default: 0)
+ * @param {Boolean} opts.start - Property to autostart the source node (default: false)
  * @params
  * frequency - Frequency of the oscillator
  * detune - Detune value of the oscillator

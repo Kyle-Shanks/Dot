@@ -21,11 +21,11 @@ const defaultProps = {
  * @extends DotAudioNode
  * @param {AudioContext} AC - Audio context
  * @param {Object} opts - Initialization options
- * @param {Number} opts.amount - The dry/wet amount for the node
- * @param {Number} opts.delayTime - The delay time of the chorus modulation
- * @param {Number} opts.depth - The depth of the chorus modulation
- * @param {Number} opts.rate - The rate of the chorus modulation
- * @param {Number} opts.feedback - The gain for the feedback signal
+ * @param {Number} opts.amount - The dry/wet amount for the node (default: 0)
+ * @param {Number} opts.delayTime - The delay time of the chorus modulation (default: 0.04)
+ * @param {Number} opts.depth - The depth of the chorus modulation (default: 0.005)
+ * @param {Number} opts.rate - The rate of the chorus modulation (default: 0.25)
+ * @param {Number} opts.feedback - The gain for the feedback signal (default: 0.4)
  * @params
  * delayTime - Delay time of the delay nodes
  * feedback - Gain of the feedback gain node

@@ -14,10 +14,10 @@ const defaultProps = {
  * @extends DotAudioNode
  * @param {AudioContext} AC - Audio context
  * @param {Object} opts - Initialization options
- * @param {Number} opts.lowFrequency - The frequency of the low band
- * @param {Number} opts.lowGain - The gain value of the low band
- * @param {Number} opts.highFrequency - The frequency of the high band
- * @param {Number} opts.highGain - The gain value of the high band
+ * @param {Number} opts.lowFrequency - The frequency of the low band (default: 320)
+ * @param {Number} opts.lowGain - The gain value of the low band (default: 0)
+ * @param {Number} opts.highFrequency - The frequency of the high band (default: 3200)
+ * @param {Number} opts.highGain - The gain value of the high band (default: 0)
  * @params
  * lowFrequency - The frequency of the low band (filter node)
  * lowGain - The gain of the low band (filter node)

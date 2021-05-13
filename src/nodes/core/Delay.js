@@ -17,7 +17,7 @@ const defaultProps = {
  * @extends DotAudioNode
  * @param {AudioContext} AC - Audio context
  * @param {Object} opts - Initialization options
- * @param {Number} opts.delayTime - Initial delay time of the node
+ * @param {Number} opts.delayTime - Initial delay time of the node (default: 0)
  * @params
  * delayTime - Amount of time to delay the incoming signal
  * @returns {Delay} Delay Node

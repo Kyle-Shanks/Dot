@@ -17,11 +17,11 @@ const defaultProps = {
  * @extends DotAudioNode
  * @param {AudioContext} AC - Audio context
  * @param {Object} opts - Initialization options
- * @param {Number} opts.amount - The dry/wet amount for the node
- * @param {Number} opts.delayTime - The delay time of the flanger modulation
- * @param {Number} opts.depth - The depth of the flanger modulation
- * @param {Number} opts.rate - The rate of the flanger modulation
- * @param {Number} opts.feedback - The gain for the feedback signal
+ * @param {Number} opts.amount - The dry/wet amount for the node (default: 0)
+ * @param {Number} opts.delayTime - The delay time of the flanger modulation (default: 0.01)
+ * @param {Number} opts.depth - The depth of the flanger modulation (default: 0.0015)
+ * @param {Number} opts.rate - The rate of the flanger modulation (default: 0.3333)
+ * @param {Number} opts.feedback - The gain for the feedback signal (default: 0.6666)
  * @params
  * delayTime - Delay time of the delay node
  * feedback - Gain of the feedback gain node

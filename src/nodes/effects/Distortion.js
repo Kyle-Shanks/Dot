@@ -23,8 +23,8 @@ const createDistCurve = (gain = 0) => {
  * @extends DotAudioNode
  * @param {AudioContext} AC - Audio context
  * @param {Object} opts - Initialization options
- * @param {Number} opts.amount - The dry/wet amount for the node
- * @param {Number} opts.distortion - The distortion amount to generate the waveshaping curve
+ * @param {Number} opts.amount - The dry/wet amount for the node (default: 0)
+ * @param {Number} opts.distortion - The distortion amount to generate the waveshaping curve (default: 0)
  * @returns {Distortion} Distortion Node
  */
 class Distortion extends DotAudioNode {

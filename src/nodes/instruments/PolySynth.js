@@ -32,25 +32,25 @@ const defaultProps = {
  * @extends DotAudioNode
  * @param {AudioContext} AC - Audio context
  * @param {Object} opts - Initialization options
- * @param {AudioBuffer} opts.polyphony - The number of voices
- * @param {AudioBuffer} opts.waveform - The waveform of the node's oscillators
- * @param {AudioBuffer} opts.frequency - The frequency of the node's oscillators
- * @param {AudioBuffer} opts.detune - The detune of the node's oscillators
- * @param {AudioBuffer} opts.gainAttack - The attack time of the gain envelope
- * @param {AudioBuffer} opts.gainDecay - The decay time of the gain envelope
- * @param {AudioBuffer} opts.gainSustain - The sustain value of the gain envelope
- * @param {AudioBuffer} opts.gainRelease - The release time of the gain envelope
- * @param {AudioBuffer} opts.gainAmount - The gain modifier of the gain envelope
- * @param {AudioBuffer} opts.filterFrequency - The cutoff frequency of the filter envelope' filter
- * @param {AudioBuffer} opts.filterQ - The q value of the filter envelope's filter
- * @param {AudioBuffer} opts.filterDetune - The detune of the filter envelope's filter
- * @param {AudioBuffer} opts.filterGain - The gain value of the filter envelope's filter
- * @param {AudioBuffer} opts.filterType - The filter type of the filter envelope's filter
- * @param {AudioBuffer} opts.filterAttack - The attack time of the filter envelope
- * @param {AudioBuffer} opts.filterDecay - The decay time of the filter envelope
- * @param {AudioBuffer} opts.filterSustain - The sustain value of the filter envelope
- * @param {AudioBuffer} opts.filterRelease - The release time of the filter envelope
- * @param {AudioBuffer} opts.filterAmount - The frequency modifier of the filter envelope
+ * @param {Number} opts.polyphony - The number of voices (default: 8)
+ * @param {String} opts.waveform - The waveform of the node's oscillators (default: 'sine')
+ * @param {Number} opts.frequency - The frequency of the node's oscillators (default: 440)
+ * @param {Number} opts.detune - The detune of the node's oscillators (default: 0)
+ * @param {Number} opts.gainAttack - The attack time of the gain envelope (default: 0)
+ * @param {Number} opts.gainDecay - The decay time of the gain envelope (default: 0)
+ * @param {Number} opts.gainSustain - The sustain value of the gain envelope (default: 1)
+ * @param {Number} opts.gainRelease - The release time of the gain envelope (default: 0)
+ * @param {Number} opts.gainAmount - The gain modifier of the gain envelope (default: 0.15)
+ * @param {Number} opts.filterFrequency - The cutoff frequency of the filter envelope' filter (default: 2000)
+ * @param {Number} opts.filterQ - The q value of the filter envelope's filter (default: 0)
+ * @param {Number} opts.filterDetune - The detune of the filter envelope's filter (default: 0)
+ * @param {Number} opts.filterGain - The gain value of the filter envelope's filter (default: 0)
+ * @param {String} opts.filterType - The filter type of the filter envelope's filter (default: 'lowpass')
+ * @param {Number} opts.filterAttack - The attack time of the filter envelope (default: 0)
+ * @param {Number} opts.filterDecay - The decay time of the filter envelope (default: 0)
+ * @param {Number} opts.filterSustain - The sustain value of the filter envelope (default: 1)
+ * @param {Number} opts.filterRelease - The release time of the filter envelope (default: 0)
+ * @param {Number} opts.filterAmount - The frequency modifier of the filter envelope (default: 6000)
  * @params
  * frequency - The frequency of each of the voices
  * detune - The detune value of each of the voices

@@ -22,16 +22,16 @@ const defaultProps = {
  * @extends DotAudioNode
  * @param {AudioContext} AC - Audio context
  * @param {Object} opts - Initialization options
- * @param {Number} opts.modulatorFrequency - Frequency of the modulator's oscillator
- * @param {Number} opts.modulatorDetune - Detune of the modulator's oscillator
- * @param {Number} opts.modulatorDepth - Gain of the modulator's gain node
- * @param {Number} opts.carrierFrequency - Frequency of the carrier's oscillator
- * @param {Number} opts.carrierDetune - Detune of the carrier's oscillator
- * @param {Number} opts.gainAttack - Attack time of the carrier's gain envelope
- * @param {Number} opts.gainDecay - Decay time of the carrier's gain envelope
- * @param {Number} opts.gainSustain - Sustain value of the carrier's gain envelope
- * @param {Number} opts.gainRelease - Release time of the carrier's gain envelope
- * @param {Number} opts.gainAmount - Modifier of the carrier's gain envelope
+ * @param {Number} opts.modulatorFrequency - Frequency of the modulator's oscillator (default: 440)
+ * @param {Number} opts.modulatorDetune - Detune of the modulator's oscillator (default: 0)
+ * @param {Number} opts.modulatorDepth - Gain of the modulator's gain node (default: 440)
+ * @param {Number} opts.carrierFrequency - Frequency of the carrier's oscillator (default: 440)
+ * @param {Number} opts.carrierDetune - Detune of the carrier's oscillator (default: 0)
+ * @param {Number} opts.gainAttack - Attack time of the carrier's gain envelope (default: 0)
+ * @param {Number} opts.gainDecay - Decay time of the carrier's gain envelope (default: 0)
+ * @param {Number} opts.gainSustain - Sustain value of the carrier's gain envelope (default: 1)
+ * @param {Number} opts.gainRelease - Release time of the carrier's gain envelope (default: 0)
+ * @param {Number} opts.gainAmount - Modifier of the carrier's gain envelope (default: 0.75)
  * @params
  * modulatorFrequency - Frequency param of the modulator's oscillator
  * modulatorDetune - Detune param of the modulator's oscillator

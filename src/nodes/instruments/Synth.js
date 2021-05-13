@@ -20,14 +20,14 @@ const defaultProps = {
  * @extends DotAudioNode
  * @param {AudioContext} AC - Audio context
  * @param {Object} opts - Initialization options
- * @param {AudioBuffer} opts.waveform - Initial waveform
- * @param {Boolean} opts.frequency - Frequency of the oscillator
- * @param {Number} opts.detune - Detune value of the oscillator
- * @param {Number} opts.gainAttack - Attack time of the gain envelope
- * @param {Number} opts.gainDecay - Decay time of the gain envelope
- * @param {Number} opts.gainSustain - Sustain value of the gain envelope
- * @param {Number} opts.gainRelease - Release time of the gain envelope
- * @param {Number} opts.gainAmount - Modifier value of the gain envelope
+ * @param {String} opts.waveform - Initial waveform (default: 'sine')
+ * @param {Boolean} opts.frequency - Frequency of the oscillator (default: 440)
+ * @param {Number} opts.detune - Detune value of the oscillator (default: 0)
+ * @param {Number} opts.gainAttack - Attack time of the gain envelope (default: 0)
+ * @param {Number} opts.gainDecay - Decay time of the gain envelope (default: 0)
+ * @param {Number} opts.gainSustain - Sustain value of the gain envelope (default: 1)
+ * @param {Number} opts.gainRelease - Release time of the gain envelope (default: 0)
+ * @param {Number} opts.gainAmount - Modifier value of the gain envelope (default: 0.75)
  * @params
  * frequency - Frequency of the oscillator
  * detune - Detune value of the oscillator

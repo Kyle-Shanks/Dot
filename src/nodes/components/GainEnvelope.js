@@ -12,7 +12,7 @@ const defaultProps = {
  * @extends Envelope
  * @param {AudioContext} AC - Audio context
  * @param {Object} opts - Initialization options
- * @param {Number} opts.gain - Initial gain value
+ * @param {Number} opts.gain - Gain value of the gain node (default: 0)
  * @params
  * gain - The base gain for the gain node
  * @returns {GainEnvelope} GainEnvelope Node

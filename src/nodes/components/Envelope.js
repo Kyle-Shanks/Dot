@@ -16,11 +16,11 @@ const defaultProps = {
  * @extends DotAudioNode
  * @param {AudioContext} AC - Audio context
  * @param {Object} opts - Initialization options
- * @param {Number} opts.attack - Initial attack time
- * @param {Number} opts.decay - Initial decay time
- * @param {Number} opts.sustain - Initial sustain value
- * @param {Number} opts.release - Initial release time
- * @param {Number} opts.modifier - Initial modifier value
+ * @param {Number} opts.attack - Initial attack time (default: 0)
+ * @param {Number} opts.decay - Initial decay time (default: 0)
+ * @param {Number} opts.sustain - Initial sustain value (default: 1)
+ * @param {Number} opts.release - Initial release time (default: 0)
+ * @param {Number} opts.modifier - Initial modifier value (default: 1)
  * @returns {Envelope} Envelope Node
  */
 class Envelope extends DotAudioNode {

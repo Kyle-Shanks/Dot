@@ -16,9 +16,9 @@ const defaultProps = {
  * @extends DotAudioNode
  * @param {AudioContext} AC - Audio context
  * @param {Object} opts - Initialization options
- * @param {Number} opts.amount - The dry/wet amount of the node
- * @param {AudioBuffer} opts.buffer - The buffer value of the convolver node
- * @param {Boolean} opts.normalize - The normalize value of the convolver node
+ * @param {Number} opts.amount - The dry/wet amount of the node (default: 0)
+ * @param {AudioBuffer} opts.buffer - The buffer value of the convolver node (default: null)
+ * @param {Boolean} opts.normalize - The normalize value of the convolver node (default: false)
  * @returns {Reverb} Reverb Node
  */
 class Reverb extends DotAudioNode {
