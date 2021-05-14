@@ -1,8 +1,8 @@
 import DotAudioNode from 'nodes/core/DotAudioNode'
 import Gain from 'nodes/core/Gain'
 import Convolver from 'nodes/core/Convolver'
-import reverbBase64 from 'src/util/reverbBase64String'
-import { base64ToArrayBuffer } from 'src/util/util'
+import ChannelMerger from 'nodes/core/ChannelMerger'
+import NoiseGenerator from 'nodes/sources/NoiseGenerator'
 
 const defaultProps = {
     amount: 0,
@@ -12,6 +12,7 @@ const defaultProps = {
 
 /**
  * A convolusion reverb effect to adds width and space effects to the incoming signal.
+ * A default impulse response will be generated if one is not provided.
  *
  * @extends DotAudioNode
  * @param {AudioContext} AC - Audio context
@@ -41,19 +42,14 @@ class Reverb extends DotAudioNode {
         this.setBuffer(initProps.buffer)
         this.setNormalize(initProps.normalize)
 
-        // Load default buffer if none
-        if (!this.getBuffer()) {
-            this.AC.decodeAudioData(
-                base64ToArrayBuffer(reverbBase64),
-                buffer => this.setBuffer(buffer),
-                e => console.error('Error decoding reverb data: ' + e.err)
-            )
-        }
+        // Generate a default buffer if one is not provided
+        if (!this.getBuffer()) this._generateBuffer()
 
         // Connections
         this.convolver.connect(this.wetGain)
     }
 
+    // --- Public Methods ---
     // - Getters -
     /**
      * Get the dry/wet amount of the node.
@@ -103,6 +99,34 @@ class Reverb extends DotAudioNode {
      * @param {Boolean} val - Normalize value
      */
     setNormalize = (val) => this.convolver.setNormalize(val)
+
+    // --- Private Methods ---
+    // Generate a default buffer
+    _generateBuffer = () => {
+        const preDelay = 0.01
+        const decay = 0.5
+        const sampleRate = 44100
+
+        // Use noise generators to create the impulse
+        const context = new OfflineAudioContext(2, (preDelay + decay) * 5 * sampleRate, sampleRate)
+        const noiseL = new NoiseGenerator(context, { start: true })
+        const noiseR = new NoiseGenerator(context, { start: true })
+        const channelMerger = new ChannelMerger(context)
+        const gain = new Gain(context)
+
+        noiseL.connect(channelMerger, 0, 0)
+        noiseR.connect(channelMerger, 0, 1)
+        channelMerger.connect(gain)
+        gain.connect(context.destination)
+
+        // Set envelope for the gain node
+        gain.getParams().gain.setValueAtTime(0, context.currentTime)
+        gain.getParams().gain.setTargetAtTime(0.05, context.currentTime, preDelay)
+        gain.getParams().gain.setTargetAtTime(0, context.currentTime + preDelay, decay)
+
+        // render and set the buffer
+        context.startRendering().then((buffer) => this.setBuffer(buffer))
+    }
 }
 
 export default Reverb

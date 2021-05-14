@@ -119,10 +119,10 @@ class NoiseGenerator extends DotAudioNode {
         if (NOISE_TYPE.includes(val)) {
             this.type = val
             if (this.bufferSource.getBuffer()) {
-                typeBufferMap[this.params.type](this.bufferSource.getBuffer())
+                typeBufferMap[this.type](this.bufferSource.getBuffer())
             } else {
                 const buffer = getBuffer(this.AC)
-                this.bufferSource.setBuffer(typeBufferMap[this.params.type](buffer))
+                this.bufferSource.setBuffer(typeBufferMap[this.type](buffer))
             }
         }
     }

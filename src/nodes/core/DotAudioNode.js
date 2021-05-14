@@ -26,13 +26,13 @@ class DotAudioNode {
 
     /**
      * Get an array of the inputs of this node.
-     * @returns {Array.<DotAudioNode|AudioNode|AudioParam>}
+     * @returns {Array.<DotAudioNode|AudioNode|AudioParam>} Array of inputs
      */
     getInputs = () => this.inputs
 
     /**
      * Get an array of the outputs of this node.
-     * @returns {Array.<DotAudioNode|AudioNode>}
+     * @returns {Array.<DotAudioNode|AudioNode>} Array of outputs
      */
     getOutputs = () => this.outputs
 

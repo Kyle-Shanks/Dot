@@ -249,7 +249,7 @@ class FMSynth extends DotAudioNode {
      * @returns {String} Algorithm diagram string
      */
     setAlgorithm = (idx) => {
-        if (!fmAlgorithms[idx]) return console.error('Invalid algorithm index');
+        if (!fmAlgorithms[idx]) return console.error('Invalid algorithm index')
         this.algorithm = fmAlgorithms[idx](this.modA, this.modB, this.modC, this.modD, this.limiter)
         return this.algorithm
     }
