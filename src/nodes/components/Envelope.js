@@ -10,7 +10,7 @@ const defaultProps = {
 }
 
 /**
- * A general-purpose envelope that can be connected to AudioParams to modulate values over time.
+ * A general-purpose ADSR envelope that can be connected to AudioParams to modulate values over time.
  * Built using a ConstantSource node.
  *
  * @extends DotAudioNode
@@ -56,31 +56,31 @@ class Envelope extends DotAudioNode {
     // - Getters -
     /**
      * Get the attack time of the envelope.
-     * @returns {Number}
+     * @returns {Number} Attack time
      */
     getAttack = () => this.attack
 
     /**
      * Get the decay time of the envelope.
-     * @returns {Number}
+     * @returns {Number} Decay time
      */
     getDecay = () => this.decay
 
     /**
      * Get the sustain value of the envelope.
-     * @returns {Number}
+     * @returns {Number} Sustain value
      */
     getSustain = () => this.sustain
 
     /**
      * Get the release time of the envelope.
-     * @returns {Number}
+     * @returns {Number} Release time
      */
     getRelease = () => this.release
 
     /**
      * Get the modifier value of the envelope.
-     * @returns {Number}
+     * @returns {Number} Modifier value
      */
     getModifier = () => this.modifier
 

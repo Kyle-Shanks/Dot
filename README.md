@@ -96,7 +96,6 @@ Keyboard Example:
 import * as Dot from 'dot-audio'
 
 const AC = new AudioContext()
-let contextStarted = false
 
 // Nodes
 const synth = new Dot.PolySynth(
@@ -120,11 +119,8 @@ Dot.chain(synth, chorus, reverb, limiter, AC.destination)
 // Keyboard setup
 const keyboard = new Dot.Keyboard({
     onPress: (noteInfo) => {
-        // Start context when user interacts
-        if (!contextStarted) {
-            AC.resume()
-            contextStarted = true
-        }
+        // Start context when the user tries to play a note
+        if (AC.state === 'suspended') AC.resume()
 
         synth.noteOn(noteInfo.fullNote)
     },

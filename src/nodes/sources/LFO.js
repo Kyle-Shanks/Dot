@@ -13,8 +13,8 @@ const defaultProps = {
 }
 
 /**
- * A source node that outputs low frequency oscillations for updating audio params.
- * Consists of an oscilator connected to a gain node.
+ * A source node that outputs low frequency oscillations for modulating audio params over time.
+ * Built using an oscilator connected to a gain node.
  *
  * @extends DotAudioNode
  * @param {AudioContext} AC - Audio context
