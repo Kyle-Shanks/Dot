@@ -67,10 +67,15 @@ const defaultProps = {
  * A source node that outputs three types of noise using a BufferSource node.
  * Can output white, pink, or brown noise.
  *
+ * @example
+ * const whiteNoise = new Dot.NoiseGenerator(AC, { type: 'white' })
+ * const pinkNoise = new Dot.NoiseGenerator(AC, { type: 'pink' })
+ * const brownNoise = new Dot.NoiseGenerator(AC, { type: 'brown' })
+ *
  * @extends DotAudioNode
  * @param {AudioContext} AC - Audio context
  * @param {Object} opts - Initialization options
- * @param {String} opts.type - Initial noise type (default: 'white')
+ * @param {String} opts.type - The type of noise that is output (default: 'white')
  * @param {Boolean} opts.start - Property to autostart the source node (default: false)
  * @returns {NoiseGenerator} NoiseGenerator Node
  */

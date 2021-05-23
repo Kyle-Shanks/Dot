@@ -11,13 +11,18 @@ const defaultProps = {
 /**
  * A source node that outputs signal of different waveforms and frequencies.
  * Wrapper class for the native Oscillator audio node.
+ * For more information, refer to the web audio api documentation.
+ * (https://developer.mozilla.org/en-US/docs/Web/API/Oscillator)
+ *
+ * @example
+ * const oscillator = new Dot.Oscillator(AC, { type: 'triangle' })
  *
  * @extends DotAudioNode
  * @param {AudioContext} AC - Audio context
  * @param {Object} opts - Initialization options
- * @param {String} opts.type - Initial waveform (default: 'sine')
- * @param {Number} opts.frequency - Initial frequency value (default: 440)
- * @param {Number} opts.detune - Initial detune value (default: 0)
+ * @param {String} opts.type - The waveform of the oscillator (default: 'sine')
+ * @param {Number} opts.frequency - The frequency of the oscillator in Hz (default: 440)
+ * @param {Number} opts.detune - The detune of the oscillator in cents. [100 cents/semitone, 1200 cents/octave] (default: 0)
  * @param {Boolean} opts.start - Property to autostart the source node (default: false)
  * @params
  * frequency - Frequency of the oscillator

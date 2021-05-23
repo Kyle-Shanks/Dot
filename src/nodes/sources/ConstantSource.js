@@ -7,15 +7,17 @@ const defaultProps = {
 
 /**
  * A source node that outputs a constant signal that can be adjusted.
- * Wrapper class for the native ConstantSource audio node.
+ * Wrapper class for the native ConstantSource node.
+ * For more information, refer to the web audio api documentation.
+ * (https://developer.mozilla.org/en-US/docs/Web/API/ConstantSourceNode)
  *
  * @extends DotAudioNode
  * @param {AudioContext} AC - Audio context
  * @param {Object} opts - Initialization options
- * @param {Number} opts.offset - Initial offset value (default: 1)
+ * @param {Number} opts.offset - The value of the output from the source node (default: 1)
  * @param {Boolean} opts.start - Property to autostart the source node (default: false)
  * @params
- * offset - The offset of the output from the source node
+ * offset - Node offset value
  * @returns {ConstantSource} ConstantSource Node
  */
 class ConstantSource extends DotAudioNode {

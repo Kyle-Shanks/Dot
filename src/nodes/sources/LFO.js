@@ -16,13 +16,21 @@ const defaultProps = {
  * A source node that outputs low frequency oscillations for modulating audio params over time.
  * Built using an oscilator connected to a gain node.
  *
+ * @example
+ * // Tremolo effect
+ * const lfo = new Dot.LFO(AC, { start: true })
+ * const osc = new Dot.Osc(AC, { gain: 0 })
+ *
+ * lfo.connect(osc.getParams().gain)
+ * osc.connect(AC.destination)
+ *
  * @extends DotAudioNode
  * @param {AudioContext} AC - Audio context
  * @param {Object} opts - Initialization options
- * @param {Number} opts.rate - Initial lfo rate (default: 1)
- * @param {Number} opts.depth - Initial depth value (default: 1)
- * @param {Number} opts.detune - Initial detune value (default: 0)
- * @param {String} opts.type - Initial waveform (default: 'sine')
+ * @param {Number} opts.rate - The frequency of the oscillator (default: 1, limit: 100)
+ * @param {Number} opts.depth - The depth of the lfo controlled by the gain node's gain (default: 1)
+ * @param {Number} opts.detune - the detune value of the oscillator (default: 0)
+ * @param {String} opts.type - The waveform of the oscillator (default: 'sine')
  * @param {Boolean} opts.start - Property to autostart the source node (default: false)
  * @params
  * rate - Frequency of the oscillator
