@@ -13,6 +13,14 @@ const defaultProps = {
  * An envelope connected to a filter node.
  * Can be used to modulate the sound and tone of the incoming signal over time.
  *
+ * @example
+ * const filterEnv = new Dot.FilterEnv(AC, { frequency, 0, decay: 0.4, sustain: 0, modifier: 1000 })
+ * const osc = new Dot.Osc(AC, { waveform: 'sawtooth' })
+ *
+ * Dot.chain(osc, filterEnv, AC.destination)
+ *
+ * filterEnv.triggerAttack()
+ *
  * @extends Envelope
  * @param {AudioContext} AC - Audio context
  * @param {Object} opts - Initialization options

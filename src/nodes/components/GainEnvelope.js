@@ -9,12 +9,20 @@ const defaultProps = {
  * An envelope connected to a gain node.
  * Can be used to modulate the gain of the incoming signal over time.
  *
+ * @example
+ * const gainEnv = new Dot.GainEnvelope(AC, { decay: 0.4, sustain: 0 })
+ * const osc = new Dot.Osc(AC)
+ *
+ * Dot.chain(osc, gainEnv, AC.destination)
+ *
+ * gainEnv.triggerAttack()
+ *
  * @extends Envelope
  * @param {AudioContext} AC - Audio context
  * @param {Object} opts - Initialization options
- * @param {Number} opts.gain - Gain value of the gain node (default: 0)
+ * @param {Number} opts.gain - The base gain of the gain node (default: 0)
  * @params
- * gain - The base gain for the gain node
+ * gain - Gain of the gain node
  * @returns {GainEnvelope} GainEnvelope Node
  */
 class GainEnvelope extends Envelope {

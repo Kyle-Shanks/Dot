@@ -13,14 +13,27 @@ const defaultProps = {
  * A general-purpose ADSR envelope that can be connected to AudioParams to modulate values over time.
  * Built using a ConstantSource node.
  *
+ * @example
+ * // |  A  | D |  S  | R |
+ * //      / \
+ * //     /   \
+ * //    /     \ _____
+ * //   /              \
+ * //  /                \
+ *
+ * const env = new Dot.Envelope(AC, { decay: 0.4, sustain: 0 })
+ * const gain = new Dot.Gain(AC)
+ *
+ * env.connect(gain.getParams().gain)
+ *
  * @extends DotAudioNode
  * @param {AudioContext} AC - Audio context
  * @param {Object} opts - Initialization options
- * @param {Number} opts.attack - Initial attack time (default: 0)
- * @param {Number} opts.decay - Initial decay time (default: 0)
- * @param {Number} opts.sustain - Initial sustain value (default: 1)
- * @param {Number} opts.release - Initial release time (default: 0)
- * @param {Number} opts.modifier - Initial modifier value (default: 1)
+ * @param {Number} opts.attack - Amount of time for the envelope to reach the modifier value from 0 (default: 0)
+ * @param {Number} opts.decay - Amount of time for the envelope to reach the sustain value after the attack time (default: 0)
+ * @param {Number} opts.sustain - The sustain value of the envelope after teh attack and decay times (default: 1)
+ * @param {Number} opts.release - Amount of time for the envelope to reach 0 after release (default: 0)
+ * @param {Number} opts.modifier - The modulation value of the envelope (default: 1)
  * @returns {Envelope} Envelope Node
  */
 class Envelope extends DotAudioNode {
