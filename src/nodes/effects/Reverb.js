@@ -16,7 +16,7 @@ const defaultProps = {
  *
  * @example
  * const synth = new Dot.Synth(AC)
- * const reverb = new Dot.Reverb(AC)
+ * const reverb = new Dot.Reverb(AC, { amount: 0.2 })
  *
  * Dot.chain(synth, reverb, AC.destination)
  *

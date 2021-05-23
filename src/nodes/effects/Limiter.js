@@ -15,6 +15,13 @@ const defaultProps = {
  * A Limiter effect used to limit the dynamic range of the incoming signal.
  * Built using a Compressor node with more aggressive settings connected to a Gain node.
  *
+ * @example
+ * const polySynth = new Dot.PolySynth(AC)
+ * const reverb = new Dot.Reverb(AC, { amount: 0.5 })
+ * const limiter = new Dot.Limiter(AC)
+ *
+ * Dot.chain(polySynth, reverb, limiter, AC.destination)
+ *
  * @extends DotAudioNode
  * @param {AudioContext} AC - Audio context
  * @param {Object} opts - Initialization options

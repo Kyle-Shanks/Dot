@@ -18,6 +18,12 @@ const defaultProps = {
 /**
  * A Chorus effect used to adds width and texture to the incoming signal.
  *
+ * @example
+ * const synth = new Dot.Synth(AC)
+ * const chorus = new Dot.Chorus(AC, { amount: 0.2 })
+ *
+ * Dot.chain(synth, chorus, AC.destination)
+ *
  * @extends DotAudioNode
  * @param {AudioContext} AC - Audio context
  * @param {Object} opts - Initialization options

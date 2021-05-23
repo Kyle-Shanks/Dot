@@ -20,6 +20,12 @@ const createDistCurve = (gain = 0) => {
 /**
  * A Distortion effect used to clip/distort the incoming signal.
  *
+ * @example
+ * const synth = new Dot.Synth(AC)
+ * const distortion = new Dot.Distortion(AC, { distortion: 10, amount: 0.1 })
+ *
+ * Dot.chain(synth, distortion, AC.destination)
+ *
  * @extends DotAudioNode
  * @param {AudioContext} AC - Audio context
  * @param {Object} opts - Initialization options

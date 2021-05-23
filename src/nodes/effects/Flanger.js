@@ -14,6 +14,12 @@ const defaultProps = {
 /**
  * A Flanger effect used to adds width and texture to the incoming signal.
  *
+ * @example
+ * const synth = new Dot.Synth(AC)
+ * const flanger = new Dot.Flanger(AC, { amount: 0.2 })
+ *
+ * Dot.chain(synth, flanger, AC.destination)
+ *
  * @extends DotAudioNode
  * @param {AudioContext} AC - Audio context
  * @param {Object} opts - Initialization options

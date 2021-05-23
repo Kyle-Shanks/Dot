@@ -13,6 +13,12 @@ const defaultProps = {
 /**
  * A feedback delay effect to adds echos and other delay-based effects to the incoming signal.
  *
+ * @example
+ * const synth = new Dot.Synth(AC)
+ * const delay = new Dot.FeedbackDelay(AC, { amount: 0.2, tone: 1000 })
+ *
+ * Dot.chain(synth, delay, AC.destination)
+ *
  * @extends DotAudioNode
  * @param {AudioContext} AC - Audio context
  * @param {Object} opts - Initialization options

@@ -11,6 +11,12 @@ const defaultProps = {
 /**
  * A 2-band equalizer node for adjusting the gain of the high and low frequencies of the incoming signal.
  *
+ * @example
+ * const synth = new Dot.Synth(AC)
+ * const eq2 = new Dot.EQ2(AC, { lowGain: 0.2, highGain: 0.4 })
+ *
+ * Dot.chain(synth, eq2, AC.destination)
+ *
  * @extends DotAudioNode
  * @param {AudioContext} AC - Audio context
  * @param {Object} opts - Initialization options
