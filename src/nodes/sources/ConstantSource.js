@@ -8,6 +8,7 @@ const defaultProps = {
 /**
  * A source node that outputs a constant signal that can be adjusted.
  * Wrapper class for the native ConstantSource node.
+ *
  * For more information, refer to the web audio api documentation.
  * (https://developer.mozilla.org/en-US/docs/Web/API/ConstantSourceNode)
  *

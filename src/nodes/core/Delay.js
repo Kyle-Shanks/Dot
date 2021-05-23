@@ -7,6 +7,7 @@ const defaultProps = {
 /**
  * A Node used to delay an incoming signal by a specified amount of time.
  * Wrapper class for the native Delay audio node.
+ *
  * For more information, refer to the web audio api documentation.
  * (https://developer.mozilla.org/en-US/docs/Web/API/DelayNode)
  *

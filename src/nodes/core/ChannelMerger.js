@@ -3,6 +3,7 @@ import DotAudioNode from 'nodes/core/DotAudioNode'
 /**
  * A node used to combine two audio signals into one.
  * Wrapper class for the native ChannelMerger audio node.
+ *
  * For more information, refer to the web audio api documentation.
  * (https://developer.mozilla.org/en-US/docs/Web/API/ChannelMergerNode)
  *

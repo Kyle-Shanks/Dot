@@ -11,6 +11,7 @@ const defaultProps = {
 /**
  * A source node that outputs signal of different waveforms and frequencies.
  * Wrapper class for the native Oscillator audio node.
+ *
  * For more information, refer to the web audio api documentation.
  * (https://developer.mozilla.org/en-US/docs/Web/API/Oscillator)
  *

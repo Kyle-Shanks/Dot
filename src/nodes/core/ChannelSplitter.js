@@ -3,6 +3,7 @@ import DotAudioNode from 'nodes/core/DotAudioNode'
 /**
  * A node used to split a stereo audio signal into its left and right components.
  * Wrapper class for the native ChannelSplitter audio node.
+ *
  * For more information, refer to the web audio api documentation.
  * (https://developer.mozilla.org/en-US/docs/Web/API/ChannelSplitterNode)
  *

@@ -11,6 +11,7 @@ const defaultProps = {
 /**
  * A source node that outputs signal based on a provided audio buffer.
  * Wrapper class for the native AudioBufferSourceNode.
+ *
  * For more information, refer to the web audio api documentation.
  * (https://developer.mozilla.org/en-US/docs/Web/API/AudioBufferSourceNode)
  *

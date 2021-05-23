@@ -8,6 +8,9 @@ const defaultProps = {
  * A Node used to adjust the pan of the incoming signal.
  * Wrapper class for the native StereoPanner audio node.
  *
+ * For more information, refer to the web audio api documentation.
+ * (https://developer.mozilla.org/en-US/docs/Web/API/StereoPannerNode)
+ *
  * @example
  * const synth = new Dot.Synth(AC)
  * const panner = new Dot.StereoPanner(AC, { pan: 0.5 })

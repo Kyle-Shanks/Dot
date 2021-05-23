@@ -11,6 +11,7 @@ const defaultProps = {
 /**
  * A Node used to control the dynamic range of a signal.
  * Wrapper class for the native DynamicsCompressor audio node.
+ *
  * For more information, refer to the web audio api documentation.
  * (https://developer.mozilla.org/en-US/docs/Web/API/DynamicsCompressorNode)
  *

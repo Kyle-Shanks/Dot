@@ -7,6 +7,7 @@ const defaultProps = {
 
 /**
  * Wrapper class for the native Convolver audio node.
+ *
  * For more information, refer to the web audio api documentation.
  * (https://developer.mozilla.org/en-US/docs/Web/API/ConvolverNode)
  *

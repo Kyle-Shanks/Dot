@@ -23,14 +23,15 @@
   ],
   "scripts": {
     "build": "webpack --mode=production",
-    "start": "webpack --watch --mode=development",
     "build-docs": "yarn build-node-docs",
     "build-node-docs": "yarn build-component-docs && yarn build-core-docs && yarn build-effect-docs && yarn build-instrument-docs && yarn build-source-docs",
     "build-component-docs": "documentation build src/nodes/components -o docs/componentsData.json",
     "build-core-docs": "documentation build src/nodes/core -o docs/coreData.json",
     "build-effect-docs": "documentation build src/nodes/effects -o docs/effectsData.json",
     "build-instrument-docs": "documentation build src/nodes/instruments -o docs/instrumentsData.json",
-    "build-source-docs": "documentation build src/nodes/sources -o docs/sourcesData.json"
+    "build-source-docs": "documentation build src/nodes/sources -o docs/sourcesData.json",
+    "prepublishOnly": "yarn build",
+    "start": "webpack --watch --mode=development"
   },
   "devDependencies": {
     "@babel/core": "^7.13.16",
