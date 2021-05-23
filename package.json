@@ -22,7 +22,7 @@
     "Synthesizer"
   ],
   "scripts": {
-    "build": "webpack",
+    "build": "webpack --mode=production",
     "start": "webpack --watch --mode=development",
     "build-docs": "yarn build-node-docs",
     "build-node-docs": "yarn build-component-docs && yarn build-core-docs && yarn build-effect-docs && yarn build-instrument-docs && yarn build-source-docs",

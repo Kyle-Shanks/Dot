@@ -16,7 +16,10 @@ const defaultProps = {
 
 /**
  * General-purpose monophonic synth node.
- * Consists of an Oscillator connected to a GainEnvelope and a FilterEnvelope.
+ * Consists of an Oscillator connected to a GainEnvelope and FilterEnvelope.
+ *
+ * @example
+ * const monoSynth = new Dot.MonoSynth(AC)
  *
  * @extends Synth
  * @param {AudioContext} AC - Audio context

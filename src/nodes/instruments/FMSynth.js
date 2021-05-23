@@ -35,6 +35,11 @@ const defaultProps = {
  * Built using 4 Osc nodes acting as modulators that are linked together using different algorithms.
  * The output is passed into a Limiter and then connected to a GainEnvelope node.
  *
+ * @example
+ * const fmSynth = new Dot.FMSynth(AC, { algorithm: 5 })
+ *
+ * fmSynth.getAlgorithm() // [A > B > C] + D => Out
+ *
  * @extends DotAudioNode
  * @param {AudioContext} AC - Audio context
  * @param {Object} opts - Initialization options

@@ -10,19 +10,22 @@ const defaultProps = {
 }
 
 /**
- * An Oscillator connected to a Gain node.
+ * A general-purpose source node composed of an Oscillator connected to a Gain node.
+ *
+ * @example
+ * const osc = new Dot.Osc(AC, { waveform: 'square' })
  *
  * @extends DotAudioNode
  * @param {AudioContext} AC - Audio context
  * @param {Object} opts - Initialization options
- * @param {String} opts.waveform - Initial waveform (default: 'sine')
- * @param {Boolean} opts.frequency - Initial frequency (default: 440)
- * @param {Number} opts.detune - Initial detune value (default: 0)
- * @param {Number} opts.gain - Initial gain value (default: 1)
+ * @param {String} opts.waveform - Waveform of the oscillator (default: 'sine')
+ * @param {Boolean} opts.frequency - Frequency of the oscillator in Hz (default: 440)
+ * @param {Number} opts.detune - Detune of the oscillator in cents (default: 0)
+ * @param {Number} opts.gain - Gain value of the gain node (default: 1)
  * @params
  * frequency - Frequency of the oscillator
- * detune - Detune value of the oscillator
- * gain - Gain value of the gain node
+ * detune - Detune of the oscillator
+ * gain - Gain of the gain node
  * @returns {Osc} Osc Node
  */
 class Osc extends DotAudioNode {

@@ -15,7 +15,13 @@ const defaultProps = {
 }
 
 /**
- * An Oscillator connected to a GainEnvelope.
+ * General-purpose synth node consisting of an Oscillator connected to a GainEnvelope.
+ *
+ * @example
+ * const synth = new Dot.Synth(AC, { gainDecay: 0.25, gainSustain: 0 })
+ *
+ * synth.connect(AC.destination)
+ * synth.noteOn('F#4')
  *
  * @extends DotAudioNode
  * @param {AudioContext} AC - Audio context

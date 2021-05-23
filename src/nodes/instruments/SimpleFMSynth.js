@@ -19,6 +19,9 @@ const defaultProps = {
  * A simple implementation of an FM Synth.
  * Consists of one modulator (Osc) connected to the frequency param of a carrier (Synth).
  *
+ * @example
+ * const simpleFm = new Dot.SimpleFMSynth(AC)
+ *
  * @extends DotAudioNode
  * @param {AudioContext} AC - Audio context
  * @param {Object} opts - Initialization options

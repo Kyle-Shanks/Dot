@@ -14,6 +14,12 @@ const defaultProps = {
  * A convolusion reverb effect to adds width and space effects to the incoming signal.
  * A default impulse response will be generated if one is not provided.
  *
+ * @example
+ * const synth = new Dot.Synth(AC)
+ * const reverb = new Dot.Reverb(AC)
+ *
+ * Dot.chain(synth, reverb, AC.destination)
+ *
  * @extends DotAudioNode
  * @param {AudioContext} AC - Audio context
  * @param {Object} opts - Initialization options

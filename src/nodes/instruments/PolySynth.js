@@ -29,6 +29,9 @@ const defaultProps = {
  * General-purpose polyphonic synth node that supports up to 8 voices.
  * Built using MonoSynths.
  *
+ * @example
+ * const polySynth = new Dot.PolySynth(AC, { polyphony: 4 })
+ *
  * @extends DotAudioNode
  * @param {AudioContext} AC - Audio context
  * @param {Object} opts - Initialization options
