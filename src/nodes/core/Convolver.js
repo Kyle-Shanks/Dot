@@ -7,12 +7,17 @@ const defaultProps = {
 
 /**
  * Wrapper class for the native Convolver audio node.
+ * For more information, refer to the web audio api documentation.
+ * (https://developer.mozilla.org/en-US/docs/Web/API/ConvolverNode)
+ *
+ * @example
+ * const convolver = new Dot.Convolver(AC, { buffer: impulseResponseBuffer })
  *
  * @extends DotAudioNode
  * @param {AudioContext} AC - Audio context
  * @param {Object} opts - Initialization options
- * @param {AudioBuffer} opts.buffer - buffer (default: null)
- * @param {Boolean} opts.normalize - normalize (default: false)
+ * @param {AudioBuffer} opts.buffer - Audio buffer containing the impulse response (default: null)
+ * @param {Boolean} opts.normalize - Setting to determine whether to scale the buffer by an equal-power normalization when it is set (default: false)
  * @returns {Convolver} Convolver Node
  */
 class Convolver extends DotAudioNode {

@@ -5,8 +5,10 @@ const defaultProps = {
 }
 
 /**
- * A Node used to adjust the gain of the incoming signal.
+ * A Node used to adjust the gain, or volume, of the incoming signal.
  * Wrapper class for the native Gain audio node.
+ * For more information, refer to the web audio api documentation.
+ * (https://developer.mozilla.org/en-US/docs/Web/API/GainNode)
  *
  * @example
  * const oscillator = new Dot.Oscillator(AC, { start: true })
@@ -17,9 +19,9 @@ const defaultProps = {
  * @extends DotAudioNode
  * @param {AudioContext} AC - Audio context
  * @param {Object} opts - Initialization options
- * @param {Number} opts.gain - Initial gain of the node (default: 1)
+ * @param {Number} opts.gain - Gain adjustment of the incoming signal (default: 1)
  * @params
- * gain - Gain adjustment of the incoming signal
+ * gain - Node gain
  * @returns {Gain} Gain Node
  */
 class Gain extends DotAudioNode {

@@ -7,6 +7,16 @@ const defaultProps = {
     onRelease: () => {},
 }
 
+/**
+ * A general-purpose Keyboard input class to give users a piano-like interface to interact with projects.
+ *
+ * @param {Object} opts - Initialization options
+ * @param {Number} opts.octave - Octave setting for the keyboard (default: 4)
+ * @param {Number} opts.velocity - Velocity setting for the keyboard (default: 127)
+ * @param {Number} opts.onPress - Callback to be called on key press (default: noOp)
+ * @param {Number} opts.onRelease - Callback to be called on key release (default: noOp)
+ * @returns {Keyboard} Keyboard Input Class
+ */
 class Keyboard {
     constructor(opts = {}) {
         this.name = 'Keyboard'
@@ -29,6 +39,19 @@ class Keyboard {
         window.removeEventListener('keydown', this._keydown)
         window.removeEventListener('keyup', this._keyup)
     }
+
+    // Getters
+    /**
+     * Get the current octave
+     * @returns {Number} Octave
+     */
+    getOctave = () => this.octave
+
+    /**
+     * Get the current velocity
+     * @returns {Number} Velocity value
+     */
+    getVelocity = () => this.velocity
 
     // --- Private Methods ---
     // Event handling methods

@@ -17,9 +17,9 @@ const defaultProps = {
  * @extends DotAudioNode
  * @param {AudioContext} AC - Audio context
  * @param {Object} opts - Initialization options
- * @param {Number} opts.pan - Initial pan value of the node (default: 0)
+ * @param {Number} opts.pan - Pan value [-1 for full left pan, 1 for full right pan] (default: 0)
  * @params
- * pan - Pan value (-1 for full left pan, 1 for full right pan)
+ * pan - Node pan value
  * @returns {Pan} Pan Node
  */
 class StereoPanner extends DotAudioNode {

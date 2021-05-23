@@ -5,8 +5,10 @@ const defaultProps = {
 }
 
 /**
- * A Node used to delay an incoming signal.
+ * A Node used to delay an incoming signal by a specified amount of time.
  * Wrapper class for the native Delay audio node.
+ * For more information, refer to the web audio api documentation.
+ * (https://developer.mozilla.org/en-US/docs/Web/API/DelayNode)
  *
  * @example
  * const synth = new Dot.Synth(AC)
@@ -17,9 +19,9 @@ const defaultProps = {
  * @extends DotAudioNode
  * @param {AudioContext} AC - Audio context
  * @param {Object} opts - Initialization options
- * @param {Number} opts.delayTime - Initial delay time of the node (default: 0)
+ * @param {Number} opts.delayTime - Amount of time that the incoming signal is delayed (default: 0)
  * @params
- * delayTime - Amount of time to delay the incoming signal
+ * delayTime - Node delay time
  * @returns {Delay} Delay Node
  */
 class Delay extends DotAudioNode {

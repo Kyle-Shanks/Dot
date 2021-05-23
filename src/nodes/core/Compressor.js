@@ -9,8 +9,10 @@ const defaultProps = {
 }
 
 /**
- * A Node used to reduce the dynamic range of a signal.
- * Wrapper class for the native Compressor audio node.
+ * A Node used to control the dynamic range of a signal.
+ * Wrapper class for the native DynamicsCompressor audio node.
+ * For more information, refer to the web audio api documentation.
+ * (https://developer.mozilla.org/en-US/docs/Web/API/DynamicsCompressorNode)
  *
  * @example
  * const synth = new Dot.PolySynth(AC)
@@ -22,11 +24,11 @@ const defaultProps = {
  * @extends DotAudioNode
  * @param {AudioContext} AC - Audio context
  * @param {Object} opts - Initialization options
- * @param {Number} opts.threshold - Initial compression threshold in dB (default: -24)
- * @param {Number} opts.ratio - Initial compression ratio (default: 12)
- * @param {Number} opts.knee - Initial compression knee value (default: 30)
- * @param {Number} opts.attack - Initial compression attack time (default: 0.003)
- * @param {Number} opts.release - Initial compression release time (default: 0.25)
+ * @param {Number} opts.threshold - Volume threshold where compression will start in dB (default: -24)
+ * @param {Number} opts.ratio - Amount of compression on the signal above the threshold (default: 12)
+ * @param {Number} opts.knee - Sharpness from the uncompressed to compressed signal (default: 30)
+ * @param {Number} opts.attack - Amount of time for the compression to take effect (default: 0.003)
+ * @param {Number} opts.release - Amount of time for the compression to return the signal back to normal (default: 0.25)
  * @params
  * threshold - Compressor threshold
  * ratio - Compressor ratio

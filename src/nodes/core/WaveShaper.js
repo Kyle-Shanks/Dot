@@ -9,12 +9,14 @@ const defaultProps = {
 /**
  * A Node used to adjust the shape of the incoming signal based on a waveshaping curve.
  * Wrapper class for the native WaveShaper audio node.
+ * For more information, refer to the web audio api documentation.
+ * (https://developer.mozilla.org/en-US/docs/Web/API/WaveShaperNode)
  *
  * @extends DotAudioNode
  * @param {AudioContext} AC - Audio context
  * @param {Object} opts - Initialization options
- * @param {Float32Array} opts.curve - Initial curve of the node (default: null)
- * @param {String} opts.oversample - Initial oversample setting of the node (default: 'none')
+ * @param {Float32Array} opts.curve - Float32 array describing the distortion curve to apply to the signal  (default: null)
+ * @param {String} opts.oversample - The level of up-sampling that is applied before the wave shaping takes effect (default: 'none')
  * @returns {WaveShaper} WaveShaper Node
  */
 class WaveShaper extends DotAudioNode {

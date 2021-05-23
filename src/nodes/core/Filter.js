@@ -11,7 +11,9 @@ const defaultProps = {
 
 /**
  * A Node used to filter frequencies of the incoming signal.
- * Wrapper class for the native Filter audio node.
+ * Wrapper class for the native BiquadFilter audio node.
+ * For more information, refer to the web audio api documentation.
+ * (https://developer.mozilla.org/en-US/docs/Web/API/BiquadFilterNode)
  *
  * @example
  * const synth = new Dot.Synth(AC)
@@ -22,19 +24,17 @@ const defaultProps = {
  * @extends DotAudioNode
  * @param {AudioContext} AC - Audio context
  * @param {Object} opts - Initialization options
- * @param {Number} opts.frequency - Initial frequency value of the filter (default: 11000)
- * @param {Number} opts.q - Initial q value of the filter (default: 0)
- * @param {Number} opts.detune - Initial detune of the filter (default: 0)
- * @param {Number} opts.gain - Initial gain of the filter (default: 0)
- * @param {String} opts.type - Initial type of the filter (default: 'lowpass')
+ * @param {Number} opts.frequency - Cutoff frequency of the filter in Hz (default: 11000)
+ * @param {Number} opts.q - The Q factor, or quality factor of the filter (default: 0)
+ * @param {Number} opts.detune - The detune of the filter frequency in cents. [100 cents/semitone, 1200 cents/octave] (default: 0)
+ * @param {Number} opts.gain - The gain of the filter in dB. Gain is only used if the filter type is set to lowshelf, highshelf, or peaking (default: 0)
+ * @param {String} opts.type - The type of the filter (default: 'lowpass')
  * @params
- * frequency - The cutoff frequency of the filter in Hz.
- * q - The Q factor, or quality factor of the filter.
- * detune - The detune of the filter frequency in cents. (100 cents/semitone, 1200 cents/octave)
- * gain - The gain of the filter in dB. Gain is only used if the filter type is set to lowshelf, highshelf, or peaking.
- * type - The type of the filter.
- * For more information, refer to the web audio api documentation.
- * (https://developer.mozilla.org/en-US/docs/Web/API/BiquadFilterNode)
+ * frequency - Node frequency
+ * q - Node q factor
+ * detune - Node detune
+ * gain - Node gain
+ * type - Node type
  * @returns {Filter} Filter Node
  */
 class Filter extends DotAudioNode {
