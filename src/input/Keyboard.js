@@ -12,6 +12,27 @@ const defaultProps = {
  *
  * Uses A-; keys to play notes. The Z and X keys change the octave
  *
+ * @example
+ * const AC = new AudioContext()
+ * const synth = new Dot.PolySynth(AC, { gainDecay: 0.4, gainSustain: 0 })
+ *
+ * synth.connect(AC.destination)
+ *
+ * const keyboard = new Dot.Keyboard({
+ *     onPress: (noteInfo) => {
+ *         // Start context when the user tries to play a note
+ *         if (AC.state === 'suspended') AC.resume()
+ *
+ *         synth.noteOn(noteInfo.fullNote)
+ *     },
+ *     onRelease: (noteInfo) => {
+ *         synth.noteOff(noteInfo.fullNote)
+ *     },
+ * })
+ *
+ * // Start keyboard listeners
+ * keyboard.on()
+ *
  * @param {Object} opts - Initialization options
  * @param {Number} opts.octave - Octave setting for the keyboard (default: 4)
  * @param {Number} opts.velocity - Velocity setting for the keyboard (default: 127)
