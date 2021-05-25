@@ -41,6 +41,8 @@ class Delay extends DotAudioNode {
         const initProps = { ...defaultProps, ...opts }
 
         this.setDelayTime(initProps.delayTime)
+
+        return this
     }
 
     // - Getters -

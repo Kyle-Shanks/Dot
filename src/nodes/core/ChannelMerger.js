@@ -42,6 +42,8 @@ class ChannelMerger extends DotAudioNode {
         this.params = {}
         this.inputs = [this.channelMerger]
         this.outputs = [this.channelMerger]
+
+        return this
     }
 }
 

@@ -41,6 +41,8 @@ class Gain extends DotAudioNode {
         const initProps = { ...defaultProps, ...opts }
 
         this.setGain(initProps.gain)
+
+        return this
     }
 
     // - Getters -

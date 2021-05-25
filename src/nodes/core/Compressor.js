@@ -62,6 +62,8 @@ class Compressor extends DotAudioNode {
         this.setKnee(initProps.knee)
         this.setAttack(initProps.attack)
         this.setRelease(initProps.release)
+
+        return this
     }
 
     // - Getters -

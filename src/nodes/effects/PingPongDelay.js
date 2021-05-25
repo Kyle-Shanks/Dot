@@ -89,6 +89,8 @@ class PingPongDelay extends DotAudioNode{
         this.rightFeedbackGain.connect(this.leftDelay)
         this.channelMerger.connect(this.tone)
         this.tone.connect(this.wetGain)
+
+        return this
     }
 
     // - Getters -

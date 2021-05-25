@@ -51,6 +51,8 @@ class Oscillator extends DotAudioNode {
         this.setDetune(initProps.detune)
 
         if (initProps.start) this.start()
+
+        return this
     }
 
     /**

@@ -54,6 +54,8 @@ class Distortion extends DotAudioNode {
 
         // Connections
         this.waveShaper.connect(this.wetGain)
+
+        return this
     }
 
     // - Getters -

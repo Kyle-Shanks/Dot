@@ -64,6 +64,8 @@ class FeedbackDelay extends DotAudioNode {
         this.feedbackGain.connect(this.tone)
         this.feedbackGain.connect(this.delay)
         this.tone.connect(this.wetGain)
+
+        return this
     }
 
     // - Getters -

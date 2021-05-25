@@ -39,6 +39,8 @@ class ConstantSource extends DotAudioNode {
         this.setOffset(initProps.offset)
 
         if (initProps.start) this.start()
+
+        return this
     }
 
     /**

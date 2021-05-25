@@ -53,6 +53,8 @@ class Reverb extends DotAudioNode {
 
         // Connections
         this.convolver.connect(this.wetGain)
+
+        return this
     }
 
     // --- Public Methods ---

@@ -31,6 +31,8 @@ class SignalGenerator extends DotAudioNode {
         this.osc.connect(this.waveshaper)
         this.waveshaper.connect(this.gain)
         if (initProps.start) this.start()
+
+        return this
     }
 
     start = () => this.osc.start()

@@ -82,6 +82,8 @@ class Chorus extends DotAudioNode {
         this.feedback.connect(this.rightDelay)
         this.leftLFO.connect(this.leftDelay.getParams().delayTime)
         this.rightLFO.connect(this.rightDelay.getParams().delayTime)
+
+        return this
     }
 
     // - Getters -

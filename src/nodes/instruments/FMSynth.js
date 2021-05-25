@@ -129,6 +129,8 @@ class FMSynth extends DotAudioNode {
 
         // Connections
         this.limiter.connect(this.gainEnv)
+
+        return this
     }
 
     // - Getters -

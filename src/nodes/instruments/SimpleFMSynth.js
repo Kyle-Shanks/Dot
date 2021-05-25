@@ -78,6 +78,8 @@ class SimpleFMSynth extends DotAudioNode {
 
         // Connections
         this.modulator.connect(this.params.carrierFrequency)
+
+        return this
     }
 
     // - Getters -

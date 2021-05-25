@@ -8,6 +8,8 @@ class DotAudioNode {
     constructor(AC) {
         this.AC = AC
         this.name = 'DotAudioNode'
+
+        return this
     }
 
     // --- Public Methods ---

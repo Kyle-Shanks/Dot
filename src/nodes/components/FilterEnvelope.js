@@ -62,6 +62,8 @@ class FilterEnvelope extends Envelope {
 
         // Connections
         this.source.connect(this.filter.getParams().frequency)
+
+        return this
     }
 
     // - Getters -

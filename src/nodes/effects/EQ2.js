@@ -57,6 +57,8 @@ class EQ2 extends DotAudioNode {
 
         // Connections
         this.low.connect(this.high)
+
+        return this
     }
 
     // - Getters -

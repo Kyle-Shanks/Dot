@@ -13,11 +13,12 @@ const defaultProps = {
  * Uses A-; keys to play notes. The Z and X keys change the octave
  *
  * @example
+ * // Create context and PolySynth
  * const AC = new AudioContext()
- * const synth = new Dot.PolySynth(AC, { gainDecay: 0.4, gainSustain: 0 })
+ * const polySynth = new Dot.PolySynth(AC, { gainDecay: 0.4, gainSustain: 0 })
+ * polySynth.connect(AC.destination)
  *
- * synth.connect(AC.destination)
- *
+ * // Setup Keyboard
  * const keyboard = new Dot.Keyboard({
  *     onPress: (noteInfo) => {
  *         // Start context when the user tries to play a note
@@ -51,6 +52,8 @@ class Keyboard {
         this.velocity = initProps.octave
         this.onPress = initProps.onPress
         this.onRelease = initProps.onRelease
+
+        return this
     }
 
     // --- Public Methods ---

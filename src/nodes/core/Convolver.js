@@ -36,6 +36,8 @@ class Convolver extends DotAudioNode {
 
         this.setBuffer(initProps.buffer)
         this.setNormalize(initProps.normalize)
+
+        return this
     }
 
     // - Getters -

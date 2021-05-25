@@ -60,6 +60,8 @@ class BufferSource extends DotAudioNode {
         this.setPlaybackRate(initProps.playbackRate)
 
         if (initProps.start) this.start()
+
+        return this
     }
 
     /**

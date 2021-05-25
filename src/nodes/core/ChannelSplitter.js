@@ -36,6 +36,8 @@ class ChannelSplitter extends DotAudioNode {
         this.params = {}
         this.inputs = [this.channelSplitter]
         this.outputs = [this.channelSplitter]
+
+        return this
     }
 }
 

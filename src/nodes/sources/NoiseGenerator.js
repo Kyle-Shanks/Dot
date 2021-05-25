@@ -96,6 +96,8 @@ class NoiseGenerator extends DotAudioNode {
         this.setType(initProps.type)
 
         if (initProps.start) this.start()
+
+        return this
     }
 
     /**

@@ -63,6 +63,8 @@ class Envelope extends DotAudioNode {
         this.setModifier(initProps.modifier)
 
         this.source.setOffset(0)
+
+        return this
     }
 
     // --- Public Methods ---

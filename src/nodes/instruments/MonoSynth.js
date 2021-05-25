@@ -73,6 +73,8 @@ class MonoSynth extends Synth {
 
         // Connections
         this.gainEnv.connect(this.filterEnv)
+
+        return this
     }
 
     // - Getters -

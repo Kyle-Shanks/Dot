@@ -70,6 +70,8 @@ class Limiter extends DotAudioNode {
 
         // Connections
         this.limiter.connect(this.gain)
+
+        return this
     }
 
     // - Getters -

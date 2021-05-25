@@ -70,6 +70,8 @@ class Synth extends DotAudioNode {
 
         // Connections
         this.osc.connect(this.gainEnv)
+
+        return this
     }
 
     // --- Public Methods ---

@@ -53,6 +53,8 @@ class Osc extends DotAudioNode {
 
         // Connections
         this.osc.connect(this.gain)
+
+        return this
     }
 
     // - Getters -

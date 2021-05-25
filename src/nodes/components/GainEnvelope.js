@@ -44,6 +44,8 @@ class GainEnvelope extends Envelope {
 
         // Connections
         this.source.connect(this.gain.getParams().gain)
+
+        return this
     }
 
     // - Getters -

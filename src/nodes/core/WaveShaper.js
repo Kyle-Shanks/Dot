@@ -35,6 +35,8 @@ class WaveShaper extends DotAudioNode {
 
         this.setCurve(initProps.curve)
         this.setOversample(initProps.oversample)
+
+        return this
     }
 
     // - Getters -

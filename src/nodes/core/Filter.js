@@ -61,6 +61,8 @@ class Filter extends DotAudioNode {
         this.setGain(initProps.gain)
         this.setDetune(initProps.detune)
         this.setType(initProps.type)
+
+        return this
     }
 
     // - Getters -

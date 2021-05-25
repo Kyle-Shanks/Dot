@@ -41,6 +41,8 @@ class StereoPanner extends DotAudioNode {
         const initProps = { ...defaultProps, ...opts }
 
         this.setPan(initProps.pan)
+
+        return this
     }
 
     // - Getters -

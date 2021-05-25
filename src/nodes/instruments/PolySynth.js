@@ -112,6 +112,8 @@ class PolySynth extends DotAudioNode {
 
             voice.connect(this.limiter)
         })
+
+        return this
     }
 
     // --- Public Methods ---
