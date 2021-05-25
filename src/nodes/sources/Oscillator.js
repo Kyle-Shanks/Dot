@@ -1,5 +1,5 @@
 import DotAudioNode from 'nodes/core/DotAudioNode'
-import { WAVEFORM } from 'src/util/util'
+import { WAVEFORM } from 'src/util/constants'
 
 const defaultProps = {
     type: 'sine',

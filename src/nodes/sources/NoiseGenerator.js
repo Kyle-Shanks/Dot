@@ -1,6 +1,6 @@
 import DotAudioNode from 'nodes/core/DotAudioNode'
 import BufferSource from 'nodes/sources/BufferSource'
-import { NOISE_TYPE } from 'src/util/util'
+import { NOISE_TYPE } from 'src/util/constants'
 
 const getBuffer = (AC) => {
     const bufferSize = AC.sampleRate * 2

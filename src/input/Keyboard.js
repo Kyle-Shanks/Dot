@@ -10,6 +10,8 @@ const defaultProps = {
 /**
  * A general-purpose Keyboard input class to give users a piano-like interface to interact with projects.
  *
+ * Uses A-; keys to play notes. The Z and X keys change the octave
+ *
  * @param {Object} opts - Initialization options
  * @param {Number} opts.octave - Octave setting for the keyboard (default: 4)
  * @param {Number} opts.velocity - Velocity setting for the keyboard (default: 127)
@@ -31,16 +33,23 @@ class Keyboard {
     }
 
     // --- Public Methods ---
+    /**
+     * Start event listening for the keyboard.
+     */
     on = () => {
         window.addEventListener('keydown', this._keydown)
         window.addEventListener('keyup', this._keyup)
     }
+
+    /**
+     * Stop event listening for the keyboard.
+     */
     off = () => {
         window.removeEventListener('keydown', this._keydown)
         window.removeEventListener('keyup', this._keyup)
     }
 
-    // Getters
+    // - Getters -
     /**
      * Get the current octave
      * @returns {Number} Octave
