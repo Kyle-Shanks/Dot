@@ -27,6 +27,14 @@ class DotAudioNode {
     getParams = () => this.params
 
     /**
+     * Get a specific param of the node.
+     * Gives access to a specific audio param of the node that can be connected to.
+     * @param {String} param - Name of the param
+     * @returns {AudioParam} Node audio param
+     */
+    getParam = (param) => this.params[param]
+
+    /**
      * Get an array of the inputs of this node.
      * @returns {Array.<DotAudioNode|AudioNode|AudioParam>} Array of inputs
      */
