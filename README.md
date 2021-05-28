@@ -33,7 +33,7 @@ A general overview of what is available:
 - Custom instruments for general use (MonoSynth, PolySynth, FMSynth, etc.)
 - Pre-built keyboard input class (more input classes will be added in the future)
 
-More extensive documentation on the general API for all nodes, instruments, effects, and more will be written soon.
+More extensive documentation is available on the [docs site](https://dot-docs.netlify.app/).
 
 # Basic Usage
 
@@ -136,14 +136,14 @@ keyboard.on()
 **NOTE:** Browsers will not play audio by default without some form of interaction from the user (i.e. a click or key press). The above example also demonstrates a method to resume the audio context when the user attempts to play a note.
 
 # Nodes
-All nodes follow the pattern of being created using the following syntax:
+All nodes are created using the following syntax:
 ```js
 const node = new Dot.NodeName(AC, props)
 ```
 
 All DotAudioNodes have access to a `::connect` and `::disconnect` methods to connect to other DotAudioNodes or native audio nodes.
 
-**Warning:** Native audio nodes will note be able to connect to DotAudioNodes directly, but may be connected to params via the `::getParams` method.
+**Warning:** Native audio nodes will not be able to connect to DotAudioNodes directly, but may be connected to params via the `::getParams` method.
 
 ## Core Nodes
 Dot includes the following core nodes:
@@ -166,6 +166,7 @@ Dot includes the following instruments:
 - PolySynth - An 8 voice polyphonic synth built using MonoSynths
 - SimpleFMSynth - One modulator and one carrier connected to a gain envelope
 - FMSynth - Uses 4 modulators that are connected via different built-in algorithms, then connected to a gain envelope
+
 ## Effects
 There are many effect nodes, each with their own methods to control their properties.
 
@@ -179,4 +180,4 @@ Dot includes the following effects:
 - Reverb
 
 # Docs
-More extensive documentation on the general API for all nodes, instruments, effects, and more will be written soon.
+More extensive documentation on the general API for all nodes, instruments, effects, and more is available on the [docs site](https://dot-docs.netlify.app/).

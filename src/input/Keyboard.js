@@ -24,10 +24,10 @@ const defaultProps = {
  *         // Start context when the user tries to play a note
  *         if (AC.state === 'suspended') AC.resume()
  *
- *         synth.noteOn(noteInfo.fullNote)
+ *         polySynth.noteOn(noteInfo.fullNote)
  *     },
  *     onRelease: (noteInfo) => {
- *         synth.noteOff(noteInfo.fullNote)
+ *         polySynth.noteOff(noteInfo.fullNote)
  *     },
  * })
  *
