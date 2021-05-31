@@ -89,18 +89,18 @@ class FMSynth extends DotAudioNode {
 
         this.algorithm = null
         this.params = {
-            modAFrequency: this.modA.getParams().frequency,
-            modADetune: this.modA.getParams().detune,
-            modAGain: this.modA.getParams().gain,
-            modBFrequency: this.modB.getParams().frequency,
-            modBDetune: this.modB.getParams().detune,
-            modBGain: this.modB.getParams().gain,
-            modCFrequency: this.modC.getParams().frequency,
-            modCDetune: this.modC.getParams().detune,
-            modCGain: this.modC.getParams().gain,
-            modDFrequency: this.modD.getParams().frequency,
-            modDDetune: this.modD.getParams().detune,
-            modDGain: this.modD.getParams().gain,
+            modAFrequency: this.modA.getParam('frequency'),
+            modADetune: this.modA.getParam('detune'),
+            modAGain: this.modA.getParam('gain'),
+            modBFrequency: this.modB.getParam('frequency'),
+            modBDetune: this.modB.getParam('detune'),
+            modBGain: this.modB.getParam('gain'),
+            modCFrequency: this.modC.getParam('frequency'),
+            modCDetune: this.modC.getParam('detune'),
+            modCGain: this.modC.getParam('gain'),
+            modDFrequency: this.modD.getParam('frequency'),
+            modDDetune: this.modD.getParam('detune'),
+            modDGain: this.modD.getParam('gain'),
         }
         this.inputs = null
         this.outputs = [this.gainEnv]

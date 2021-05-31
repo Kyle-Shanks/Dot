@@ -49,10 +49,10 @@ class MonoSynth extends Synth {
 
         this.params = {
             ...this.params,
-            filterFrequency: this.filterEnv.getParams().frequency,
-            filterQ: this.filterEnv.getParams().q,
-            filterDetune: this.filterEnv.getParams().detune,
-            filterGain: this.filterEnv.getParams().gain,
+            filterFrequency: this.filterEnv.getParam('frequency'),
+            filterQ: this.filterEnv.getParam('q'),
+            filterDetune: this.filterEnv.getParam('detune'),
+            filterGain: this.filterEnv.getParam('gain'),
         }
         this.inputs = null
         this.outputs = [this.filterEnv]

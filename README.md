@@ -143,7 +143,7 @@ const node = new Dot.NodeName(AC, props)
 
 All DotAudioNodes have access to a `::connect` and `::disconnect` methods to connect to other DotAudioNodes or native audio nodes.
 
-**Warning:** Native audio nodes will not be able to connect to DotAudioNodes directly, but may be connected to params via the `::getParams` method.
+**Warning:** Native audio nodes will not be able to connect to DotAudioNodes directly, but may be connected to params via the `::getParam` and `::getParams` methods.
 
 ## Core Nodes
 Dot includes the following core nodes:

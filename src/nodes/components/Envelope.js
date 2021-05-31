@@ -24,7 +24,7 @@ const defaultProps = {
  * const env = new Dot.Envelope(AC, { decay: 0.4, sustain: 0 })
  * const gain = new Dot.Gain(AC)
  *
- * env.connect(gain.getParams().gain)
+ * env.connect(gain.getParam('gain'))
  *
  * @extends DotAudioNode
  * @param {AudioContext} AC - Audio context

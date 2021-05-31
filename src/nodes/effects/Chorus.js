@@ -54,10 +54,10 @@ class Chorus extends DotAudioNode {
         this.wetGain = new Gain(this.AC)
 
         this.params = {
-            delayTime: [this.leftDelay.getParams().delayTime, this.rightDelay.getParams().delayTime],
-            feedback: this.feedback.getParams().gain,
-            rate: [this.leftLFO.getParams().rate, this.rightLFO.getParams().rate],
-            depth: [this.leftLFO.getParams().depth, this.rightLFO.getParams().depth],
+            delayTime: [this.leftDelay.getParam('delayTime'), this.rightDelay.getParam('delayTime')],
+            feedback: this.feedback.getParam('gain'),
+            rate: [this.leftLFO.getParam('rate'), this.rightLFO.getParam('rate')],
+            depth: [this.leftLFO.getParam('depth'), this.rightLFO.getParam('depth')],
         }
         this.inputs = [this.dryGain, this.chorusGain]
         this.outputs = [this.dryGain, this.wetGain]
@@ -80,8 +80,8 @@ class Chorus extends DotAudioNode {
         this.channelMerger.connect(this.wetGain)
         this.feedback.connect(this.leftDelay)
         this.feedback.connect(this.rightDelay)
-        this.leftLFO.connect(this.leftDelay.getParams().delayTime)
-        this.rightLFO.connect(this.rightDelay.getParams().delayTime)
+        this.leftLFO.connect(this.leftDelay.getParam('delayTime'))
+        this.rightLFO.connect(this.rightDelay.getParam('delayTime'))
 
         return this
     }
@@ -126,8 +126,8 @@ class Chorus extends DotAudioNode {
      */
     setAmount = (val, time) => {
         this._linearFadeUpdate(
-            this.dryGain.getParams().gain,
-            this.wetGain.getParams().gain,
+            this.dryGain.getParam('gain'),
+            this.wetGain.getParam('gain'),
             val,
             time,
         )

@@ -37,8 +37,8 @@ class AutoPan extends DotAudioNode {
         this.panner = new StereoPanner(AC)
 
         this.params = {
-            rate: this.LFO.getParams().rate,
-            depth: this.LFO.getParams().depth,
+            rate: this.LFO.getParam('rate'),
+            depth: this.LFO.getParam('depth'),
         }
         this.inputs = [this.panner]
         this.outputs = [this.panner]
@@ -51,7 +51,7 @@ class AutoPan extends DotAudioNode {
         this.setType(initProps.type)
 
         // Connections
-        this.LFO.connect(this.panner.getParams().pan)
+        this.LFO.connect(this.panner.getParam('pan'))
 
         return this
     }

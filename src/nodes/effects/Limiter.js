@@ -48,12 +48,12 @@ class Limiter extends DotAudioNode {
         this.gain = new Gain(this.AC)
 
         this.params = {
-            knee: this.limiter.getParams().knee,
-            threshold: this.limiter.getParams().threshold,
-            ratio: this.limiter.getParams().ratio,
-            attack: this.limiter.getParams().attack,
-            release: this.limiter.getParams().release,
-            gain: this.gain.getParams().gain
+            knee: this.limiter.getParam('knee'),
+            threshold: this.limiter.getParam('threshold'),
+            ratio: this.limiter.getParam('ratio'),
+            attack: this.limiter.getParam('attack'),
+            release: this.limiter.getParam('release'),
+            gain: this.gain.getParam('gain'),
         }
         this.inputs = [this.limiter]
         this.outputs = [this.gain]

@@ -80,8 +80,8 @@ class Distortion extends DotAudioNode {
      */
     setAmount = (val, time) => {
         this._linearFadeUpdate(
-            this.dryGain.getParams().gain,
-            this.wetGain.getParams().gain,
+            this.dryGain.getParam('gain'),
+            this.wetGain.getParam('gain'),
             val,
             time,
         )

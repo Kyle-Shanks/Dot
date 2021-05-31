@@ -43,10 +43,10 @@ class FilterEnvelope extends Envelope {
         this.filter = new Filter(this.AC)
 
         this.params = {
-            frequency: this.filter.getParams().frequency,
-            detune: this.filter.getParams().detune,
-            q: this.filter.getParams().q,
-            gain: this.filter.getParams().gain,
+            frequency: this.filter.getParam('frequency'),
+            detune: this.filter.getParam('detune'),
+            q: this.filter.getParam('q'),
+            gain: this.filter.getParam('gain'),
         }
         this.inputs = [this.filter]
         this.outputs = [this.filter]
@@ -61,7 +61,7 @@ class FilterEnvelope extends Envelope {
         this.setType(initProps.type)
 
         // Connections
-        this.source.connect(this.filter.getParams().frequency)
+        this.source.connect(this.filter.getParam('frequency'))
 
         return this
     }

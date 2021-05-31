@@ -19,11 +19,11 @@ import DotAudioNode from 'nodes/core/DotAudioNode'
  * osc.connect([leftGain, rightGain])
  *
  * // Left signal
- * leftLFO.connect(leftGain.getParams().gain)
+ * leftLFO.connect(leftGain.getParam('gain'))
  * leftGain.connect(merger, 0, 0)
  *
  * // Right signal
- * rightLFO.connect(rightGain.getParams().gain)
+ * rightLFO.connect(rightGain.getParam('gain'))
  * rightGain.connect(merger, 0, 1)
  *
  * // Output

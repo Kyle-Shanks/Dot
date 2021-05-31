@@ -69,13 +69,13 @@ class Reverb extends DotAudioNode {
      * Get the current audio buffer of the convolver node.
      * @returns {AudioBuffer} Audio buffer
      */
-    getBuffer = () => this.convolver.getParams().buffer
+    getBuffer = () => this.convolver.getParam('buffer')
 
     /**
      * Get the current normalize value of the convolver node.
      * @returns {Boolean} Normalize value
      */
-    getNormalize = () => this.convolver.getParams().normalize
+    getNormalize = () => this.convolver.getParam('normalize')
 
     // - Setters -
     /**
@@ -87,8 +87,8 @@ class Reverb extends DotAudioNode {
     setAmount = (val, time) => {
         this.amount = val
         this._dryWetUpdate(
-            this.dryGain.getParams().gain,
-            this.wetGain.getParams().gain,
+            this.dryGain.getParam('gain'),
+            this.wetGain.getParam('gain'),
             val,
             time,
         )
@@ -128,9 +128,9 @@ class Reverb extends DotAudioNode {
         gain.connect(context.destination)
 
         // Set envelope for the gain node
-        gain.getParams().gain.setValueAtTime(0, context.currentTime)
-        gain.getParams().gain.setTargetAtTime(0.05, context.currentTime, preDelay)
-        gain.getParams().gain.setTargetAtTime(0, context.currentTime + preDelay, decay)
+        gain.getParam('gain').setValueAtTime(0, context.currentTime)
+        gain.getParam('gain').setTargetAtTime(0.05, context.currentTime, preDelay)
+        gain.getParam('gain').setTargetAtTime(0, context.currentTime + preDelay, decay)
 
         // render and set the buffer
         context.startRendering().then((buffer) => this.setBuffer(buffer))

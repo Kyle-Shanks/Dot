@@ -32,7 +32,7 @@ class GainEnvelope extends Envelope {
         this.gain = new Gain(this.AC)
 
         this.params = {
-            gain: this.gain.getParams().gain
+            gain: this.gain.getParam('gain')
         }
         this.inputs = [this.gain]
         this.outputs = [this.gain]
@@ -43,7 +43,7 @@ class GainEnvelope extends Envelope {
         this.setGain(initProps.gain)
 
         // Connections
-        this.source.connect(this.gain.getParams().gain)
+        this.source.connect(this.gain.getParam('gain'))
 
         return this
     }

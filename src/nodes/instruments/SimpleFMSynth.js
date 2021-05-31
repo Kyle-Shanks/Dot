@@ -52,12 +52,12 @@ class SimpleFMSynth extends DotAudioNode {
         this.carrier = new Synth(this.AC)
 
         this.params = {
-            modulatorFrequency: this.modulator.getParams().frequency,
-            modulatorDetune: this.modulator.getParams().detune,
-            modulatorDepth: this.modulator.getParams().gain,
-            carrierFrequency: this.carrier.getParams().frequency,
-            carrierDetune: this.carrier.getParams().detune,
-            carrierGain: this.carrier.getParams().gain,
+            modulatorFrequency: this.modulator.getParam('frequency'),
+            modulatorDetune: this.modulator.getParam('detune'),
+            modulatorDepth: this.modulator.getParam('gain'),
+            carrierFrequency: this.carrier.getParam('frequency'),
+            carrierDetune: this.carrier.getParam('detune'),
+            carrierGain: this.carrier.getParam('gain'),
         }
         this.input = null
         this.outputs = [this.carrier]

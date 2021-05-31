@@ -58,12 +58,12 @@ class PingPongDelay extends DotAudioNode{
 
         this.amount = 0
         this.params = {
-            preDelayTime: this.preDelay.getParams().delayTime,
-            leftDelayTime: this.leftDelay.getParams().delayTime,
-            rightDelayTime: this.rightDelay.getParams().delayTime,
-            leftFeedback: this.leftFeedbackGain.getParams().gain,
-            rightFeedback: this.rightFeedbackGain.getParams().gain,
-            tone: this.tone.getParams().frequency,
+            preDelayTime: this.preDelay.getParam('delayTime'),
+            leftDelayTime: this.leftDelay.getParam('delayTime'),
+            rightDelayTime: this.rightDelay.getParam('delayTime'),
+            leftFeedback: this.leftFeedbackGain.getParam('gain'),
+            rightFeedback: this.rightFeedbackGain.getParam('gain'),
+            tone: this.tone.getParam('frequency'),
         }
         this.inputs = [this.dryGain, this.leftDelay, this.preDelay]
         this.outputs = [this.dryGain, this.wetGain]
@@ -146,8 +146,8 @@ class PingPongDelay extends DotAudioNode{
     setAmount = (val, time) => {
         this.amount = val
         this._dryWetUpdate(
-            this.dryGain.getParams().gain,
-            this.wetGain.getParams().gain,
+            this.dryGain.getParam('gain'),
+            this.wetGain.getParam('gain'),
             val,
             time,
         )

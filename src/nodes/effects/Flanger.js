@@ -47,10 +47,10 @@ class Flanger extends DotAudioNode {
         this.wetGain = new Gain(this.AC)
 
         this.params = {
-            delayTime: this.delay.getParams().delayTime,
-            depth: this.lfo.getParams().depth,
-            feedback: this.feedback.getParams().gain,
-            rate: this.lfo.getParams().rate,
+            delayTime: this.delay.getParam('delayTime'),
+            depth: this.lfo.getParam('depth'),
+            feedback: this.feedback.getParam('gain'),
+            rate: this.lfo.getParam('rate'),
         }
         this.inputs = [this.dryGain, this.inputGain]
         this.outputs = [this.dryGain, this.wetGain]
@@ -70,7 +70,7 @@ class Flanger extends DotAudioNode {
         this.delay.connect(this.feedback)
         this.delay.connect(this.wetGain)
         this.feedback.connect(this.inputGain)
-        this.lfo.connect(this.delay.getParams().delayTime)
+        this.lfo.connect(this.delay.getParam('delayTime'))
 
         return this
     }
@@ -115,8 +115,8 @@ class Flanger extends DotAudioNode {
      */
     setAmount = (val, time) => {
         this._linearFadeUpdate(
-            this.dryGain.getParams().gain,
-            this.wetGain.getParams().gain,
+            this.dryGain.getParam('gain'),
+            this.wetGain.getParam('gain'),
             val,
             time,
         )

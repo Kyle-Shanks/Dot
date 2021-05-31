@@ -21,7 +21,7 @@ const defaultProps = {
  * const lfo = new Dot.LFO(AC, { start: true })
  * const osc = new Dot.Osc(AC, { gain: 0 })
  *
- * lfo.connect(osc.getParams().gain)
+ * lfo.connect(osc.getParam('gain'))
  * osc.connect(AC.destination)
  *
  * @extends DotAudioNode
@@ -46,9 +46,9 @@ class LFO extends DotAudioNode {
         this.osc = new Oscillator(this.AC)
 
         this.params = {
-            rate: this.osc.getParams().frequency,
-            detune: this.osc.getParams().detune,
-            depth: this.depth.getParams().gain,
+            rate: this.osc.getParam('frequency'),
+            detune: this.osc.getParam('detune'),
+            depth: this.depth.getParam('gain'),
         }
         this.inputs = null
         this.outputs = [this.depth]

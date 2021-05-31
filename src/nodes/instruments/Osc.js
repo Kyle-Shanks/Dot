@@ -36,9 +36,9 @@ class Osc extends DotAudioNode {
         this.gain = new Gain(this.AC)
 
         this.params = {
-            frequency: this.osc.getParams().frequency,
-            detune: this.osc.getParams().detune,
-            gain: this.gain.getParams().gain,
+            frequency: this.osc.getParam('frequency'),
+            detune: this.osc.getParam('detune'),
+            gain: this.gain.getParam('gain'),
         }
         this.inputs = null
         this.outputs = [this.gain]

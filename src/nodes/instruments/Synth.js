@@ -49,9 +49,9 @@ class Synth extends DotAudioNode {
 
         this.currentNote = null
         this.params = {
-            frequency: this.osc.getParams().frequency,
-            detune: this.osc.getParams().detune,
-            gain: this.gainEnv.getParams().gain,
+            frequency: this.osc.getParam('frequency'),
+            detune: this.osc.getParam('detune'),
+            gain: this.gainEnv.getParam('gain'),
         }
         this.inputs = null
         this.outputs = [this.gainEnv]

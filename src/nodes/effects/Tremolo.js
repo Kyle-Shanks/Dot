@@ -37,8 +37,8 @@ class Tremolo extends DotAudioNode {
         this.gain = new Gain(AC, { gain: 0 })
 
         this.params = {
-            rate: this.LFO.getParams().rate,
-            depth: this.LFO.getParams().depth,
+            rate: this.LFO.getParam('rate'),
+            depth: this.LFO.getParam('depth'),
         }
         this.inputs = [this.gain]
         this.outputs = [this.gain]
@@ -51,7 +51,7 @@ class Tremolo extends DotAudioNode {
         this.setType(initProps.type)
 
         // Connections
-        this.LFO.connect(this.gain.getParams().gain)
+        this.LFO.connect(this.gain.getParam('gain'))
 
         return this
     }
