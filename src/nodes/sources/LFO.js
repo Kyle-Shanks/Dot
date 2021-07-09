@@ -14,7 +14,7 @@ const defaultProps = {
 
 /**
  * A source node that outputs low frequency oscillations for modulating audio params over time.
- * Built using an oscilator connected to a gain node.
+ * Built using an oscillator connected to a gain node.
  *
  * @example
  * // Tremolo effect

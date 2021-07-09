@@ -113,7 +113,7 @@ class Reverb extends DotAudioNode {
     _generateBuffer = () => {
         const preDelay = 0.01
         const decay = 0.5
-        const sampleRate = 44100
+        const sampleRate = this.AC.sampleRate
 
         // Use noise generators to create the impulse
         const context = new OfflineAudioContext(2, (preDelay + decay) * 5 * sampleRate, sampleRate)

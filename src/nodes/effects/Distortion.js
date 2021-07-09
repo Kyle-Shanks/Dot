@@ -7,16 +7,6 @@ const defaultProps = {
     distortion: 0,
 }
 
-const createDistCurve = (gain = 0) => {
-    const sampleNum = 44100
-    const curve = new Float32Array(sampleNum)
-
-    return curve.map((_, i) => {
-        const x = i * 2 / sampleNum - 1
-        return (3 + gain) * Math.atan(Math.sinh(x * 0.25) * 5) / (Math.PI + gain * Math.abs(x))
-    })
-}
-
 /**
  * A Distortion effect used to clip/distort the incoming signal.
  *
@@ -92,8 +82,20 @@ class Distortion extends DotAudioNode {
      * @param {Number} val - Distortion value
      */
     setDistortion = (val) => {
-        this.waveShaper.setCurve(createDistCurve(val))
+        this.waveShaper.setCurve(this._createDistCurve(val))
         this.distortion = val
+    }
+
+    // --- Private Methods ---
+    // Generate distortion curve
+    _createDistCurve = (gain = 0) => {
+        const sampleNum = this.AC.sampleRate
+        const curve = new Float32Array(sampleNum)
+
+        return curve.map((_, i) => {
+            const x = i * 2 / sampleNum - 1
+            return (3 + gain) * Math.atan(Math.sinh(x * 0.25) * 5) / (Math.PI + gain * Math.abs(x))
+        })
     }
 }
 

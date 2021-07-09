@@ -14,7 +14,9 @@ class SignalGenerator extends DotAudioNode {
         this.name = 'SignalGenerator'
         this.osc = new Oscillator(this.AC)
         this.gain = new Gain(this.AC)
-        this.waveshaper = new WaveShaper(this.AC, { curve: new Float32Array(44100).fill(1) })
+        this.waveshaper = new WaveShaper(this.AC, {
+            curve: new Float32Array(this.AC.sampleRate).fill(1)
+        })
 
         this.params = {
             gain: this.gain.getParam('gain'),
